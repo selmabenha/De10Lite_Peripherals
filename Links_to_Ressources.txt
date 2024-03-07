@@ -1,2 +1,5 @@
 UC Davis Labs:
 https://www.youtube.com/@vcllab7160
+
+UC Davis Github:
+https://github.com/hildebrandmw/de10lite-hdl/tree/master
