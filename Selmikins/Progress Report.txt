@@ -1,0 +1,7 @@
+07.03.2024
+	- Installations done:
+		- Create project repository, shared with Loic and installed Git on PC and Mac to share repository with starting files
+		- Download Eclipse Temurin JDK with Hotspot 16.0.2+7
+		- Download logisim-evolution 3.7.2
+		- Download Quartus Prime Lite
+	
