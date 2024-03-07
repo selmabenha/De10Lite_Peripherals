@@ -2,7 +2,11 @@
 <project source="3.7.2" version="1.0">
   This file is intended to be loaded by Logisim-evolution v3.7.2(https://github.com/logisim-evolution/).
 
-  <lib desc="#Wiring" name="0"/>
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
@@ -377,18 +381,19 @@ end type_architecture;&#13;
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="b2_nand"/>
     <a name="downloadBoard" val="TERASIC_DE10LITE"/>
+    <a name="downloadFrequency" val="1000.0"/>
     <a name="simulationFrequency" val="16.0"/>
     <boardmap boardname="TERASIC_DE10LITE">
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
-      <mc/>
+      <mc key="/A0" pmap="371_355_9"/>
+      <mc key="/A1" pmap="371_355_8"/>
+      <mc key="/B0" pmap="371_355_7"/>
+      <mc key="/B1" pmap="371_355_6"/>
+      <mc key="/E" pmap="371_355_5"/>
+      <mc key="/G" pmap="371_355_4"/>
+      <mc key="/P" pmap="371_355_3"/>
+      <mc key="/ZE" map="587,330"/>
+      <mc key="/ZG" map="561,330"/>
+      <mc key="/ZP" map="538,330"/>
     </boardmap>
     <comp lib="0" loc="(1310,730)" name="Pin">
       <a name="appearance" val="NewPins"/>
