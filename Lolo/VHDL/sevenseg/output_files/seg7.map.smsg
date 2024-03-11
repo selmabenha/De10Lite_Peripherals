@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at seg7.v(3): object "a" differs only in case from object "A" in the same scope File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/VHDL/sevenseg/seg7.v Line: 3
+Info (10281): Verilog HDL Declaration information at seg7.v(3): object "b" differs only in case from object "B" in the same scope File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/VHDL/sevenseg/seg7.v Line: 3
+Info (10281): Verilog HDL Declaration information at seg7.v(3): object "c" differs only in case from object "C" in the same scope File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/VHDL/sevenseg/seg7.v Line: 3
+Info (10281): Verilog HDL Declaration information at seg7.v(3): object "d" differs only in case from object "D" in the same scope File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/VHDL/sevenseg/seg7.v Line: 3
