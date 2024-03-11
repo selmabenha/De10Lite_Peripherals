@@ -1,0 +1,16 @@
+
+State Machine - |SPIRIT_LEVEL_CYC1000|fsm_pstate
+Name fsm_pstate.out_do fsm_pstate.out_rd fsm_pstate.out_addr fsm_pstate.cfg1_wr fsm_pstate.cfg1_addr 
+fsm_pstate.cfg1_addr 0 0 0 0 0 
+fsm_pstate.cfg1_wr 0 0 0 1 1 
+fsm_pstate.out_addr 0 0 1 0 1 
+fsm_pstate.out_rd 0 1 0 0 1 
+fsm_pstate.out_do 1 0 0 0 1 
+
+State Machine - |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|present_state
+Name present_state.transmit_gap present_state.transmit_end present_state.second_edge present_state.first_edge present_state.idle 
+present_state.idle 0 0 0 0 0 
+present_state.first_edge 0 0 0 1 1 
+present_state.second_edge 0 0 1 0 1 
+present_state.transmit_end 0 1 0 0 1 
+present_state.transmit_gap 1 0 0 0 1 

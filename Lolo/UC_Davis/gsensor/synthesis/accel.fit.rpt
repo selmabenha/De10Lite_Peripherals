@@ -1,5 +1,5 @@
 Fitter report for accel
-Mon Mar 11 15:14:35 2024
+Mon Mar 11 18:58:05 2024
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -70,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Mon Mar 11 15:14:35 2024       ;
+; Fitter Status                      ; Successful - Mon Mar 11 18:58:05 2024       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; accel                                       ;
 ; Top-level Entity Name              ; accel                                       ;
@@ -161,7 +161,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.7%      ;
+;     Processors 2-4         ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -1826,7 +1826,7 @@ Warning (169064): Following 2 pins have no output enable or a GND or VCC output 
 Info (144001): Generated suppressed messages file C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/accel.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 47 warnings
     Info: Peak virtual memory: 5635 megabytes
-    Info: Processing ended: Mon Mar 11 15:14:35 2024
+    Info: Processing ended: Mon Mar 11 18:58:05 2024
     Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:16
 

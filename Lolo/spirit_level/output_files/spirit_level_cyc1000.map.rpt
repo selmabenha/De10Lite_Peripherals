@@ -1,0 +1,418 @@
+Analysis & Synthesis report for spirit_level_cyc1000
+Mon Mar 11 19:39:22 2024
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |SPIRIT_LEVEL_CYC1000|fsm_pstate
+  9. State Machine - |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|present_state
+ 10. Registers Protected by Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for RST_SYNC:rst_sync_i
+ 15. Parameter Settings for User Entity Instance: SPI_MASTER:spi_master_i
+ 16. Port Connectivity Checks: "SPI_MASTER:spi_master_i"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Mar 11 19:39:22 2024       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; spirit_level_cyc1000                        ;
+; Top-level Entity Name              ; SPIRIT_LEVEL_CYC1000                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 75                                          ;
+;     Total combinational functions  ; 65                                          ;
+;     Dedicated logic registers      ; 47                                          ;
+; Total registers                    ; 47                                          ;
+; Total pins                         ; 14                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                  ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                           ; Setting              ; Default Value        ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                           ; 10M50DAF484C7G       ;                      ;
+; Top-level entity name                                            ; spirit_level_cyc1000 ; spirit_level_cyc1000 ;
+; Family name                                                      ; MAX 10               ; Cyclone V            ;
+; Use smart compilation                                            ; Off                  ; Off                  ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                      ; Off                  ; Off                  ;
+; Restructure Multiplexers                                         ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                              ; Off                  ; Off                  ;
+; Preserve fewer node names                                        ; On                   ; On                   ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable               ; Enable               ;
+; Verilog Version                                                  ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                     ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                         ; Auto                 ; Auto                 ;
+; Safe State Machine                                               ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                   ; On                   ; On                   ;
+; Extract VHDL State Machines                                      ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                       ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                   ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                        ; On                   ; On                   ;
+; Parallel Synthesis                                               ; On                   ; On                   ;
+; DSP Block Balancing                                              ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                               ; On                   ; On                   ;
+; Power-Up Don't Care                                              ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                     ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                       ; On                   ; On                   ;
+; Ignore CARRY Buffers                                             ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                           ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                            ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                             ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                              ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                  ; Off                  ;
+; Optimization Technique                                           ; Balanced             ; Balanced             ;
+; Carry Chain Length                                               ; 70                   ; 70                   ;
+; Auto Carry Chains                                                ; On                   ; On                   ;
+; Auto Open-Drain Pins                                             ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                  ; Off                  ;
+; Auto ROM Replacement                                             ; On                   ; On                   ;
+; Auto RAM Replacement                                             ; On                   ; On                   ;
+; Auto DSP Block Replacement                                       ; On                   ; On                   ;
+; Auto Shift Register Replacement                                  ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                    ; On                   ; On                   ;
+; Strict RAM Replacement                                           ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                           ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                         ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                ; Off                  ; Off                  ;
+; Auto Resource Sharing                                            ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                    ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing              ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                          ; On                   ; On                   ;
+; Report Parameter Settings                                        ; On                   ; On                   ;
+; Report Source Assignments                                        ; On                   ; On                   ;
+; Report Connectivity Checks                                       ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                            ; 2                    ; 2                    ;
+; Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                  ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                  ; 100                  ;
+; Clock MUX Protection                                             ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                      ; Off                  ; Off                  ;
+; Block Design Naming                                              ; Auto                 ; Auto                 ;
+; SDC constraint protection                                        ; Off                  ; Off                  ;
+; Synthesis Effort                                                 ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                               ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                      ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                           ; On                   ; On                   ;
++------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                  ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                           ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+; spirit_level_cyc1000.vhd         ; yes             ; User VHDL File  ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd ;         ;
+; rst_sync.vhd                     ; yes             ; User VHDL File  ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/rst_sync.vhd             ;         ;
+; spi_master.vhd                   ; yes             ; User VHDL File  ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd           ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 75            ;
+;                                             ;               ;
+; Total combinational functions               ; 65            ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 38            ;
+;     -- 3 input functions                    ; 14            ;
+;     -- <=2 input functions                  ; 13            ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 65            ;
+;     -- arithmetic mode                      ; 0             ;
+;                                             ;               ;
+; Total registers                             ; 47            ;
+;     -- Dedicated logic registers            ; 47            ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 14            ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; CLK_12M~input ;
+; Maximum fan-out                             ; 47            ;
+; Total fan-out                               ; 368           ;
+; Average fan-out                             ; 2.63          ;
++---------------------------------------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                     ;
++------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                           ; Entity Name          ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+----------------------+--------------+
+; |SPIRIT_LEVEL_CYC1000        ; 65 (30)             ; 47 (21)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 14   ; 0            ; 0          ; |SPIRIT_LEVEL_CYC1000                         ; SPIRIT_LEVEL_CYC1000 ; work         ;
+;    |RST_SYNC:rst_sync_i|     ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SPIRIT_LEVEL_CYC1000|RST_SYNC:rst_sync_i     ; RST_SYNC             ; work         ;
+;    |SPI_MASTER:spi_master_i| ; 35 (35)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i ; SPI_MASTER           ; work         ;
++------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SPIRIT_LEVEL_CYC1000|fsm_pstate                                                                               ;
++----------------------+-------------------+-------------------+---------------------+--------------------+----------------------+
+; Name                 ; fsm_pstate.out_do ; fsm_pstate.out_rd ; fsm_pstate.out_addr ; fsm_pstate.cfg1_wr ; fsm_pstate.cfg1_addr ;
++----------------------+-------------------+-------------------+---------------------+--------------------+----------------------+
+; fsm_pstate.cfg1_addr ; 0                 ; 0                 ; 0                   ; 0                  ; 0                    ;
+; fsm_pstate.cfg1_wr   ; 0                 ; 0                 ; 0                   ; 1                  ; 1                    ;
+; fsm_pstate.out_addr  ; 0                 ; 0                 ; 1                   ; 0                  ; 1                    ;
+; fsm_pstate.out_rd    ; 0                 ; 1                 ; 0                   ; 0                  ; 1                    ;
+; fsm_pstate.out_do    ; 1                 ; 0                 ; 0                   ; 0                  ; 1                    ;
++----------------------+-------------------+-------------------+---------------------+--------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|present_state                                                                                      ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+; Name                       ; present_state.transmit_gap ; present_state.transmit_end ; present_state.second_edge ; present_state.first_edge ; present_state.idle ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+; present_state.idle         ; 0                          ; 0                          ; 0                         ; 0                        ; 0                  ;
+; present_state.first_edge   ; 0                          ; 0                          ; 0                         ; 1                        ; 1                  ;
+; present_state.second_edge  ; 0                          ; 0                          ; 1                         ; 0                        ; 1                  ;
+; present_state.transmit_end ; 0                          ; 1                          ; 0                         ; 0                        ; 1                  ;
+; present_state.transmit_gap ; 1                          ; 0                          ; 0                         ; 0                        ; 1                  ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                         ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                            ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; RST_SYNC:rst_sync_i|reset_reg            ; yes                                                              ; yes                                        ;
+; RST_SYNC:rst_sync_i|meta_reg             ; yes                                                              ; yes                                        ;
+; Total number of protected registers is 2 ;                                                                  ;                                            ;
++------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 47    ;
+; Number of registers using Synchronous Clear  ; 7     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 2     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 21    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; RST_SYNC:rst_sync_i|reset_reg          ; 20      ;
+; RST_SYNC:rst_sync_i|meta_reg           ; 1       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|bit_cnt[2]    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|shreg[7]      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |SPIRIT_LEVEL_CYC1000|SPI_MASTER:spi_master_i|present_state ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Source assignments for RST_SYNC:rst_sync_i                              ;
++-----------------------------+------------------------+------+-----------+
+; Assignment                  ; Value                  ; From ; To        ;
++-----------------------------+------------------------+------+-----------+
+; SYNCHRONIZER_IDENTIFICATION ; FORCED IF ASYNCHRONOUS ; -    ; meta_reg  ;
+; PRESERVE_REGISTER           ; on                     ; -    ; meta_reg  ;
+; SYNCHRONIZER_IDENTIFICATION ; FORCED IF ASYNCHRONOUS ; -    ; reset_reg ;
+; PRESERVE_REGISTER           ; on                     ; -    ; reset_reg ;
++-----------------------------+------------------------+------+-----------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI_MASTER:spi_master_i ;
++----------------+----------+------------------------------------------+
+; Parameter Name ; Value    ; Type                                     ;
++----------------+----------+------------------------------------------+
+; clk_freq       ; 50000000 ; Signed Integer                           ;
+; sclk_freq      ; 2000000  ; Signed Integer                           ;
+; word_size      ; 8        ; Signed Integer                           ;
+; slave_count    ; 1        ; Signed Integer                           ;
++----------------+----------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI_MASTER:spi_master_i"                                         ;
++----------+-------+----------+---------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                       ;
++----------+-------+----------+---------------------------------------------------------------+
+; din[6]   ; Input ; Info     ; Stuck at GND                                                  ;
+; din_addr ; Input ; Info     ; Connecting port with null range to expression with null range ;
++----------+-------+----------+---------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 14                          ;
+; cycloneiii_ff         ; 47                          ;
+;     CLR               ; 2                           ;
+;     ENA               ; 20                          ;
+;     ENA SCLR          ; 1                           ;
+;     SCLR              ; 6                           ;
+;     plain             ; 18                          ;
+; cycloneiii_lcell_comb ; 65                          ;
+;     normal            ; 65                          ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 38                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.99                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Mon Mar 11 19:39:08 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spirit_level_cyc1000 -c spirit_level_cyc1000
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file spirit_level_cyc1000.vhd
+    Info (12022): Found design unit 1: SPIRIT_LEVEL_CYC1000-RTL File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd Line: 27
+    Info (12023): Found entity 1: SPIRIT_LEVEL_CYC1000 File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file rst_sync.vhd
+    Info (12022): Found design unit 1: RST_SYNC-RTL File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/rst_sync.vhd Line: 21
+    Info (12023): Found entity 1: RST_SYNC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/rst_sync.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file spi_master.vhd
+    Info (12022): Found design unit 1: SPI_MASTER-RTL File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 43
+    Info (12023): Found entity 1: SPI_MASTER File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 16
+Info (12127): Elaborating entity "spirit_level_cyc1000" for the top level hierarchy
+Warning (10445): VHDL Subtype or Type Declaration warning at spi_master.vhd(33): subtype or type has null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 33
+Warning (10296): VHDL warning at spirit_level_cyc1000.vhd(73): ignored assignment of value to null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd Line: 73
+Info (12128): Elaborating entity "RST_SYNC" for hierarchy "RST_SYNC:rst_sync_i" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd Line: 51
+Info (12128): Elaborating entity "SPI_MASTER" for hierarchy "SPI_MASTER:spi_master_i" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spirit_level_cyc1000.vhd Line: 58
+Warning (10445): VHDL Subtype or Type Declaration warning at spi_master.vhd(33): subtype or type has null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 33
+Warning (10445): VHDL Subtype or Type Declaration warning at spi_master.vhd(52): subtype or type has null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 52
+Warning (10036): Verilog HDL or VHDL warning at spi_master.vhd(52): object "addr_reg" assigned a value but never read File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 52
+Warning (10296): VHDL warning at spi_master.vhd(137): ignored assignment of value to null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 137
+Warning (10296): VHDL warning at spi_master.vhd(139): ignored assignment of value to null range File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/spi_master.vhd Line: 139
+Info (13000): Registers with preset signals will power-up high File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/spirit_level/rst_sync.vhd Line: 27
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 89 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 11 output pins
+    Info (21061): Implemented 75 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Mon Mar 11 19:39:22 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:31
+
+
