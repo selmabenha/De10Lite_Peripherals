@@ -83,6 +83,8 @@ GSENSOR_SDO <> spi_control:spi_ctrl.SPI_SDO
 |accel|ip:ip_inst
 inclk0 => sub_wire1[0].IN1
 c0 <= altpll:altpll_component.clk
+c1 <= altpll:altpll_component.clk
+c2 <= altpll:altpll_component.clk
 
 
 |accel|ip:ip_inst|altpll:altpll_component
@@ -319,86 +321,86 @@ SPI_CLK <= SPI_CLK.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s0
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s1
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s2
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s3
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s4
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |accel|seg7:s5
-hex[0] => Decoder0.IN3
-hex[1] => Decoder0.IN2
-hex[2] => Decoder0.IN1
-hex[3] => Decoder0.IN0
-seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+display[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+display[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+display[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+display[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+display[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+display[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+display[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 

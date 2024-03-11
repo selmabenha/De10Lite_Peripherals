@@ -1,5 +1,5 @@
 Analysis & Synthesis report for accel
-Mon Mar 11 02:40:59 2024
+Mon Mar 11 11:58:17 2024
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -10,25 +10,36 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis IP Cores Summary
-  6. Parameter Settings for User Entity Instance: ip:ip_inst|altpll:altpll_component
-  7. Parameter Settings for User Entity Instance: spi_control:spi_ctrl
-  8. Parameter Settings for User Entity Instance: seg7:s0
-  9. Parameter Settings for User Entity Instance: seg7:s1
- 10. Parameter Settings for User Entity Instance: seg7:s2
- 11. Parameter Settings for User Entity Instance: seg7:s3
- 12. Parameter Settings for User Entity Instance: seg7:s4
- 13. Parameter Settings for User Entity Instance: seg7:s5
- 14. Port Connectivity Checks: "seg7:s5"
- 15. Port Connectivity Checks: "seg7:s4"
- 16. Port Connectivity Checks: "seg7:s3"
- 17. Port Connectivity Checks: "seg7:s2"
- 18. Port Connectivity Checks: "seg7:s1"
- 19. Port Connectivity Checks: "seg7:s0"
- 20. Port Connectivity Checks: "spi_control:spi_ctrl"
- 21. Port Connectivity Checks: "ip:ip_inst"
- 22. Analysis & Synthesis Messages
- 23. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |accel|spi_control:spi_ctrl|spi_state
+ 10. State Machine - |accel|spi_control:spi_ctrl|spi_serdes:serdes|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: ip:ip_inst|altpll:altpll_component
+ 16. Parameter Settings for User Entity Instance: spi_control:spi_ctrl
+ 17. Parameter Settings for User Entity Instance: seg7:s0
+ 18. Parameter Settings for User Entity Instance: seg7:s1
+ 19. Parameter Settings for User Entity Instance: seg7:s2
+ 20. Parameter Settings for User Entity Instance: seg7:s3
+ 21. Parameter Settings for User Entity Instance: seg7:s4
+ 22. Parameter Settings for User Entity Instance: seg7:s5
+ 23. altpll Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "seg7:s5"
+ 25. Port Connectivity Checks: "seg7:s4"
+ 26. Port Connectivity Checks: "seg7:s3"
+ 27. Port Connectivity Checks: "seg7:s2"
+ 28. Port Connectivity Checks: "seg7:s1"
+ 29. Port Connectivity Checks: "seg7:s0"
+ 30. Port Connectivity Checks: "spi_control:spi_ctrl"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -55,22 +66,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Mon Mar 11 02:40:59 2024           ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 11 11:58:17 2024       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; accel                                       ;
 ; Top-level Entity Name              ; accel                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
-; UFM blocks                         ; N/A until Partition Merge                   ;
-; ADC blocks                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 162                                         ;
+;     Total combinational functions  ; 126                                         ;
+;     Dedicated logic registers      ; 75                                          ;
+; Total registers                    ; 75                                          ;
+; Total pins                         ; 79                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 1                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -169,11 +180,87 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; ../hdl/spi_serdes.v              ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v         ;         ;
+; ../hdl/spi_control.v             ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v        ;         ;
+; ../hdl/accel.v                   ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v              ;         ;
+; ../hdl/seg7.v                    ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/seg7.v               ;         ;
+; ../ip/ip.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v                  ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf                                          ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                                      ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc                                     ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc                                   ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                   ;         ;
+; db/ip_altpll.v                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                ;
++---------------------------------------------+------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                        ;
++---------------------------------------------+------------------------------------------------------------------------------+
+; Estimated Total logic elements              ; 162                                                                          ;
+;                                             ;                                                                              ;
+; Total combinational functions               ; 126                                                                          ;
+; Logic element usage by number of LUT inputs ;                                                                              ;
+;     -- 4 input functions                    ; 90                                                                           ;
+;     -- 3 input functions                    ; 20                                                                           ;
+;     -- <=2 input functions                  ; 16                                                                           ;
+;                                             ;                                                                              ;
+; Logic elements by mode                      ;                                                                              ;
+;     -- normal mode                          ; 119                                                                          ;
+;     -- arithmetic mode                      ; 7                                                                            ;
+;                                             ;                                                                              ;
+; Total registers                             ; 75                                                                           ;
+;     -- Dedicated logic registers            ; 75                                                                           ;
+;     -- I/O registers                        ; 0                                                                            ;
+;                                             ;                                                                              ;
+; I/O pins                                    ; 79                                                                           ;
+;                                             ;                                                                              ;
+; Embedded Multiplier 9-bit elements          ; 0                                                                            ;
+;                                             ;                                                                              ;
+; Total PLLs                                  ; 1                                                                            ;
+;     -- PLLs                                 ; 1                                                                            ;
+;                                             ;                                                                              ;
+; Maximum fan-out node                        ; ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|wire_pll1_clk[0] ;
+; Maximum fan-out                             ; 77                                                                           ;
+; Total fan-out                               ; 818                                                                          ;
+; Average fan-out                             ; 2.26                                                                         ;
++---------------------------------------------+------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                ; Entity Name ; Library Name ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
+; |accel                              ; 126 (0)             ; 75 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 79   ; 0            ; 0          ; |accel                                                             ; accel       ; work         ;
+;    |ip:ip_inst|                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst                                                  ; ip          ; work         ;
+;       |altpll:altpll_component|     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst|altpll:altpll_component                          ; altpll      ; work         ;
+;          |ip_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated ; ip_altpll   ; work         ;
+;    |seg7:s0|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s0                                                     ; seg7        ; work         ;
+;    |seg7:s1|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s1                                                     ; seg7        ; work         ;
+;    |seg7:s2|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s2                                                     ; seg7        ; work         ;
+;    |seg7:s3|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s3                                                     ; seg7        ; work         ;
+;    |seg7:s4|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s4                                                     ; seg7        ; work         ;
+;    |seg7:s5|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s5                                                     ; seg7        ; work         ;
+;    |spi_control:spi_ctrl|           ; 84 (56)             ; 75 (47)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl                                        ; spi_control ; work         ;
+;       |spi_serdes:serdes|           ; 28 (28)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl|spi_serdes:serdes                      ; spi_serdes  ; work         ;
++-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -183,6 +270,92 @@ https://fpgasoftware.intel.com/eula.
 +--------+--------------+---------+--------------+--------------+-------------------+-----------------+
 ; Altera ; ALTPLL       ; 21.1    ; N/A          ; N/A          ; |accel|ip:ip_inst ; ../ip/ip.v      ;
 +--------+--------------+---------+--------------+--------------+-------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------+
+; State Machine - |accel|spi_control:spi_ctrl|spi_state                         ;
++--------------------+----------------+--------------------+--------------------+
+; Name               ; spi_state.IDLE ; spi_state.INTERACT ; spi_state.TRANSFER ;
++--------------------+----------------+--------------------+--------------------+
+; spi_state.IDLE     ; 0              ; 0                  ; 0                  ;
+; spi_state.TRANSFER ; 1              ; 0                  ; 1                  ;
+; spi_state.INTERACT ; 1              ; 1                  ; 0                  ;
++--------------------+----------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |accel|spi_control:spi_ctrl|spi_serdes:serdes|state ;
++-------------+-------------+------------+-------------+--------------+
+; Name        ; state.STALL ; state.READ ; state.WRITE ; state.IDLE   ;
++-------------+-------------+------------+-------------+--------------+
+; state.IDLE  ; 0           ; 0          ; 0           ; 0            ;
+; state.WRITE ; 0           ; 0          ; 1           ; 1            ;
+; state.READ  ; 0           ; 1          ; 0           ; 1            ;
+; state.STALL ; 1           ; 0          ; 0           ; 1            ;
++-------------+-------------+------------+-------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                          ;
++--------------------------------------------------------+--------------------------------------------------------------------+
+; Register name                                          ; Reason for Removal                                                 ;
++--------------------------------------------------------+--------------------------------------------------------------------+
+; spi_control:spi_ctrl|data_tx[7]                        ; Stuck at GND due to stuck port data_in                             ;
+; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[7]  ; Stuck at GND due to stuck port data_in                             ;
+; spi_control:spi_ctrl|spi_serdes:serdes|read            ; Merged with spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[15] ;
+; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[6]  ; Merged with spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[2]  ;
+; spi_control:spi_ctrl|data_tx[6]                        ; Merged with spi_control:spi_ctrl|data_tx[2]                        ;
+; spi_control:spi_ctrl|data_tx[14]                       ; Stuck at GND due to stuck port data_in                             ;
+; spi_control:spi_ctrl|data_tx[13]                       ; Stuck at VCC due to stuck port data_in                             ;
+; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[14] ; Stuck at GND due to stuck port data_in                             ;
+; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[13] ; Stuck at VCC due to stuck port data_in                             ;
+; spi_control:spi_ctrl|spi_serdes:serdes|state~5         ; Lost fanout                                                        ;
+; spi_control:spi_ctrl|spi_serdes:serdes|state~6         ; Lost fanout                                                        ;
+; Total Number of Removed Registers = 11                 ;                                                                    ;
++--------------------------------------------------------+--------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                           ;
++----------------------------------+---------------------------+--------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                 ;
++----------------------------------+---------------------------+--------------------------------------------------------+
+; spi_control:spi_ctrl|data_tx[7]  ; Stuck at GND              ; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[7]  ;
+;                                  ; due to stuck port data_in ;                                                        ;
+; spi_control:spi_ctrl|data_tx[14] ; Stuck at GND              ; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[14] ;
+;                                  ; due to stuck port data_in ;                                                        ;
+; spi_control:spi_ctrl|data_tx[13] ; Stuck at VCC              ; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[13] ;
+;                                  ; due to stuck port data_in ;                                                        ;
++----------------------------------+---------------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 75    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 23    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 56    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |accel|spi_control:spi_ctrl|data_tx[12]                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |accel|spi_control:spi_ctrl|data_tx[10]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |accel|spi_control:spi_ctrl|spi_serdes:serdes|count[0]  ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |accel|spi_control:spi_ctrl|spi_serdes:serdes|Selector6 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------+
@@ -225,9 +398,9 @@ https://fpgasoftware.intel.com/eula.
 ; CLK5_MULTIPLY_BY              ; 1                    ; Untyped                  ;
 ; CLK4_MULTIPLY_BY              ; 1                    ; Untyped                  ;
 ; CLK3_MULTIPLY_BY              ; 1                    ; Untyped                  ;
-; CLK2_MULTIPLY_BY              ; 1                    ; Untyped                  ;
-; CLK1_MULTIPLY_BY              ; 1                    ; Untyped                  ;
-; CLK0_MULTIPLY_BY              ; 2                    ; Signed Integer           ;
+; CLK2_MULTIPLY_BY              ; 1                    ; Signed Integer           ;
+; CLK1_MULTIPLY_BY              ; 1                    ; Signed Integer           ;
+; CLK0_MULTIPLY_BY              ; 1                    ; Signed Integer           ;
 ; CLK9_DIVIDE_BY                ; 0                    ; Untyped                  ;
 ; CLK8_DIVIDE_BY                ; 0                    ; Untyped                  ;
 ; CLK7_DIVIDE_BY                ; 0                    ; Untyped                  ;
@@ -235,9 +408,9 @@ https://fpgasoftware.intel.com/eula.
 ; CLK5_DIVIDE_BY                ; 1                    ; Untyped                  ;
 ; CLK4_DIVIDE_BY                ; 1                    ; Untyped                  ;
 ; CLK3_DIVIDE_BY                ; 1                    ; Untyped                  ;
-; CLK2_DIVIDE_BY                ; 1                    ; Untyped                  ;
-; CLK1_DIVIDE_BY                ; 1                    ; Untyped                  ;
-; CLK0_DIVIDE_BY                ; 1                    ; Signed Integer           ;
+; CLK2_DIVIDE_BY                ; 25                   ; Signed Integer           ;
+; CLK1_DIVIDE_BY                ; 25                   ; Signed Integer           ;
+; CLK0_DIVIDE_BY                ; 2                    ; Signed Integer           ;
 ; CLK9_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK8_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK7_PHASE_SHIFT              ; 0                    ; Untyped                  ;
@@ -245,7 +418,7 @@ https://fpgasoftware.intel.com/eula.
 ; CLK5_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK4_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK3_PHASE_SHIFT              ; 0                    ; Untyped                  ;
-; CLK2_PHASE_SHIFT              ; 0                    ; Untyped                  ;
+; CLK2_PHASE_SHIFT              ; 375000               ; Untyped                  ;
 ; CLK1_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK0_PHASE_SHIFT              ; 0                    ; Untyped                  ;
 ; CLK5_TIME_DELAY               ; 0                    ; Untyped                  ;
@@ -261,8 +434,8 @@ https://fpgasoftware.intel.com/eula.
 ; CLK5_DUTY_CYCLE               ; 50                   ; Untyped                  ;
 ; CLK4_DUTY_CYCLE               ; 50                   ; Untyped                  ;
 ; CLK3_DUTY_CYCLE               ; 50                   ; Untyped                  ;
-; CLK2_DUTY_CYCLE               ; 50                   ; Untyped                  ;
-; CLK1_DUTY_CYCLE               ; 50                   ; Untyped                  ;
+; CLK2_DUTY_CYCLE               ; 50                   ; Signed Integer           ;
+; CLK1_DUTY_CYCLE               ; 50                   ; Signed Integer           ;
 ; CLK0_DUTY_CYCLE               ; 50                   ; Signed Integer           ;
 ; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                  ; Untyped                  ;
 ; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                  ; Untyped                  ;
@@ -492,8 +665,8 @@ https://fpgasoftware.intel.com/eula.
 ; PORT_CLKBAD0                  ; PORT_UNUSED          ; Untyped                  ;
 ; PORT_CLKBAD1                  ; PORT_UNUSED          ; Untyped                  ;
 ; PORT_CLK0                     ; PORT_USED            ; Untyped                  ;
-; PORT_CLK1                     ; PORT_UNUSED          ; Untyped                  ;
-; PORT_CLK2                     ; PORT_UNUSED          ; Untyped                  ;
+; PORT_CLK1                     ; PORT_USED            ; Untyped                  ;
+; PORT_CLK2                     ; PORT_USED            ; Untyped                  ;
 ; PORT_CLK3                     ; PORT_UNUSED          ; Untyped                  ;
 ; PORT_CLK4                     ; PORT_UNUSED          ; Untyped                  ;
 ; PORT_CLK5                     ; PORT_UNUSED          ; Untyped                  ;
@@ -575,22 +748,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -600,22 +773,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -625,22 +798,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -650,22 +823,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -675,22 +848,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -700,96 +873,95 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+---------+---------------------------+
 ; Parameter Name ; Value   ; Type                      ;
 +----------------+---------+---------------------------+
-; ZERO           ; 0000001 ; Unsigned Binary           ;
-; ONE            ; 1001111 ; Unsigned Binary           ;
-; TWO            ; 0010010 ; Unsigned Binary           ;
-; THREE          ; 0000110 ; Unsigned Binary           ;
-; FOUR           ; 1001100 ; Unsigned Binary           ;
-; FIVE           ; 0100100 ; Unsigned Binary           ;
-; SIX            ; 0100000 ; Unsigned Binary           ;
-; SEVEN          ; 0001111 ; Unsigned Binary           ;
+; ZERO           ; 1000000 ; Unsigned Binary           ;
+; ONE            ; 1111001 ; Unsigned Binary           ;
+; TWO            ; 0100100 ; Unsigned Binary           ;
+; THREE          ; 0110000 ; Unsigned Binary           ;
+; FOUR           ; 0011001 ; Unsigned Binary           ;
+; FIVE           ; 0010010 ; Unsigned Binary           ;
+; SIX            ; 0000010 ; Unsigned Binary           ;
+; SEVEN          ; 1111000 ; Unsigned Binary           ;
 ; EIGHT          ; 0000000 ; Unsigned Binary           ;
-; NINE           ; 0000100 ; Unsigned Binary           ;
+; NINE           ; 0010000 ; Unsigned Binary           ;
 ; A              ; 0001000 ; Unsigned Binary           ;
-; B              ; 1100000 ; Unsigned Binary           ;
-; C              ; 0110001 ; Unsigned Binary           ;
-; D              ; 1000010 ; Unsigned Binary           ;
-; E              ; 0110000 ; Unsigned Binary           ;
-; F              ; 0111000 ; Unsigned Binary           ;
+; B              ; 0000011 ; Unsigned Binary           ;
+; C              ; 1000110 ; Unsigned Binary           ;
+; D              ; 0100001 ; Unsigned Binary           ;
+; E              ; 0000110 ; Unsigned Binary           ;
+; F              ; 0001011 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s5"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                       ;
++-------------------------------+------------------------------------+
+; Name                          ; Value                              ;
++-------------------------------+------------------------------------+
+; Number of entity instances    ; 1                                  ;
+; Entity Instance               ; ip:ip_inst|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                             ;
+;     -- PLL_TYPE               ; AUTO                               ;
+;     -- PRIMARY_CLOCK          ; INCLK0                             ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                              ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                  ;
+;     -- VCO_MULTIPLY_BY        ; 0                                  ;
+;     -- VCO_DIVIDE_BY          ; 0                                  ;
++-------------------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s4"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s5"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s3"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s4"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s2"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s3"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s1"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s2"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "seg7:s0"                                                                                                                                                 ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type    ; Severity         ; Details                                                                                                                                      ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; in      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; display ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                                                       ;
-; hex     ; Input   ; Warning          ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; seg     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-+---------+---------+------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s1"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seg7:s0"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
@@ -802,14 +974,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ip:ip_inst"                                                     ;
-+------+---------+------------------+--------------------------------------------------------+
-; Port ; Type    ; Severity         ; Details                                                ;
-+------+---------+------------------+--------------------------------------------------------+
-; c1   ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
-; c2   ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity ;
-+------+---------+------------------+--------------------------------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 79                          ;
+; cycloneiii_ff         ; 75                          ;
+;     CLR               ; 19                          ;
+;     ENA               ; 52                          ;
+;     ENA CLR           ; 4                           ;
+; cycloneiii_io_obuf    ; 2                           ;
+; cycloneiii_lcell_comb ; 134                         ;
+;     arith             ; 7                           ;
+;         2 data inputs ; 7                           ;
+;     normal            ; 127                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 90                          ;
+; cycloneiii_pll        ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.04                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -818,7 +1016,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Mon Mar 11 02:40:50 2024
+    Info: Processing started: Mon Mar 11 11:58:03 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off accel -c accel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -828,20 +1026,28 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: spi_control File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/accel.v
     Info (12023): Found entity 1: accel File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/ip/ip.v
-    Info (12023): Found entity 1: ip File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/seg7.v
     Info (12023): Found entity 1: seg7 File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/seg7.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/ip/ip.v
+    Info (12023): Found entity 1: ip File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 40
 Info (12127): Elaborating entity "accel" for the top level hierarchy
 Info (12128): Elaborating entity "ip" for hierarchy "ip:ip_inst" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 60
-Info (12128): Elaborating entity "altpll" for hierarchy "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 91
-Info (12130): Elaborated megafunction instantiation "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 91
-Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" with the following parameter: File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 91
+Info (12128): Elaborating entity "altpll" for hierarchy "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
+Info (12130): Elaborated megafunction instantiation "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
+Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" with the following parameter: File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
     Info (12134): Parameter "bandwidth_type" = "AUTO"
-    Info (12134): Parameter "clk0_divide_by" = "1"
+    Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
-    Info (12134): Parameter "clk0_multiply_by" = "2"
+    Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "clk1_divide_by" = "25"
+    Info (12134): Parameter "clk1_duty_cycle" = "50"
+    Info (12134): Parameter "clk1_multiply_by" = "1"
+    Info (12134): Parameter "clk1_phase_shift" = "0"
+    Info (12134): Parameter "clk2_divide_by" = "25"
+    Info (12134): Parameter "clk2_duty_cycle" = "50"
+    Info (12134): Parameter "clk2_multiply_by" = "1"
+    Info (12134): Parameter "clk2_phase_shift" = "375000"
     Info (12134): Parameter "compensate_clock" = "CLK0"
     Info (12134): Parameter "inclk0_input_frequency" = "20000"
     Info (12134): Parameter "intended_device_family" = "MAX 10"
@@ -875,8 +1081,8 @@ Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" wit
     Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
     Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
     Info (12134): Parameter "port_clk0" = "PORT_USED"
-    Info (12134): Parameter "port_clk1" = "PORT_UNUSED"
-    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk1" = "PORT_USED"
+    Info (12134): Parameter "port_clk2" = "PORT_USED"
     Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
     Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
     Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
@@ -900,27 +1106,46 @@ Info (12128): Elaborating entity "spi_serdes" for hierarchy "spi_control:spi_ctr
 Warning (10230): Verilog HDL assignment warning at spi_serdes.v(78): truncated value with size 32 to match size of target (4) File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 78
 Warning (10230): Verilog HDL assignment warning at spi_serdes.v(91): truncated value with size 32 to match size of target (4) File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 91
 Info (12128): Elaborating entity "seg7" for hierarchy "seg7:s0" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 92
-Error (12002): Port "display" does not exist in macrofunction "s5" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 108
-Error (12002): Port "in" does not exist in macrofunction "s5" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 108
-Error (12002): Port "display" does not exist in macrofunction "s4" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 107
-Error (12002): Port "in" does not exist in macrofunction "s4" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 107
-Error (12002): Port "display" does not exist in macrofunction "s3" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 104
-Error (12002): Port "in" does not exist in macrofunction "s3" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 104
-Error (12002): Port "display" does not exist in macrofunction "s2" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 100
-Error (12002): Port "in" does not exist in macrofunction "s2" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 100
-Error (12002): Port "display" does not exist in macrofunction "s1" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 96
-Error (12002): Port "in" does not exist in macrofunction "s1" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 96
-Error (12002): Port "display" does not exist in macrofunction "s0" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 92
-Error (12002): Port "in" does not exist in macrofunction "s0" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 92
-Error (12002): Port "c1" does not exist in macrofunction "ip_inst" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 60
-Error (12002): Port "c2" does not exist in macrofunction "ip_inst" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 60
-Warning (12241): 7 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 39
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 17
+    Warning (13410): Pin "HEX1[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX2[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX4[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX5[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/accel.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 14 errors, 4 warnings
-    Error: Peak virtual memory: 4733 megabytes
-    Error: Processing ended: Mon Mar 11 02:40:59 2024
-    Error: Elapsed time: 00:00:09
-    Error: Total CPU time (on all processors): 00:00:11
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (15897): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
+Warning (15899): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 12
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 14
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 25
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
+Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
+    Info (21059): Implemented 60 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 163 logic cells
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 4787 megabytes
+    Info: Processing ended: Mon Mar 11 11:58:17 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:22
 
 
 +------------------------------------------+
