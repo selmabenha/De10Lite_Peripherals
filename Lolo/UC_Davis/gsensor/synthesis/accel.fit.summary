@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Mar 11 11:58:32 2024
+Fitter Status : Successful - Mon Mar 11 15:14:35 2024
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : accel
 Top-level Entity Name : accel
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 154 / 49,760 ( < 1 % )
-    Total combinational functions : 127 / 49,760 ( < 1 % )
-    Dedicated logic registers : 75 / 49,760 ( < 1 % )
-Total registers : 75
+Total logic elements : 100 / 49,760 ( < 1 % )
+    Total combinational functions : 89 / 49,760 ( < 1 % )
+    Dedicated logic registers : 59 / 49,760 ( < 1 % )
+Total registers : 59
 Total pins : 79 / 360 ( 22 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

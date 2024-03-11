@@ -88,24 +88,24 @@ assign reset_n = KEY[0];
 
 // 7-segment displays HEX0-3 show data_x in hexadecimal
 seg7 s0 (
-   .in      (data_x[3:0]),
+   .in      ({1'b0,data_x[11:8]}),
    .display (HEX0) );
 
 seg7 s1 (
-   .in      (data_x[7:4]),
+   .in      ({1'b1,data_x[7:4]}),
    .display (HEX1) );
 
 seg7 s2 (
-   .in      (data_x[11:8]),
+   .in      ({1'b1,data_x[11:8]}),
    .display (HEX2) );
 
 seg7 s3 (
-   .in      (data_x[15:12]),
+   .in      ({1'b1,data_x[7:4]}),
    .display (HEX3) );
 
 // A few statements just to light some LEDs
-seg7 s4 ( .in(SW[5:2]), .display(HEX4) );
-seg7 s5 ( .in(SW[9:6]), .display(HEX5) );
-assign LEDR = {SW[9:8], data_x[7:0]};
+seg7 s4 ( .in({1'b1,data_x[7:4]}), .display(HEX4) );
+seg7 s5 ( .in({1'b1,data_x[7:4]}), .display(HEX5) );
+//assign LEDR = {SW[9:8], data_x[7:0]};
 
 endmodule

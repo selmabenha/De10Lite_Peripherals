@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Mar 11 11:58:17 2024
+Analysis & Synthesis Status : Successful - Mon Mar 11 15:14:22 2024
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : accel
 Top-level Entity Name : accel
 Family : MAX 10
-Total logic elements : 162
-    Total combinational functions : 126
-    Dedicated logic registers : 75
-Total registers : 75
+Total logic elements : 108
+    Total combinational functions : 88
+    Dedicated logic registers : 59
+Total registers : 59
 Total pins : 79
 Total virtual pins : 0
 Total memory bits : 0

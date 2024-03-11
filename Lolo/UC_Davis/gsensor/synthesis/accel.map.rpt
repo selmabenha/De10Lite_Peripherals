@@ -1,5 +1,5 @@
 Analysis & Synthesis report for accel
-Mon Mar 11 11:58:17 2024
+Mon Mar 11 15:14:22 2024
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -66,15 +66,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 11 11:58:17 2024       ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 11 15:14:22 2024       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; accel                                       ;
 ; Top-level Entity Name              ; accel                                       ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 162                                         ;
-;     Total combinational functions  ; 126                                         ;
-;     Dedicated logic registers      ; 75                                          ;
-; Total registers                    ; 75                                          ;
+; Total logic elements               ; 108                                         ;
+;     Total combinational functions  ; 88                                          ;
+;     Dedicated logic registers      ; 59                                          ;
+; Total registers                    ; 59                                          ;
 ; Total pins                         ; 79                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -188,23 +188,23 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                               ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; ../hdl/spi_serdes.v              ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v         ;         ;
-; ../hdl/spi_control.v             ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v        ;         ;
-; ../hdl/accel.v                   ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v              ;         ;
-; ../hdl/seg7.v                    ; yes             ; User Verilog HDL File        ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/seg7.v               ;         ;
-; ../ip/ip.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v                  ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf                                          ;         ;
-; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                                      ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc                                     ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc                                   ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc                                   ;         ;
-; db/ip_altpll.v                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
+; ../hdl/spi_serdes.v              ; yes             ; User Verilog HDL File        ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v         ;         ;
+; ../hdl/spi_control.v             ; yes             ; User Verilog HDL File        ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_control.v        ;         ;
+; ../hdl/accel.v                   ; yes             ; User Verilog HDL File        ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v              ;         ;
+; ../hdl/seg7.v                    ; yes             ; User Verilog HDL File        ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/seg7.v               ;         ;
+; ../ip/ip.v                       ; yes             ; User Wizard-Generated File   ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/ip/ip.v                  ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf                          ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc                      ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc                     ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc                   ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc                   ;         ;
+; db/ip_altpll.v                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -212,20 +212,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                        ;
 +---------------------------------------------+------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 162                                                                          ;
+; Estimated Total logic elements              ; 108                                                                          ;
 ;                                             ;                                                                              ;
-; Total combinational functions               ; 126                                                                          ;
+; Total combinational functions               ; 88                                                                           ;
 ; Logic element usage by number of LUT inputs ;                                                                              ;
-;     -- 4 input functions                    ; 90                                                                           ;
-;     -- 3 input functions                    ; 20                                                                           ;
+;     -- 4 input functions                    ; 53                                                                           ;
+;     -- 3 input functions                    ; 19                                                                           ;
 ;     -- <=2 input functions                  ; 16                                                                           ;
 ;                                             ;                                                                              ;
 ; Logic elements by mode                      ;                                                                              ;
-;     -- normal mode                          ; 119                                                                          ;
+;     -- normal mode                          ; 81                                                                           ;
 ;     -- arithmetic mode                      ; 7                                                                            ;
 ;                                             ;                                                                              ;
-; Total registers                             ; 75                                                                           ;
-;     -- Dedicated logic registers            ; 75                                                                           ;
+; Total registers                             ; 59                                                                           ;
+;     -- Dedicated logic registers            ; 59                                                                           ;
 ;     -- I/O registers                        ; 0                                                                            ;
 ;                                             ;                                                                              ;
 ; I/O pins                                    ; 79                                                                           ;
@@ -236,9 +236,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                            ;
 ;                                             ;                                                                              ;
 ; Maximum fan-out node                        ; ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 77                                                                           ;
-; Total fan-out                               ; 818                                                                          ;
-; Average fan-out                             ; 2.26                                                                         ;
+; Maximum fan-out                             ; 61                                                                           ;
+; Total fan-out                               ; 574                                                                          ;
+; Average fan-out                             ; 1.86                                                                         ;
 +---------------------------------------------+------------------------------------------------------------------------------+
 
 
@@ -247,18 +247,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node          ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                ; Entity Name ; Library Name ;
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
-; |accel                              ; 126 (0)             ; 75 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 79   ; 0            ; 0          ; |accel                                                             ; accel       ; work         ;
+; |accel                              ; 88 (0)              ; 59 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 79   ; 0            ; 0          ; |accel                                                             ; accel       ; work         ;
 ;    |ip:ip_inst|                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst                                                  ; ip          ; work         ;
 ;       |altpll:altpll_component|     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst|altpll:altpll_component                          ; altpll      ; work         ;
 ;          |ip_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated ; ip_altpll   ; work         ;
 ;    |seg7:s0|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s0                                                     ; seg7        ; work         ;
-;    |seg7:s1|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s1                                                     ; seg7        ; work         ;
-;    |seg7:s2|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s2                                                     ; seg7        ; work         ;
-;    |seg7:s3|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s3                                                     ; seg7        ; work         ;
-;    |seg7:s4|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s4                                                     ; seg7        ; work         ;
-;    |seg7:s5|                        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|seg7:s5                                                     ; seg7        ; work         ;
-;    |spi_control:spi_ctrl|           ; 84 (56)             ; 75 (47)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl                                        ; spi_control ; work         ;
-;       |spi_serdes:serdes|           ; 28 (28)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl|spi_serdes:serdes                      ; spi_serdes  ; work         ;
+;    |spi_control:spi_ctrl|           ; 81 (53)             ; 59 (35)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl                                        ; spi_control ; work         ;
+;       |spi_serdes:serdes|           ; 28 (28)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |accel|spi_control:spi_ctrl|spi_serdes:serdes                      ; spi_serdes  ; work         ;
 +-------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -302,6 +297,11 @@ Encoding Type:  One-Hot
 +--------------------------------------------------------+--------------------------------------------------------------------+
 ; Register name                                          ; Reason for Removal                                                 ;
 +--------------------------------------------------------+--------------------------------------------------------------------+
+; spi_control:spi_ctrl|data_storage[0][7]                ; Lost fanout                                                        ;
+; spi_control:spi_ctrl|data_storage[0][6]                ; Lost fanout                                                        ;
+; spi_control:spi_ctrl|data_storage[0][5]                ; Lost fanout                                                        ;
+; spi_control:spi_ctrl|data_storage[0][4]                ; Lost fanout                                                        ;
+; spi_control:spi_ctrl|spi_serdes:serdes|data_rx[4..7]   ; Lost fanout                                                        ;
 ; spi_control:spi_ctrl|data_tx[7]                        ; Stuck at GND due to stuck port data_in                             ;
 ; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[7]  ; Stuck at GND due to stuck port data_in                             ;
 ; spi_control:spi_ctrl|spi_serdes:serdes|read            ; Merged with spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[15] ;
@@ -313,7 +313,7 @@ Encoding Type:  One-Hot
 ; spi_control:spi_ctrl|spi_serdes:serdes|data_tx_reg[13] ; Stuck at VCC due to stuck port data_in                             ;
 ; spi_control:spi_ctrl|spi_serdes:serdes|state~5         ; Lost fanout                                                        ;
 ; spi_control:spi_ctrl|spi_serdes:serdes|state~6         ; Lost fanout                                                        ;
-; Total Number of Removed Registers = 11                 ;                                                                    ;
+; Total Number of Removed Registers = 19                 ;                                                                    ;
 +--------------------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -336,12 +336,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 75    ;
+; Total registers                              ; 59    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 23    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 56    ;
+; Number of registers using Clock Enable       ; 40    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -764,6 +764,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -789,6 +792,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -814,6 +820,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -839,6 +848,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -864,6 +876,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -889,6 +904,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; D              ; 0100001 ; Unsigned Binary           ;
 ; E              ; 0000110 ; Unsigned Binary           ;
 ; F              ; 0001011 ; Unsigned Binary           ;
+; RIGHT          ; 0101111 ; Unsigned Binary           ;
+; LEFT           ; 1000111 ; Unsigned Binary           ;
+; EMPTY          ; 1111111 ; Unsigned Binary           ;
 +----------------+---------+---------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -915,6 +933,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -924,6 +943,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -933,6 +953,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -942,6 +963,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -951,6 +973,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at VCC                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -960,18 +983,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; in[4]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                          ;
 ; display ; Output ; Warning  ; Output or bidir port (7 bits) is smaller than the port expression (8 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
 +---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "spi_control:spi_ctrl"                                                                      ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; data_update ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; data_y      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "spi_control:spi_ctrl"                                                                         ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; data_update    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data_x[15..12] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data_x[3..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data_y         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -980,24 +1006,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 79                          ;
-; cycloneiii_ff         ; 75                          ;
+; cycloneiii_ff         ; 59                          ;
 ;     CLR               ; 19                          ;
-;     ENA               ; 52                          ;
+;     ENA               ; 36                          ;
 ;     ENA CLR           ; 4                           ;
 ; cycloneiii_io_obuf    ; 2                           ;
-; cycloneiii_lcell_comb ; 134                         ;
+; cycloneiii_lcell_comb ; 95                          ;
 ;     arith             ; 7                           ;
 ;         2 data inputs ; 7                           ;
-;     normal            ; 127                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 8                           ;
+;     normal            ; 88                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 6                           ;
 ;         2 data inputs ; 8                           ;
-;         3 data inputs ; 20                          ;
-;         4 data inputs ; 90                          ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 53                          ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.04                        ;
+; Average LUT depth     ; 2.29                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1016,25 +1042,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Mon Mar 11 11:58:03 2024
+    Info: Processing started: Mon Mar 11 15:14:08 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off accel -c accel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/spi_serdes.v
-    Info (12023): Found entity 1: spi_serdes File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/spi_control.v
-    Info (12023): Found entity 1: spi_control File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/accel.v
-    Info (12023): Found entity 1: accel File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 10
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/hdl/seg7.v
-    Info (12023): Found entity 1: seg7 File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/seg7.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lolon/onedrive/epfl/semester_project/shared_folder/lolo/uc_davis/gsensor/ip/ip.v
-    Info (12023): Found entity 1: ip File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file /users/local_adm/desktop/semester_project/lolo/uc_davis/gsensor/hdl/spi_serdes.v
+    Info (12023): Found entity 1: spi_serdes File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/local_adm/desktop/semester_project/lolo/uc_davis/gsensor/hdl/spi_control.v
+    Info (12023): Found entity 1: spi_control File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/local_adm/desktop/semester_project/lolo/uc_davis/gsensor/hdl/accel.v
+    Info (12023): Found entity 1: accel File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file /users/local_adm/desktop/semester_project/lolo/uc_davis/gsensor/hdl/seg7.v
+    Info (12023): Found entity 1: seg7 File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/seg7.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/local_adm/desktop/semester_project/lolo/uc_davis/gsensor/ip/ip.v
+    Info (12023): Found entity 1: ip File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/ip/ip.v Line: 40
 Info (12127): Elaborating entity "accel" for the top level hierarchy
-Info (12128): Elaborating entity "ip" for hierarchy "ip:ip_inst" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 60
-Info (12128): Elaborating entity "altpll" for hierarchy "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
-Info (12130): Elaborated megafunction instantiation "ip:ip_inst|altpll:altpll_component" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
-Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" with the following parameter: File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
+Warning (10034): Output port "LEDR" at accel.v(28) has no driver File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+Info (12128): Elaborating entity "ip" for hierarchy "ip:ip_inst" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 60
+Info (12128): Elaborating entity "altpll" for hierarchy "ip:ip_inst|altpll:altpll_component" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
+Info (12130): Elaborated megafunction instantiation "ip:ip_inst|altpll:altpll_component" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
+Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" with the following parameter: File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/ip/ip.v Line: 99
     Info (12134): Parameter "bandwidth_type" = "AUTO"
     Info (12134): Parameter "clk0_divide_by" = "2"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
@@ -1098,59 +1125,112 @@ Info (12133): Instantiated megafunction "ip:ip_inst|altpll:altpll_component" wit
     Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
     Info (12134): Parameter "width_clock" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip_altpll.v
-    Info (12023): Found entity 1: ip_altpll File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 30
+    Info (12023): Found entity 1: ip_altpll File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 30
 Info (12128): Elaborating entity "ip_altpll" for hierarchy "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "spi_control" for hierarchy "spi_control:spi_ctrl" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 80
-Info (10264): Verilog HDL Case Statement information at spi_control.v(199): all case item expressions in this case statement are onehot File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 199
-Info (12128): Elaborating entity "spi_serdes" for hierarchy "spi_control:spi_ctrl|spi_serdes:serdes" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 127
-Warning (10230): Verilog HDL assignment warning at spi_serdes.v(78): truncated value with size 32 to match size of target (4) File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 78
-Warning (10230): Verilog HDL assignment warning at spi_serdes.v(91): truncated value with size 32 to match size of target (4) File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 91
-Info (12128): Elaborating entity "seg7" for hierarchy "seg7:s0" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 92
+Info (12128): Elaborating entity "spi_control" for hierarchy "spi_control:spi_ctrl" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 80
+Info (10264): Verilog HDL Case Statement information at spi_control.v(199): all case item expressions in this case statement are onehot File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 199
+Info (12128): Elaborating entity "spi_serdes" for hierarchy "spi_control:spi_ctrl|spi_serdes:serdes" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_control.v Line: 127
+Warning (10230): Verilog HDL assignment warning at spi_serdes.v(78): truncated value with size 32 to match size of target (4) File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 78
+Warning (10230): Verilog HDL assignment warning at spi_serdes.v(91): truncated value with size 32 to match size of target (4) File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/spi_serdes.v Line: 91
+Info (12128): Elaborating entity "seg7" for hierarchy "seg7:s0" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 92
 Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
+    Warning (13035): Inserted always-enabled tri-state buffer between "GSENSOR_SDI" and its non-tri-state driver. File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 39
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 39
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
+    Warning (13010): Node "GSENSOR_SDI~synth" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 37
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 17
-    Warning (13410): Pin "HEX1[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
-    Warning (13410): Pin "HEX2[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
-    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
-    Warning (13410): Pin "HEX4[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
-    Warning (13410): Pin "HEX5[7]" is stuck at GND File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX0[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 17
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX1[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 18
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX2[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 19
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 20
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX4[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 21
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "HEX5[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 22
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 28
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 2 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/accel.map.smsg
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/accel.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning (15897): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
-Warning (15899): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 12
-    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 14
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 25
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
-    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
-    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
-Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+Warning (15897): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameter compensate_clock set to clock0 but port CLK[0] is not connected File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
+Warning (15899): PLL "ip:ip_inst|altpll:altpll_component|ip_altpll:auto_generated|pll1" has parameters clk0_multiply_by and clk0_divide_by specified but port CLK[0] is not connected File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/db/ip_altpll.v Line: 44
+Warning (21074): Design contains 15 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 12
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 14
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 25
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 31
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/hdl/accel.v Line: 35
+Info (21057): Implemented 189 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 60 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 163 logic cells
+    Info (21061): Implemented 109 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4787 megabytes
-    Info: Processing ended: Mon Mar 11 11:58:17 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
+    Info: Peak virtual memory: 4783 megabytes
+    Info: Processing ended: Mon Mar 11 15:14:22 2024
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:31
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/UC_Davis/gsensor/synthesis/accel.map.smsg.
+The suppressed messages can be found in C:/Users/local_adm/Desktop/Semester_Project/Lolo/UC_Davis/gsensor/synthesis/accel.map.smsg.
 
 

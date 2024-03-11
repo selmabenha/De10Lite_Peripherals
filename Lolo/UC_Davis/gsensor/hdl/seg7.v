@@ -1,4 +1,4 @@
-module seg7 (input [3:0] in,output reg [6:0] display);
+module seg7 (input [4:0] in,output reg [6:0] display);
 
 // 012_3456 (segments are active-low)
 parameter ZERO = 7'b100_0000;
@@ -17,10 +17,13 @@ parameter C = 7'b100_0110;
 parameter D = 7'b010_0001; 
 parameter E = 7'b000_0110; 
 parameter F = 7'b000_1011; 
+parameter RIGHT = 7'b010_1111;
+parameter LEFT = 7'b100_0111;
+parameter EMPTY = 7'b111_1111;
 
 always @(in)
 case (in)
-0: display = ZERO;
+0: display = LEFT;
 1: display = ONE;
 2: display = TWO;
 3: display = THREE;
@@ -35,7 +38,8 @@ case (in)
 12: display = C;
 13: display = D;
 14: display = E;
-15: display = F;
+15: display = RIGHT;
+default: display = EMPTY;
 endcase
 
 
