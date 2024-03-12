@@ -1,0 +1,2 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;-- Simple entity that connects the SW switches to the LEDR lights
