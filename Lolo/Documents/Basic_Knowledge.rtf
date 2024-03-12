@@ -1,4 +1,4 @@
-{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Times New Roman;}}
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Times New Roman;}}
 {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
 \pard\sa200\sl276\slmult1\f0\fs22\lang9\par
 
@@ -37725,11 +37725,33 @@ ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000300000000
 00
 }\par
-
-\pard\sa200\sl240\slmult1\par
 \par
-\par
+\ul SPI\ulnone (Serial Peripheral Interface)\par
 
-\pard\sa200\sl276\slmult1\par
+\pard\sa200\sl240\slmult1 SPI Master (FPGA) and SPI Slave (What were talking to)\par
+\par
+Master initiates communication with 4 signals:\par
+\par
+\b SCLK \b0 - Serial Clock\par
+\b MOSI \b0 - Master Out Slave In\par
+\b MISO  \b0 Master In Slave Out\par
+\b SS \b0 - Slave Select (Chip Select) (Active low)\par
+\par
+\b Advantages:\b0\par
+Full - Duplex (Send and receive at same time)\par
+Higher Speed than UART + I2C\par
+Ubiquitous (Everywhere lots of ressources)\par
+\par
+\b Disadvantages:\b0\par
+More pins than UART + I2C\par
+Short Distances\par
+Lots of Variants\par
+\par
+4 Modes\par
+0,1,2,3\par
+CPOL = 0 Clock in idle state is low\par
+CPOL = 1 Clock idle high\par
+CPHA = 0 Clock Phase (which edge of clock to change data and sample data) want to sample in middle of data to minimize error  0 is on rising edge sample (for CPOL = 0)\par
+CPHA = 1 samples on lowering edge (CPOL = 1)\par
 }
  
