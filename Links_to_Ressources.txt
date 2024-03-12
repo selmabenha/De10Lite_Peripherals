@@ -1,5 +1,15 @@
+The problem with UC Davis is that they code in Verilog but it seems that in logisim you implement things
+in VHDL.
+
 UC Davis Labs:
 https://www.youtube.com/@vcllab7160
 
 UC Davis Github:
 https://github.com/hildebrandmw/de10lite-hdl/tree/master
+
+------------------------------------------------------------
+
+Great tutorial on quartus and the DE10-Lite:
+https://www.youtube.com/playlist?list=PLyGyZZQD_NGZdfuZqQWknRgrg79BMDqGM
+
+This guy for real the goat. NIGERIAN KING! Gonna hit him up to see if he worked on the accelerometer lol.
