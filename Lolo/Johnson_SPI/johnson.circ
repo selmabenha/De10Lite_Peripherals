@@ -1,0 +1,1901 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="3.7.2" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.7.2(https://github.com/logisim-evolution/).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4"/>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#TTL" name="6"/>
+  <lib desc="#TCL" name="7"/>
+  <lib desc="#Base" name="8"/>
+  <lib desc="#BFH-Praktika" name="9"/>
+  <lib desc="#Input/Output-Extra" name="10"/>
+  <lib desc="#Soc" name="11"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="8" map="Button2" name="Menu Tool"/>
+    <tool lib="8" map="Button3" name="Menu Tool"/>
+    <tool lib="8" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="8" name="Poke Tool"/>
+    <tool lib="8" name="Edit Tool"/>
+    <tool lib="8" name="Wiring Tool"/>
+    <tool lib="8" name="Text Tool"/>
+    <sep/>
+    <tool lib="0" name="Pin"/>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </tool>
+    <sep/>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+    <tool lib="1" name="XOR Gate"/>
+    <tool lib="1" name="NAND Gate"/>
+    <tool lib="1" name="NOR Gate"/>
+    <sep/>
+    <tool lib="4" name="D Flip-Flop"/>
+    <tool lib="4" name="Register"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="downloadBoard" val="TERASIC_DE10LITE"/>
+    <a name="downloadFrequency" val="5000000.0"/>
+    <a name="simulationFrequency" val="16.0"/>
+    <boardmap boardname="TERASIC_DE10LITE">
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+      <mc/>
+    </boardmap>
+    <boardmap boardname="TERASIC_DE10LITE_ACCEL">
+      <mc/>
+      <mc key="/cs" pmap="311_76_3"/>
+      <mc key="/cs_test" map="587,330"/>
+      <mc key="/dp1" pmap="286_336_7"/>
+      <mc key="/dp2" pmap="245_336_7"/>
+      <mc key="/dp3" pmap="204_336_7"/>
+      <mc key="/dp4" pmap="163_336_7"/>
+      <mc key="/dp5" pmap="122_336_7"/>
+      <mc key="/hex" map="326,336"/>
+      <mc key="/int1" pmap="311_76_4"/>
+      <mc key="/int1_test" map="561,330"/>
+      <mc key="/intbypass" pmap="371_355_1"/>
+      <mc key="/miso" pmap="311_76_1"/>
+      <mc key="/miso_test" map="538,330"/>
+      <mc key="/mode_test" map="514,330"/>
+      <mc key="/mosi" pmap="311_76_0"/>
+      <mc key="/mosi_test" map="488,330"/>
+      <mc key="/rst" pmap="371_355_0"/>
+      <mc key="/rst_led" map="370,330"/>
+      <mc key="/s1_test" map="465,330"/>
+      <mc key="/s2_test" map="443,330"/>
+      <mc key="/s3_test" map="416,330"/>
+      <mc key="/sclck_test" map="393,330"/>
+      <mc key="/sclk" pmap="311_76_2"/>
+    </boardmap>
+    <boardmap boardname="TERASIC_DE10LITE_ACCEL_2">
+      <mc key="/cs" pmap="311_76_3"/>
+      <mc key="/cs_test" map="587,330"/>
+      <mc key="/dp1" pmap="286_336_7"/>
+      <mc key="/dp2" pmap="245_336_7"/>
+      <mc key="/dp3" pmap="204_336_7"/>
+      <mc key="/dp4" pmap="163_336_7"/>
+      <mc key="/dp5" pmap="122_336_7"/>
+      <mc key="/hex" map="326,336"/>
+      <mc key="/int1" pmap="311_76_4"/>
+      <mc key="/int1_test" map="561,330"/>
+      <mc key="/intbypass" pmap="371_355_1"/>
+      <mc key="/miso" pmap="311_76_1"/>
+      <mc key="/miso_test" map="538,330"/>
+      <mc key="/mode_test" map="514,330"/>
+      <mc key="/mosi" pmap="311_76_0"/>
+      <mc key="/mosi_test" map="488,330"/>
+      <mc key="/rst" pmap="371_355_0"/>
+      <mc key="/rst_led" map="465,330"/>
+      <mc key="/s1_test" map="443,330"/>
+      <mc key="/s2_test" map="416,330"/>
+      <mc key="/s3_test" map="393,330"/>
+      <mc key="/sclck_test" map="370,330"/>
+      <mc key="/sclk" pmap="311_76_2"/>
+    </boardmap>
+    <comp lib="0" loc="(270,230)" name="Clock"/>
+    <comp lib="0" loc="(270,250)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="rst"/>
+    </comp>
+    <comp lib="0" loc="(270,270)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="miso"/>
+    </comp>
+    <comp lib="0" loc="(270,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="int1"/>
+    </comp>
+    <comp lib="0" loc="(270,310)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="intbypass"/>
+    </comp>
+    <comp lib="0" loc="(490,230)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="mosi"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,250)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="sclk"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,270)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="cs"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="mosi_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,310)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="sclck_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,330)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="cs_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,350)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="miso_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,370)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="int1_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,390)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="s1_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,410)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="s2_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,430)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="s3_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,450)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="mode_test"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,510)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="dp1"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,530)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="dp2"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,550)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="dp3"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="dp4"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,590)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="dp5"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(490,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rst_led"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(580,320)" name="Splitter">
+      <a name="fanout" val="7"/>
+      <a name="incoming" val="7"/>
+    </comp>
+    <comp lib="5" loc="(700,400)" name="7-Segment Display">
+      <a name="label" val="hex"/>
+    </comp>
+    <comp loc="(490,230)" name="spi_accelerometer">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="spi_accelerometer_1"/>
+    </comp>
+    <wire from="(490,470)" to="(580,470)"/>
+    <wire from="(490,490)" to="(730,490)"/>
+    <wire from="(580,320)" to="(580,470)"/>
+    <wire from="(600,250)" to="(720,250)"/>
+    <wire from="(600,260)" to="(730,260)"/>
+    <wire from="(600,270)" to="(660,270)"/>
+    <wire from="(600,280)" to="(650,280)"/>
+    <wire from="(600,290)" to="(640,290)"/>
+    <wire from="(600,300)" to="(710,300)"/>
+    <wire from="(600,310)" to="(700,310)"/>
+    <wire from="(640,290)" to="(640,580)"/>
+    <wire from="(640,580)" to="(700,580)"/>
+    <wire from="(650,280)" to="(650,560)"/>
+    <wire from="(650,560)" to="(710,560)"/>
+    <wire from="(660,270)" to="(660,530)"/>
+    <wire from="(660,530)" to="(720,530)"/>
+    <wire from="(700,310)" to="(700,400)"/>
+    <wire from="(700,460)" to="(700,580)"/>
+    <wire from="(710,300)" to="(710,400)"/>
+    <wire from="(710,460)" to="(710,560)"/>
+    <wire from="(720,250)" to="(720,400)"/>
+    <wire from="(720,460)" to="(720,530)"/>
+    <wire from="(730,260)" to="(730,400)"/>
+    <wire from="(730,460)" to="(730,490)"/>
+  </circuit>
+  <vhdl name="spi_accelerometer">--top_level.vhd
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity spi_accelerometer is
+	port(
+		clk50MHz : in std_logic;
+		rst 		: in std_logic;
+		mosi		: out std_logic;
+		miso 		: in std_logic;
+		sclk 		: out std_logic;
+		cs 		: out std_logic;
+		
+		mosi_test: out std_logic;
+		sclk_test: out std_logic;
+		cs_test 	: out std_logic;
+		miso_test : out std_logic;
+		int1_test : out std_logic;
+		
+		s1_test  : out std_logic;
+		s2_test  : out std_logic;
+		s3_test  : out std_logic;
+		mode_test : out std_logic;
+		
+		
+	
+		int1 		: in std_logic;
+		intBypass : in std_logic;
+--		int2 		: in std_logic;
+--		
+--		pol		: in std_logic;
+--		pha		: in std_logic;
+--		bytes		: in std_logic_vector (1 downto 0);
+		
+		
+		led0     : out std_logic_vector(6 downto 0);
+      led0_dp  : out std_logic;
+      led1_dp  : out std_logic;
+      led2_dp  : out std_logic;
+      led3_dp  : out std_logic;
+      led4_dp  : out std_logic;
+      led5_dp  : out std_logic;
+		
+		rst_led  : out std_logic
+	
+	);
+	
+end spi_accelerometer;
+
+
+architecture STR of spi_accelerometer is
+
+	
+	signal go : std_logic;
+	signal pol : std_logic;
+	signal pha : std_logic;
+	signal bytes : std_logic_vector (3 downto 0);
+	signal rxData : std_logic_vector (7 downto 0);
+	signal rxDataReady	: std_logic := '0';
+	signal txData 		:		 std_logic_vector (7 downto 0);
+	signal accel_data	:		 std_logic_vector (47 downto 0);-- := (others =&gt; '0');
+	
+	signal sclk_out : std_logic;
+	
+	signal sclk_buffer	:	std_logic;
+	signal mosi_buffer	:	std_logic;
+	signal cs_buffer	:	std_logic;
+--	signal miso_buffer : std_logic;
+	signal int1_buffer : std_logic;
+	signal stateID : std_logic_vector(2 downto 0);
+	
+
+begin
+
+	------------------------------------
+	--SPI MASTER
+	------------------------------------
+	U_SPI_MASTER	:  spi_master(FSM_1P)
+		port map(
+		clk	=&gt; clk50MHz,
+		rst	=&gt; rst,
+      mosi	=&gt; mosi_buffer,
+		miso 	=&gt; miso,
+		--sclk_out =&gt; sclk_buffer,
+		sclk_out =&gt; sclk_out,
+		cs_out	=&gt; cs_buffer,
+		int1 	=&gt; '0',
+		int2 	=&gt; '0',
+		go		=&gt; go,
+		pol	=&gt; pol,
+		pha   =&gt; pha,
+		bytes =&gt; bytes,
+		rxData	=&gt; rxData,
+		txData	=&gt; txData,
+		rxDataReady	=&gt; rxDataReady
+	);
+	
+	int1_test &lt;= int1_buffer;
+	miso_test &lt;= miso;
+	mosi &lt;= mosi_buffer;
+	cs &lt;= cs_buffer;
+	sclk &lt;= sclk_buffer;
+	mosi_test &lt;= mosi_buffer;
+	sclk_test &lt;= sclk_buffer;
+	cs_test 	 &lt;= cs_buffer;
+	
+	s1_test &lt;= stateID(0);
+	s2_test &lt;= stateID(1);
+	s3_test &lt;= stateID(2);
+	led0_dp &lt;= stateID(0);
+	led1_dp &lt;= stateID(1);
+	led2_dp &lt;= stateID(2);
+	--mode_test &lt;= m;
+	
+	rst_led &lt;= not rst;
+	
+	U_ACCEL_DRIVER : accel_driver(FSM_1P)
+		port map(
+			rst			=&gt; rst,
+			clk			=&gt; clk50MHz,
+			int1			=&gt; int1_buffer,
+			rxDataReady	=&gt; rxDataReady,
+			go				=&gt; go,
+			pol			=&gt; pol,
+			pha			=&gt; pha,
+			bytes 		=&gt; bytes,
+			txData 		=&gt; txData,
+			rxData		=&gt; rxData,
+			accel_data	=&gt; accel_data,
+			stateID =&gt; stateID,
+			m =&gt; mode_test,
+			c =&gt; led4_dp,
+			intBypass =&gt; intBypass
+		);
+	
+
+	
+	------------------------------------
+	--LED's
+	--      MSB       LSB
+	--	XL =  7 downto  0
+	--	XH = 15 downto  8
+	--	YL = 23 downto 16
+	--	YH = 31 downto 24
+	--	ZL = 39 downto 32
+	--	ZH = 47 downto 40
+	------------------------------------
+	U_LED0	:	decoder7seg
+		port map(
+			input =&gt; accel_data(7 downto 4),
+			output =&gt;led0
+		);
+	--led0_dp &lt;= '1';
+	--led0 &lt;= b"1111111";
+
+	--U_LED1	:	entity work.decoder7seg
+		--port map(
+			--input =&gt; accel_data(7 downto 4),
+			--output =&gt;led1
+		--);
+	--led1_dp &lt;= '0';
+	--led1 &lt;= b"1111111";
+	
+	--U_LED2	:	entity work.decoder7seg
+		--port map(
+			--input =&gt; accel_data(19 downto 16),
+			--output =&gt;led2
+		--);
+--	led2_dp &lt;= '0';
+	--led2 &lt;= b"1111111";
+
+	--U_LED3	:	entity work.decoder7seg
+		--port map(
+			--input =&gt; accel_data(23 downto 20),
+			--output =&gt;led3
+		--);
+--	led3_dp &lt;= '0';
+	--led3 &lt;= b"1111111";
+	
+	--U_LED4	:	entity work.decoder7seg
+		--port map(
+			--input =&gt; accel_data(35 downto 32),
+			--output =&gt;led4
+		--);
+--	led4_dp &lt;= '0';
+--led4 &lt;= b"1111111";
+
+	--U_LED5	:	entity work.decoder7seg
+		--port map(
+			--input =&gt; accel_data(39 downto 36),
+			--output =&gt;led5
+		--);
+	--led5 &lt;= b"1111111";
+	led5_dp &lt;= not int1;
+
+
+	
+	
+	
+	
+	process(clk50MHz, rst)
+	begin
+	
+		if(rst = '1') then
+			sclk_buffer &lt;= '1';
+			int1_buffer &lt;= '0';
+		elsif(clk50MHz'event and clk50MHz = '1') then
+			sclk_buffer &lt;= sclk_out;
+			int1_buffer &lt;= int1;
+		end if;
+	end process;
+	
+	
+	
+
+	
+	
+end STR;
+</vhdl>
+  <vhdl name="spi_master">--spi_master
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity spi_master is
+    port (
+		clk	: in std_logic;
+		rst	: in std_logic;
+      mosi	: out std_logic;
+		miso 	: in std_logic;
+		sclk_out : out std_logic; 
+		cs_out	: out std_logic;
+		int1 	: in std_logic;
+		int2 	: in std_logic;
+		go		: in std_logic;
+		pol	: in std_logic;
+		pha   : in std_logic;
+		bytes : in std_logic_vector (3 downto 0);
+		rxData: out std_logic_vector(7 downto 0);
+		txData: in  std_logic_vector(7 downto 0);
+		rxDataReady: out std_logic
+		);
+end spi_master;
+
+
+architecture FSM_1P of spi_master is
+
+
+------------------------------------
+-- State signals
+------------------------------------
+type STATE_TYPE is (S_IDLE, S_TXRX);
+signal state, next_state : STATE_TYPE;
+
+
+------------------------------------
+-- Clock Div (spi clock) Signals
+------------------------------------
+signal sclk : std_logic;
+signal enable : std_logic := '0';
+--signal bytes : std_logic_vector (3 downto 0);
+signal polarity : std_logic;
+signal last_clk_active : std_logic;
+signal clk_active : std_logic;
+signal byte_flag : std_logic;
+
+------------------------------------
+-- SPI Data Signals
+------------------------------------
+signal rx_buffer	: std_logic_vector (7 downto 0) := (others =&gt; '1');
+signal tx_buffer	: std_logic_vector (7 downto 0);
+signal cs : std_logic := '1';
+constant byte_w : natural := 8;
+signal bit : integer range -1 to 8 := 7; --init to msb+1 idx
+signal w_r : std_logic := '0'; --write = 0 read = 1
+signal phase_Delay : std_logic := '0';
+signal last_cs : std_logic := '1';
+signal last_sclk : std_logic := '0';
+
+
+
+begin
+
+
+	U_CLOCK_DIV : clock_div
+		generic map(
+			clk_in_freq =&gt; 50000000,
+			clk_out_freq =&gt; 5000000)
+		port map(
+			clk_in =&gt; clk,
+			clk_out =&gt; sclk,
+			rst	=&gt; rst,
+			enable =&gt; enable,
+			bytes	=&gt; bytes,
+			polarity =&gt; polarity,
+			clk_active =&gt; clk_active,
+			byte_flag =&gt; byte_flag);
+
+
+
+	--enable &lt;= int1 or int2 or go;
+	
+	process (clk, rst)
+	begin
+		
+		if(rst = '1') then
+			state &lt;= S_IDLE;
+			last_clk_active &lt;= '0';
+			enable &lt;= '0';
+			cs &lt;= '1';
+		elsif (clk'event and clk = '1') then
+			
+	
+		--process(state, int1, int2, go, clk_active, byte_flag)--, txData)
+		--begin
+		
+			rxDataReady &lt;= '0'; --only high when data is ready
+			polarity &lt;= pol;
+			--w_r &lt;= not pha; --first write for phase 1 is pre toggled. 0 is default
+		--	next_state &lt;= state;
+			enable &lt;= '0';
+			
+			last_clk_active &lt;= clk_active;
+			
+			case state is
+				when S_IDLE =&gt;
+					
+					--enable &lt;= '0'; --default 
+					cs &lt;= '1';
+					if((int1 = '1' or int2 = '1' or go = '1') and rst = '0') then
+						state &lt;= S_TXRX;
+	--					polarity &lt;= pol;
+	--					w_r &lt;= not pha; --first write for phase 1 is pre toggled. 0 is default
+						enable &lt;= '1';
+						cs &lt;= '0';
+						tx_buffer &lt;= txData; --TEST
+						
+					end if;
+				
+				
+				when S_TXRX =&gt;
+					
+					
+					enable &lt;= '1';
+					
+					if(last_clk_active = '1' and clk_active = '0') then  --falling edge of clk_active
+						enable &lt;= '0';
+						cs &lt;= '1';
+						rxDataReady &lt;= '1';
+						state &lt;= S_IDLE;
+					
+					else 
+						enable &lt;= '1';
+						cs &lt;= '0';
+						if(byte_flag = '1') then
+							rxDataReady &lt;= '1';
+							tx_buffer &lt;= txData;
+						end if;
+					
+					end if;
+						
+				when others =&gt; null;
+				
+				
+			end case;
+			
+			
+		end if;
+		
+	end process;
+	
+	cs_out &lt;= cs;
+	sclk_out &lt;= sclk;
+	
+	
+	
+	
+	process (clk, sclk, cs, rst)--, state)
+	
+	begin
+		
+		if( rst = '1') then
+			bit &lt;= 7;
+			mosi &lt;= '1';
+		--else
+		elsif(clk'event and clk = '1') then
+		last_cs &lt;= cs;
+		last_sclk &lt;= sclk;  --clk version
+--		if(state'event and state = S_IDLE) then		-- entering idle init bit and rxbuffer
+--			w_r &lt;= pha;
+--			bit &lt;= 7;
+--			rx_buffer &lt;= (others =&gt; '1');
+--			--initialize w/r
+--			-- this will update whenever pha updates or state changes to re-init
+--		
+--		elsif ( state'event and state = S_TXRX) then -- state should not trigger any toggling
+--			null;
+--		else
+		
+			--pha 0 means write on falling cs
+			--pha 1 means write on first clk edge
+			-- w/r 0 means write
+			--w/r 1 means read
+			if(cs = '0' and last_cs = '1' ) then
+				
+				w_r &lt;= not pha;				--pha 1 goes to write and pha 0 goes to read
+				
+				if(pha = '0') then
+					mosi &lt;= tx_buffer(bit); --write	
+				end if;
+				
+			elsif(cs = '0' and (last_sclk /= sclk)) then									-- this point on are only clk events high or low
+				
+				if(w_r = '0') 	then				-- write
+					mosi &lt;= tx_buffer(bit);
+					
+				elsif (w_r = '1') then		-- read
+					rx_buffer &lt;= rx_buffer(6 downto 0) &amp; miso;
+					bit &lt;= bit - 1;			-- only decrement after reads
+					if(bit = 0) then			-- reset bit to 7 at end of byte instead of decrementing
+						bit &lt;= 7;
+						--rxData &lt;= rx_buffer;
+					end if;
+				else 
+					null;							-- do nothing
+				end if;
+				
+				w_r &lt;= not w_r;				-- toggle write/read for next clock edge
+				
+			else 
+				--mosi &lt;= 'Z';
+				null;
+			end if;
+			
+			if(bit = 7) then
+				rxData &lt;= rx_buffer;
+			end if;
+			
+		end if;
+	
+	
+	
+	end process;
+	
+
+	--rxData &lt;= rx_buffer;
+end FSM_1P;
+
+
+
+architecture FSM_2P of spi_master is
+
+
+------------------------------------
+-- State signals
+------------------------------------
+type STATE_TYPE is (S_IDLE, S_TXRX);
+signal state, next_state : STATE_TYPE;
+
+
+------------------------------------
+-- Clock Div (spi clock) Signals
+------------------------------------
+signal sclk : std_logic;
+signal enable : std_logic := '0';
+--signal bytes : std_logic_vector (3 downto 0);
+signal polarity : std_logic;
+signal clk_active : std_logic;
+signal byte_flag : std_logic;
+
+------------------------------------
+-- SPI Data Signals
+------------------------------------
+signal rx_buffer	: std_logic_vector (7 downto 0) := (others =&gt; '1');
+signal tx_buffer	: std_logic_vector (7 downto 0);
+signal cs : std_logic := '1';
+constant byte_w : natural := 8;
+signal bit : integer range -1 to 8 := 7; --init to msb+1 idx
+signal w_r : std_logic := '0'; --write = 0 read = 1
+signal phase_Delay : std_logic := '0';
+signal last_cs : std_logic := '1';
+signal last_sclk : std_logic := '0';
+
+
+
+begin
+
+
+	U_CLOCK_DIV : clock_div
+		generic map(
+			clk_in_freq =&gt; 50000000,
+			clk_out_freq =&gt; 5)
+		port map(
+			clk_in =&gt; clk,
+			clk_out =&gt; sclk,
+			rst	=&gt; rst,
+			enable =&gt; enable,
+			bytes	=&gt; bytes,
+			polarity =&gt; polarity,
+			clk_active =&gt; clk_active,
+			byte_flag =&gt; byte_flag);
+
+
+
+	--enable &lt;= int1 or int2 or go;
+	
+	process (clk, rst)
+	begin
+		
+		if(rst = '1') then
+			state &lt;= S_IDLE;
+		elsif (clk'event and clk = '1') then
+			state &lt;= next_state;
+		end if;
+	
+	
+	end process;
+	
+	
+	process(state, int1, int2, go, clk_active, byte_flag)--, txData)
+	begin
+	
+		rxDataReady &lt;= '0'; --only high when data is ready
+		polarity &lt;= pol;
+		--w_r &lt;= not pha; --first write for phase 1 is pre toggled. 0 is default
+		next_state &lt;= state;
+		enable &lt;= '0';
+		
+		
+		case state is
+			when S_IDLE =&gt;
+				
+				--enable &lt;= '0'; --default 
+				cs &lt;= '1';
+				if((int1 = '1' or int2 = '1' or go = '1') and rst = '0') then
+					next_state &lt;= S_TXRX;
+--					polarity &lt;= pol;
+--					w_r &lt;= not pha; --first write for phase 1 is pre toggled. 0 is default
+					enable &lt;= '1';
+					cs &lt;= '0';
+					tx_buffer &lt;= txData; --TEST
+					
+				end if;
+			
+			
+			when S_TXRX =&gt;
+				
+				
+				enable &lt;= '1';
+				
+				if(clk_active = '0') then
+					enable &lt;= '0';
+					cs &lt;= '1';
+					rxDataReady &lt;= '1';
+					next_state &lt;= S_IDLE;
+				
+				else 
+					enable &lt;= '1';
+					cs &lt;= '0';
+					if(byte_flag = '1') then
+						rxDataReady &lt;= '1';
+						tx_buffer &lt;= txData;
+					end if;
+				
+				end if;
+					
+			when others =&gt; null;
+			
+			
+		end case;
+		
+	end process;
+	
+	cs_out &lt;= cs;
+	sclk_out &lt;= sclk;
+	
+	
+	
+	
+	process (clk, sclk, cs, rst)--, state)
+	
+	begin
+		
+		if( rst = '1') then
+			bit &lt;= 7;
+			mosi &lt;= '1';
+		--else
+		elsif(clk'event and clk = '1') then
+		last_cs &lt;= cs;
+		last_sclk &lt;= sclk;  --clk version
+--		if(state'event and state = S_IDLE) then		-- entering idle init bit and rxbuffer
+--			w_r &lt;= pha;
+--			bit &lt;= 7;
+--			rx_buffer &lt;= (others =&gt; '1');
+--			--initialize w/r
+--			-- this will update whenever pha updates or state changes to re-init
+--		
+--		elsif ( state'event and state = S_TXRX) then -- state should not trigger any toggling
+--			null;
+--		else
+		
+			--pha 0 means write on falling cs
+			--pha 1 means write on first clk edge
+			-- w/r 0 means write
+			--w/r 1 means read
+			if(cs = '0' and last_cs = '1' ) then
+				
+				w_r &lt;= not pha;				--pha 1 goes to write and pha 0 goes to read
+				
+				if(pha = '0') then
+					mosi &lt;= tx_buffer(bit); --write	
+				end if;
+				
+			elsif(cs = '0' and (last_sclk /= sclk)) then									-- this point on are only clk events high or low
+				
+				if(w_r = '0') 	then				-- write
+					mosi &lt;= tx_buffer(bit);
+					
+				elsif (w_r = '1') then		-- read
+					rx_buffer &lt;= rx_buffer(6 downto 0) &amp; miso;
+					bit &lt;= bit - 1;			-- only decrement after reads
+					if(bit = 0) then			-- reset bit to 7 at end of byte instead of decrementing
+						bit &lt;= 7;
+					end if;
+				else 
+					null;							-- do nothing
+				end if;
+				
+				w_r &lt;= not w_r;				-- toggle write/read for next clock edge
+				
+			else 
+				--mosi &lt;= 'Z';
+				null;
+			end if;
+		end if;
+	
+	
+	
+	end process;
+	
+--	
+--	process (sclk, cs, state, pha)
+--		variable clk_cs_event : std_logic;
+--	
+--	begin
+--	
+--		if(state = S_IDLE) then
+--			w_r &lt;= pha;
+--			bit &lt;= 7;
+--			rx_buffer &lt;= (others =&gt; '1');
+--			--initialize w/r
+--			-- this will update whenever pha updates or state changes to re-init
+--		end if;
+--			
+--			clk_cs_event := '0';
+--			
+--		if(falling_edge(cs) or (sclk'event and cs = '0')) then
+--			w_r &lt;= not w_r;
+--			clk_cs_event := '1';
+--		end if;
+--		--if sclk event, do w/r and then toggle it
+--		-- if cs falls and pha = 1, write
+--		
+--		--write if w/r = 0 
+--			--this works because at init w/r =  pha
+--			-- so  pha = 0 is 1. no case will be true and w/r will toggle
+--			--next event will be a clok edge
+--		-- read if w/r = 1 
+--			-- if cs event and pha
+--			
+--		if(clk_cs_event = '1') then
+--			if(w_r = '0') then	--write
+--				mosi &lt;= tx_buffer(bit);
+--				
+--			elsif((falling_edge(cs) and (pha = '0')) or (sclk'event and w_r = '1')) then --read
+--				rx_buffer &lt;= rx_buffer(6 downto 0) &amp; miso;
+--				bit &lt;= bit - 1;
+--				if(bit = 0) then			-- reset bit to 7 at end of byte instead of decrementing
+--					bit &lt;= 7;
+--				end if;
+--				
+--			end if;
+--			
+--
+--		end if;
+--		
+--	
+--	end process;
+	
+	
+	
+	
+--	process(sclk, cs)
+--	begin
+--		
+--		-- phase
+--		-- 0 start : write on cs, read on first clock
+--		--	0 normal: write on first edge, read on second edge
+--		-- 1 start : write on first edge, read on second edge
+--		-- 1 normal: write on first edge, read on second edge
+--	
+--		
+--		phase_Delay &lt;= '0'; --set delay to false
+--		
+--		if( bit = 0) then
+--			bit &lt;= 7;
+--		end if;
+--		
+--		bit &lt;= bit - 1;
+--		
+----	
+--		
+--		if ( sclk'event ) then
+--		--	w_r &lt;= not w_r; 
+--		
+--		elsif (falling_edge(cs) and pha = '0') then
+--			--write
+--			--next clock is going to be raising or falling
+--			--if pol 0, then rising
+--			--if pol 1, then falling
+--			phase_Delay &lt;= '1';
+--		
+--		end if;
+--		
+--		
+--		if ( w_r = '0' and phase_Delay = '0') then --write except if pha = 1 and before first clk event
+--			
+--			mosi &lt;= tx_buffer(bit);
+--			
+--		elsif(w_r = '1') then  --read
+--			rx_buffer &lt;= miso &amp; rx_buffer(7 downto 1);
+--		end if;
+--	
+--		
+--	end process;
+	
+	--tx_buffer &lt;= txData;
+	rxData &lt;= rx_buffer;
+
+
+end FSM_2P;</vhdl>
+  <vhdl name="decoder7seg">--decoder7seg
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity decoder7seg is
+    port (
+        input  : in  std_logic_vector(3 downto 0);
+        output : out std_logic_vector(6 downto 0));
+end decoder7seg;
+
+architecture BHV of decoder7seg is
+
+begin  -- BHV
+
+	process(input)
+		begin
+		
+			case input is
+				when "0000" =&gt;  output &lt;= "1000000";--"0000001";
+				when "0001" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0010" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0011" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0100" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0101" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0110" =&gt;  output &lt;= "1000111";--"0101111";
+				when "0111" =&gt;  output &lt;= "1000111";--"0101111";
+				when "1000" =&gt;  output &lt;= "1000111";--"0101111";
+				when "1001" =&gt;  output &lt;= "0101111";--"1000111";ici
+				when "1010" =&gt;  output &lt;= "0101111";--"1000111";
+				when "1011" =&gt;  output &lt;= "0101111";--"1000111";
+				when "1100" =&gt;  output &lt;= "0101111";--"1000111";
+				when "1101" =&gt;  output &lt;= "0101111";--"1000111";
+				when "1110" =&gt;  output &lt;= "0101111";--"1000111";
+				when "1111" =&gt;  output &lt;= "0101111";--"1000111";
+				when others =&gt;  output &lt;= "XXXXXXX";
+			end case;
+		end process;
+
+end BHV;
+</vhdl>
+  <vhdl name="clock_div">--clock div
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity clock_div is
+	generic(clk_in_freq : natural := 4;
+				clk_out_freq : natural := 2);
+	port (
+			clk_in : in std_logic;
+			clk_out : out std_logic;
+			rst	: in std_logic;
+			enable : in std_logic;
+			bytes : in std_logic_vector(3 downto 0);
+			polarity : in std_logic;
+			clk_active :	out std_logic;
+			byte_flag : out std_logic
+			);
+end clock_div;
+
+architecture bhv of clock_div is
+
+	
+	constant max : natural := clk_in_freq / clk_out_freq / 2;
+	signal count, lastByteCount : integer range 0 to max*2;
+	signal clock_signal : std_logic;
+	signal byte_count : std_logic_vector (3 downto 0);
+	signal bit_count : integer range 0 to 8;
+	
+	
+	
+	
+	begin
+	
+		process(clk_in, rst)
+		begin
+			if(rst = '1' or enable = '0') then
+				count &lt;= 0;
+				lastByteCount &lt;= 0;
+				clk_active &lt;= '0';
+				clock_signal &lt;= polarity;
+				bit_count &lt;= 0;
+				byte_count &lt;= (others =&gt; '0');
+				byte_flag &lt;= '0';
+			
+			elsif(clk_in'event and clk_in = '1') then
+				if(enable = '1' and byte_count &lt; bytes) then
+				
+					clk_active &lt;= '1';
+					if (count = max-1) then
+						count &lt;= 0;
+						clock_signal &lt;= not clock_signal;
+						
+						if((not clock_signal) = polarity) then
+							--increment bit count
+							--increment byte count after 8 bits and clean bit count
+							--clear byte count after numOfBytes and clear active_clk
+							
+							byte_flag &lt;= '0'; -- clear the byte flag
+						
+							if(bit_count = 7) then
+								byte_count &lt;= std_logic_vector(unsigned(byte_count) + 1);
+								bit_count &lt;= 0;
+								byte_flag &lt;= '1'; --set byte flag for one sclk cycle
+								
+								if( byte_count = std_logic_vector(unsigned(bytes) - 1)) then
+									--clk_active &lt;= '0';
+									--clock_signal &lt;=  clock_signal; --do not toggle clock 
+									
+								end if;
+							
+								
+							else
+								bit_count &lt;= bit_count + 1;
+							end if;
+							
+--							if( byte_count = bytes) then
+--								clk_active &lt;= '0';
+--							end if;
+							
+						end if;
+					else
+						count &lt;= count + 1;
+					end if;
+				
+			
+				elsif(enable = '1') then
+			
+					clk_active &lt;= '1';
+						if (lastByteCount = max-1) then
+							lastByteCount &lt;= 0;
+							clk_active &lt;= '0';
+						else
+							lastByteCount &lt;= lastByteCount + 1;
+						end if;
+				end if;
+				
+				
+				
+			end if;
+		
+		
+--			if(rst = '1' or enable = '0') then
+--				count &lt;= 0;
+--				lastByteCount &lt;= 0;
+--				clk_active &lt;= '0';
+--				clock_signal &lt;= polarity;
+--				bit_count &lt;= 0;
+--				byte_count &lt;= (others =&gt; '0');
+--				byte_flag &lt;= '0';
+--			
+--			elsif(rising_edge(clk_in) and enable = '1' and byte_count &lt; bytes) then
+--				
+--					clk_active &lt;= '1';
+--					if (count = max-1) then
+--						count &lt;= 0;
+--						clock_signal &lt;= not clock_signal;
+--						
+--						if((not clock_signal) = polarity) then
+--							--increment bit count
+--							--increment byte count after 8 bits and clean bit count
+--							--clear byte count after numOfBytes and clear active_clk
+--							
+--							byte_flag &lt;= '0'; -- clear the byte flag
+--						
+--							if(bit_count = 7) then
+--								byte_count &lt;= std_logic_vector(unsigned(byte_count) + 1);
+--								bit_count &lt;= 0;
+--								byte_flag &lt;= '1'; --set byte flag for one cycle
+--								
+--								if( byte_count = std_logic_vector(unsigned(bytes) - 1)) then
+--									--clk_active &lt;= '0';
+--									--clock_signal &lt;=  clock_signal; --do not toggle clock 
+--									
+--								end if;
+--							
+--								
+--							else
+--								bit_count &lt;= bit_count + 1;
+--							end if;
+--							
+----							if( byte_count = bytes) then
+----								clk_active &lt;= '0';
+----							end if;
+--							
+--						end if;
+--					else
+--						count &lt;= count + 1;
+--					end if;
+--				
+--			
+--			elsif(rising_edge(clk_in) and enable = '1') then
+--			
+--				clk_active &lt;= '1';
+--					if (lastByteCount = max-1) then
+--						lastByteCount &lt;= 0;
+--						clk_active &lt;= '0';
+--					else
+--						lastByteCount &lt;= lastByteCount + 1;
+--					end if;
+--				
+--				
+--				
+--			end if;
+		--clk_out &lt;= clock_signal;
+		end process;
+		
+		clk_out &lt;= clock_signal;
+
+
+
+
+end bhv;</vhdl>
+  <vhdl name="accel_driver">--accel_driver
+-- TODO:
+-- 1) Incorporate data range generic for calibration LSB/g for z axis
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity accel_driver is
+	port (
+		rst			:		in std_logic;
+		clk			:		in std_logic;
+		int1			:		in std_logic;
+		rxDataReady	:		in	std_logic;
+		go				:		out std_logic;
+		pol			:		out std_logic;
+		pha			:		out std_logic;
+		bytes 		:		out std_logic_vector (3 downto 0);
+		txData 		:		out std_logic_vector (7 downto 0);
+		rxData		: 		in std_logic_vector ( 7 downto 0);
+		accel_data	:		out std_logic_vector (47 downto 0);
+		
+		stateID 		:      out std_logic_vector (2 downto 0);
+		m				: out std_logic;
+		c				: out std_logic;
+		intBypass   : in std_logic
+		
+		
+	);
+end accel_driver;
+
+
+
+architecture fsm_1p of accel_driver is
+	
+	constant max	: natural := 50000000 /  500000 ;
+	signal count			:		integer range 0 to max;
+	signal countSignal		: std_logic;
+	type STATE_TYPE is (S_START, S_IDLE, S_CONFIG, S_WRITE, S_READ, S_READ_WAIT, S_CALIBRATE, S_OUTPUT); --S_CONFIG_TEST, S_WRITE_TEST);
+	signal STATE, NEXT_STATE			:		STATE_TYPE;
+	--signal accel_x, accel_y, accel_z	:		std_logic_vector(15 downto 0);
+	signal accel_data_buff : std_logic_vector( 47 downto 0);
+	signal byteCount	: integer range -1 to 16 := 0;
+	constant byteCountRead : integer := 7;
+	signal mode			: std_logic;
+	signal reg	: integer range 0 to 8;
+	signal regTest : integer range 0 to 16;
+	signal regAddr		: std_logic_vector (5 downto 0);
+	signal regData		: std_logic_vector (7 downto 0);
+	signal rxDataReadyLast : std_logic := '0';
+	
+	constant sampleBits : natural := 4;
+	constant samples  : natural := 2 ** sampleBits;
+	--signal div_padding : std_logic_vector (sampleBits - 1 downto 0);
+	signal sample_count : integer range 0 to samples + 1;
+	signal calibrate : std_logic;
+	--type NIBBLE is array (3 downto 0) of std_ulogic;
+	type calibration_array is array (2 downto 0) of std_logic_vector (15 downto 0);  -- (0) X accumulate, (1) Y accumulate, (2) Z accumulate
+	signal calibData : calibration_array;
+	
+begin
+
+
+
+
+	process(clk, rst)
+	begin
+		if(rst = '1') then
+			state &lt;= S_START;
+			accel_data &lt;= (others =&gt; '0');
+			accel_data_buff &lt;= (others =&gt; '0');
+			regData &lt;= "00000000";
+			regAddr &lt;= "000000";
+			bytes &lt;= "0000";
+			txData &lt;= "00000000";
+			mode &lt;= '0';
+			count &lt;= 0;
+			go &lt;= '0';
+			reg &lt;= 0;
+			regTest &lt;= 0;
+			byteCount &lt;= 0;
+			stateID &lt;= "000";
+			calibrate &lt;= '0';
+			calibData(0) &lt;= (others =&gt; '0');
+			calibData(1) &lt;= (others =&gt; '0');
+			calibData(2) &lt;= (others =&gt; '0');
+			sample_count &lt;= 0;
+			--div_padding &lt;= (others =&gt; '0');
+			
+		elsif(clk'event and clk = '1') then
+			
+			
+			
+			case state is
+			
+				when S_START =&gt;
+					byteCount &lt;= 0;
+					mode &lt;= '0';
+					reg &lt;= 0;
+					rxDataReadyLast &lt;= '0';
+					state &lt;= S_IDLE;
+					accel_data &lt;= (others =&gt; '0');
+					go &lt;= '0';
+					
+					stateID &lt;= "001";
+				
+				when S_IDLE =&gt;
+					stateID &lt;= "010";
+					--if(mode = '1' and int1 = '1') then state &lt;= S_READ;
+					--end if;
+		
+					if(count = max - 1) then							-- delay between each transmission 
+						--count &lt;= 0;
+						c &lt;= '1';
+						
+						if(mode = '0') then
+							state &lt;= S_CONFIG;		-- mode 0 is config. after config mode goes to 1 for read
+							count &lt;= 0; 
+						--elsif(int1 = '1')   then
+						else
+							state &lt;= S_READ_WAIT;	-- mode 1, but only read if interrupt for data_ready is set
+							count &lt;= 0;
+						--else count &lt;= max - 1;							-- do not set count to 0 to prevent running the delay loop again
+						end if;	
+			
+					else 
+						count &lt;= count + 1;
+						c &lt;= '0';
+					end if;
+					
+--					if(intBypass = '1') then state &lt;= S_IDLE;
+--					end if;
+			
+				when S_READ_WAIT =&gt;
+					stateID &lt;= "111";
+					if (calibrate = '1') then state &lt;= S_CALIBRATE;
+					elsif(int1 = '1' or intBypass = '1') then state &lt;= S_READ;
+					end if;
+					
+				when S_CALIBRATE =&gt; 
+					case reg is								-- reg should be 0 from config state earlier, represents each offset register
+						when 0 =&gt;							-- calculate the negative of x and y offset. subtract 256 (1g) from z and shift 2 (8 bit conversion)
+							if(calibData(0)(15) = '0') then  -- x axis negative conversion
+								calibData(0) &lt;= std_logic_vector(signed(not calibData(0)) + 1);	-- twos comp conversion from positive to negative
+							else
+								calibData(0) &lt;= std_logic_vector(not(signed(calibData(0)) - 1));  -- twos comp conversion from negative to positive
+							end if;
+							
+							if(calibData(1)(15) = '0') then -- y axis negative conversion
+								calibData(1) &lt;= std_logic_vector(signed(not calibData(1)) + 1);	-- twos comp conversion from positive to negative
+							else
+								calibData(1) &lt;= std_logic_vector(not(signed(calibData(1)) - 1));  -- twos comp conversion from negative to positive
+							end if;
+							
+							calibData(2) &lt;=std_logic_vector(shift_right(signed(calibData(2)) - 256, 2));	-- find error realtive to gravity in z axis and divide by 4 for 10 to 8 bit conversion			
+							reg &lt;= reg + 1;
+						
+						when 1 =&gt;																					-- calculate Z's negative, store x axis
+						
+							if(calibData(2)(15) = '0') then 													-- Z axis negative conversion
+								calibData(2) &lt;= std_logic_vector(signed(not calibData(2)) + 1);	-- twos comp conversion from positive to negative
+							else
+								calibData(2) &lt;= std_logic_vector(not(signed(calibData(2)) - 1));  -- twos comp conversion from negative to positive
+							end if;
+							
+							regAddr &lt;= "011110";																	-- Register 0x1E: "X offset" 8 bit 2's comp offset for X axis
+							regData &lt;= calibData(0)(7 downto 0);															-- X offset data
+							reg &lt;= reg + 1;	
+							state  &lt;= S_WRITE;
+						when 2 =&gt;
+							regAddr &lt;= "011111";																	-- Register 0x1F: "Y offset" 8 bit 2's comp offset for Y axis
+							regData &lt;= calibData(1)(7 downto 0);
+							reg &lt;= reg + 1;
+							state  &lt;= S_WRITE;
+						when 3 =&gt;
+							regAddr &lt;= "100000";																	-- Register 0x20: "Z offset" 8 bit 2's comp offset for Z axis
+							regData &lt;= calibData(2)(7 downto 0);
+							reg &lt;= 0;
+							state  &lt;= S_WRITE;
+							calibrate &lt;= '0';																		-- de-assert calibration flag to continue reading normally
+						when others =&gt; null;
+						
+					end case;
+					
+					
+--				when S_CONFIG_TEST =&gt;
+--						stateID &lt;= "111";
+--					case regTest is
+--						when 0 =&gt;
+--							regAddr &lt;= "110001";			--	Off 		Off   A
+--							regData &lt;= "00001010";
+--							regTest &lt;= regTest + 1;
+--							state &lt;= S_WRITE;
+--						when 1 =&gt; 
+--							regAddr &lt;= "101100";									-- 6
+--							regData &lt;= "00000110";
+--							regTest &lt;= regTest + 1;
+--							state &lt;= S_WRITE;
+--						when 2 =&gt; 
+--							regAddr &lt;= "101101";                          --8
+--							regData &lt;= "00001011";
+--							regTest &lt;= regTest + 1;
+--							state &lt;= S_WRITE;
+--						when 3 =&gt;
+--							--regAddr &lt;= "000000";    -- A      OFF	ON
+--							regAddr &lt;= "110001";
+--							regData &lt;= "00001000";
+--							regTest &lt;= regTest + 1;
+--							--regTest &lt;= 0;
+--							
+--							state &lt;= S_WRITE_TEST;					
+--						when 4 =&gt; 						-- E5			ON     ON
+--							--regAddr &lt;= "101100";
+--							regAddr &lt;= "000000";
+--							regData &lt;= "00000000";
+--							regTest &lt;= regTest + 1;
+--							state &lt;= S_WRITE_TEST;
+--							
+--						when 5 =&gt; 						-- B			ON    OFF
+--							regAddr &lt;= "101101";
+--							regData &lt;= "00000000";
+--							regTest &lt;= 0;
+--							state &lt;= S_WRITE_TEST;
+--							mode &lt;= '1';
+--							
+--
+--						when others =&gt; null;
+--					end case;
+--					
+--				when S_WRITE_TEST =&gt;
+--					mode &lt;= '0';
+--					bytes &lt;= "0010";
+--					rxDataReadyLast &lt;= rxDataReady;
+--					if(byteCount = 0) then
+--						txData &lt;= "10" &amp; regAddr;
+--						go &lt;= '1';
+--						byteCount &lt;= 1;
+--					else
+--						txData &lt;= "00000000";
+--						go &lt;= '0';
+--						
+--						if((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount &lt;= 2) then
+--	--						byteCount &lt;= byteCount + 1;
+--	--						accel_data_buff((byteCount * 8)  - 1 downto (byteCount-1) * 8) &lt;= rxData;
+--	--						if(byteCount = byteCountRead - 1) then
+--	--							byteCount &lt;= 0;
+--	--							next_state &lt;= S_OUTPUT;
+--	--						end if;
+--							if(byteCount = 2) then
+--								byteCount &lt;= 0;
+--								state &lt;= S_OUTPUT;
+--							else
+--								byteCount &lt;= byteCount + 1;
+--								accel_data_buff(23 downto 16) &lt;= rxData;
+--							end if;
+--
+--
+--						end if;
+--						
+--						
+--					end if;
+--					
+--				
+				
+				
+				when S_CONFIG =&gt;
+						stateID &lt;= "011";
+					case reg is
+						when 0 =&gt;
+							regAddr &lt;= "110001"; -- Register 0x31: "Data_Format" sets data range (0b00) to +/- 2g and full resultion (0b1000)
+							regData &lt;= "00001000";   
+							reg &lt;= reg + 1;
+							state &lt;= S_WRITE;
+						when 1 =&gt; 
+							regAddr &lt;= "101100";  -- Register 0x2C: "BW_RATE" sets rate (0b0100) to 1.56 Hz, ideal should be 100hz which is default at power reset, but too fast for 7seg's
+							regData &lt;= "00000100";
+							reg &lt;= reg + 1;
+							state &lt;= S_WRITE;
+						when 2 =&gt;
+							regAddr &lt;= "011110";					-- Register 0x1E: "X offset" 8 bit 2's comp offset for X axis
+							regData &lt;= "00000000";				-- Clear X offset register so calibration will not use data from previous resets
+							reg &lt;= reg + 1;
+							state  &lt;= S_WRITE;
+							
+						when 3 =&gt;
+							regAddr &lt;= "011111";					-- Register 0x1F: "Y offset" 8 bit 2's comp offset for Y axis
+							regData &lt;= "00000000";				-- Clear Y offset register so calibration will not use data from previous resets
+							reg &lt;= reg + 1;
+							state  &lt;= S_WRITE;
+						
+						when 4 =&gt;
+							regAddr &lt;= "100000";					-- Register 0x20: "Z offset" 8 bit 2's comp offset for Z axis
+							regData &lt;= "00000000";				-- Clear Z offset register so calibration will not use data from previous resets
+							reg &lt;= reg + 1;
+							state  &lt;= S_WRITE;
+						
+						when 5 =&gt; 
+							regAddr &lt;= "101101";	 -- Register 0x2D: "Power_CTL" sets measure bit (0b1000) to start sampling. 
+							regData &lt;= "00001000";
+							reg &lt;= reg + 1;
+							state &lt;= S_WRITE;
+							--mode &lt;= '1';			-- Switch to Read mode so IDLE turns to S_READ and not S_CONFIG
+						when 6 =&gt; 
+							regAddr &lt;= "101110";	 -- Register 0x2E: "INT_ENABLE" enables Data_Ready interrupt (0b10000000) 
+							regData &lt;= "10000000";
+							reg &lt;= 0;
+							state &lt;= S_WRITE;
+							mode &lt;= '1';			-- Switch to Read mode so IDLE turns to S_READ and not S_CONFIG
+						when others =&gt; null;
+					end case;
+				
+				when S_WRITE =&gt;
+					stateID &lt;= "100";
+					bytes &lt;= "0010";
+					rxDataReadyLast &lt;= rxDataReady;
+					if(byteCount = 0) then
+						txData &lt;= "00" &amp; regAddr;
+						go &lt;= '1';
+						byteCount &lt;= 1;
+					--elsif(rising_edge(rxDataReady) and byteCount = 1) then
+					elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 1) then  -- rising edge
+						byteCount &lt;= 2;
+						go &lt;= '0';
+						txData &lt;= regData;
+					elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 2) then  -- rising edge, nothing is transmitted here
+						byteCount &lt;= 3;
+							
+						
+					elsif((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount = 3) then  --falling edge
+						state &lt;= S_IDLE;
+						byteCount &lt;= 0;
+					end if;
+				--00111101 00001000
+				when S_READ =&gt;
+					stateID &lt;= "101";
+					
+					mode &lt;= '1';
+					bytes &lt;= std_logic_vector(to_unsigned(byteCountRead, bytes'length));
+					rxDataReadyLast &lt;= rxDataReady;
+					if(byteCount = 0) then														-- Send Read Command
+						txData &lt;= "11110010";
+						go &lt;= '1';
+						byteCount &lt;= 1;
+					elsif(byteCount = 1) then													--next system clock enters here
+						txData &lt;= "00000000";							
+						go &lt;= '0';
+						if((rxDataReadyLast = '1' and rxDataReady = '0')) then		--wait until 8 bits are sent to update byte count 
+							byteCount &lt;= 2;
+						end if;
+						
+					else																				--read bytes 2 3 4 5 6 and 7
+						txData &lt;= "00000000";
+						go &lt;= '0';
+						
+						if((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount &lt;= byteCountRead) then
+	--						byteCount &lt;= byteCount + 1;
+	--						accel_data_buff((byteCount * 8)  - 1 downto (byteCount-1) * 8) &lt;= rxData;
+	--						if(byteCount = byteCountRead - 1) then
+	--							byteCount &lt;= 0;
+	--							next_state &lt;= S_OUTPUT;
+	--						end if;
+							if(byteCount = byteCountRead) then
+								byteCount &lt;= 0;
+								state &lt;= S_OUTPUT;
+							else
+								byteCount &lt;= byteCount + 1;
+								accel_data_buff(((byteCount-1) * 8)  - 1 downto (byteCount-2) * 8) &lt;=  rxData;-- std_logic_vector(to_unsigned(byteCount, bytes'length)); -- rxData;
+							end if;
+
+
+						end if;
+						
+						
+					end if;
+				when S_OUTPUT =&gt;
+					stateID &lt;= "110";
+					
+					if(sample_count &lt;= samples) then				-- enter for first n samples for calibration
+						if(sample_count = samples) then			-- compare sample count to threshold 
+							calibrate &lt;= '1';							-- set flag to calibrate with new values
+							calibData(0) &lt;= std_logic_vector(shift_right(signed(calibData(0)), 2 + sampleBits)); -- divide by number of samples for average, and convert to 64 LSB/1g (shifting a 10 bit value right arithmetically for an 8 bit value)
+							calibData(1) &lt;= std_logic_vector(shift_right(signed(calibData(1)), 2 + sampleBits));
+							calibData(2) &lt;= std_logic_vector(shift_right(signed(calibData(2)), sampleBits)); -- get average. Next clock cycle will compare to 1g (2^8), and then convert to 64 LSB/1g
+						else 												-- summation of samples
+							calibData(0) &lt;= std_logic_vector(signed(calibData(0)) + signed(accel_data_buff(15 downto   0))); -- summation of X data	
+							calibData(1) &lt;= std_logic_vector(signed(calibData(1)) + signed(accel_data_buff(31 downto  16))); -- summation of Y data	
+							calibData(2) &lt;= std_logic_vector(signed(calibData(2)) + signed(accel_data_buff(47 downto  32))); -- summation of Z data								
+						end if;
+						sample_count &lt;= sample_count + 1;	-- increment count, if n samples have been collected, one more prevents entering this if statement
+					accel_data &lt;= accel_data_buff;
+					else
+						accel_data &lt;= accel_data_buff;			-- clock collected accelerometer data for ouput
+					end if;
+						state &lt;= S_IDLE;								-- go back to idle to repeat the cycle
+					
+				when others =&gt; 
+					stateID &lt;= "111";
+						NULL;
+				
+			
+			
+			end case;
+
+
+			pol &lt;= '1';
+			pha &lt;= '1';
+		
+		end if;
+		
+	end process;
+
+	
+		m &lt;= mode;
+
+
+
+
+
+end fsm_1p;
+
+
+
+
+
+architecture fsm_2p of accel_driver is
+	
+	constant max	: natural := 50000000 / 5000000 ;
+	signal count			:		integer range 0 to max;
+	signal countSignal		: std_logic;
+	type STATE_TYPE is (S_START, S_IDLE, S_CONFIG, S_WRITE, S_READ, S_OUTPUT);-- S_TEST_IDLE, S_TEST_OUTPUT);
+	signal STATE, NEXT_STATE			:		STATE_TYPE;
+	--signal accel_x, accel_y, accel_z	:		std_logic_vector(15 downto 0);
+	signal accel_data_buff : std_logic_vector( 47 downto 0);
+	signal byteCount	: integer range -1 to 16;
+	constant byteCountRead : integer := 7;
+	signal mode			: std_logic;
+	signal reg	: integer range 0 to 3;
+	signal regAddr		: std_logic_vector (5 downto 0);
+	signal regData		: std_logic_vector (3 downto 0);
+	signal rxDataReadyLast : std_logic := '0';
+begin
+
+
+
+
+	process(clk, rst)
+	begin
+		if(rst = '1') then
+			state &lt;= S_START;
+			count &lt;= 0;
+			
+		elsif(clk'event and clk = '1') then
+			
+			
+			if(state = S_IDLE) then
+				if(count = max - 1) then
+				count &lt;= 0;
+				state &lt;= next_state;
+			
+				else 
+				count &lt;= count + 1;
+				state &lt;= S_IDLE;
+				end if;
+			
+			else
+			
+			state &lt;= next_state;
+			end if;
+				
+				
+		end if;
+		
+	end process;
+
+	
+
+
+	process(state, rxDataReady)
+	begin
+			next_state &lt;= state;
+			go &lt;= '0';
+			reg &lt;= 0;
+		--	byteCount &lt;= 0;
+			accel_data &lt;= (others =&gt; '0');
+			regData &lt;= "0000";
+			regAddr &lt;= "000000";
+			bytes &lt;= "0000";
+			txData &lt;= "00000000";
+			mode &lt;= '0';
+		case state is
+		
+			when S_START =&gt;
+				byteCount &lt;= 0;
+				mode &lt;= '0';
+				reg &lt;= 0;
+				rxDataReadyLast &lt;= '0';
+				next_state &lt;= S_IDLE;
+				--next_state &lt;= S_TEST_IDLE;
+				accel_data &lt;= (others =&gt; '0');
+				--go &lt;= '0';
+			
+--			when S_TEST_IDLE =&gt;
+--				
+--				bytes &lt;= "0010";
+--				rxDataReadyLast &lt;= rxDataReady;
+--				if(byteCount = 0) then
+--					txData &lt;= "10000000";
+--					go &lt;= '1';
+--					byteCount &lt;= 1;
+--				--elsif(rising_edge(rxDataReady) and byteCount = 1) then
+--				elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 1) then  -- rising edge
+--					byteCount &lt;= 2;
+--					go &lt;= '0';
+--					txData &lt;= "10000000";
+--				elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 2) then  -- rising edge, nothing is transmitted here
+--					byteCount &lt;= 3;
+--						
+--					
+--				elsif((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount = 3) then  --falling edge
+--					next_state &lt;= S_TEST_OUTPUT;
+--					byteCount &lt;= 0;
+--					accel_data_buff (7 downto 0) &lt;= rxData;
+--				end if;
+--				
+--			when S_TEST_OUTPUT =&gt;
+--				accel_data &lt;= accel_data_buff;
+--				--next_state &lt;= S_IDLE;
+				
+			when S_IDLE =&gt;
+				mode &lt;= mode;
+				reg &lt;= reg;
+				if(mode = '0') then next_state &lt;= S_CONFIG;
+				else next_state &lt;= S_READ;
+				end if;	
+				
+					
+			
+			when S_CONFIG =&gt;
+				case reg is
+					when 0 =&gt;
+						regAddr &lt;= "110001";
+						regData &lt;= "1000";
+						reg &lt;= reg + 1;
+						next_state &lt;= S_WRITE;
+					when 1 =&gt; 
+						regAddr &lt;= "101100";
+						regData &lt;= "0100";
+						reg &lt;= reg + 1;
+						next_state &lt;= S_WRITE;
+					when 2 =&gt; 
+						regAddr &lt;= "101101";
+						regData &lt;= "1000";
+						reg &lt;= 0;
+						next_state &lt;= S_WRITE;
+						mode &lt;= '1';
+--					when 3 =&gt;
+--						regAddr &lt;= "000000";
+--						regData &lt;= "0000";
+--						reg &lt;= 0;
+--						next_state &lt;= S_WRITE;
+--						mode &lt;= '1';
+					when others =&gt; null;
+				end case;
+			
+			when S_WRITE =&gt;
+				bytes &lt;= "0010";
+				rxDataReadyLast &lt;= rxDataReady;
+				regAddr &lt;= regAddr;
+				regData &lt;= regData;
+				--byteCount &lt;= byteCount;
+				reg &lt;= reg;
+				mode &lt;= mode;
+				--txData &lt;= txData;
+				if(byteCount = 0) then
+					txData &lt;= "00" &amp; regAddr;
+					go &lt;= '1';
+					byteCount &lt;= 1;
+				--elsif(rising_edge(rxDataReady) and byteCount = 1) then
+				elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 1) then  -- rising edge
+					byteCount &lt;= 2;
+					go &lt;= '0';
+					txData &lt;= "0000" &amp; regData;
+				elsif((rxDataReadyLast = '0' and rxDataReady = '1') and byteCount = 2) then  -- rising edge, nothing is transmitted here
+					byteCount &lt;= 3;
+						
+					
+				elsif((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount = 3) then  --falling edge
+					next_state &lt;= S_IDLE;
+					byteCount &lt;= 0;
+				end if;
+			--00111101 00001000
+			when S_READ =&gt;
+				mode &lt;= '1';
+				bytes &lt;= std_logic_vector(to_unsigned(byteCountRead, bytes'length));
+				rxDataReadyLast &lt;= rxDataReady;
+				if(byteCount = 0) then
+					txData &lt;= "11110010";
+					go &lt;= '1';
+					byteCount &lt;= 1;
+				else
+					txData &lt;= "00000000";
+					go &lt;= '0';
+					--if(falling_edge(rxDataReady) and byteCount &lt; byteCountRead) then		-- falling edge
+					if((rxDataReadyLast = '1' and rxDataReady = '0') and byteCount &lt;= byteCountRead) then
+--						byteCount &lt;= byteCount + 1;
+--						accel_data_buff((byteCount * 8)  - 1 downto (byteCount-1) * 8) &lt;= rxData;
+--						if(byteCount = byteCountRead - 1) then
+--							byteCount &lt;= 0;
+--							next_state &lt;= S_OUTPUT;
+--						end if;
+						if(byteCount = byteCountRead) then
+							byteCount &lt;= 0;
+							next_state &lt;= S_OUTPUT;
+						else
+							byteCount &lt;= byteCount + 1;
+							accel_data_buff((byteCount * 8)  - 1 downto (byteCount-1) * 8) &lt;= rxData;
+						end if;
+
+
+					end if;
+					
+					
+				end if;
+			when S_OUTPUT =&gt;
+				mode &lt;= '1';
+				accel_data &lt;= accel_data_buff;
+				next_state &lt;= S_IDLE;
+			when others =&gt; 
+				NULL;
+			
+		
+		
+		end case;
+
+
+		pol &lt;= '1';
+		pha &lt;= '1';
+		
+		
+		
+	end process;
+
+
+
+
+
+
+
+end fsm_2p;</vhdl>
+</project>

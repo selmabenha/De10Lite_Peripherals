@@ -35,15 +35,10 @@ entity spi_accelerometer is
 		
 		led0     : out std_logic_vector(6 downto 0);
       led0_dp  : out std_logic;
-		led1     : out std_logic_vector(6 downto 0);
       led1_dp  : out std_logic;
-		led2     : out std_logic_vector(6 downto 0);
       led2_dp  : out std_logic;
-		led3     : out std_logic_vector(6 downto 0);
       led3_dp  : out std_logic;
-		led4     : out std_logic_vector(6 downto 0);
       led4_dp  : out std_logic;
-		led5     : out std_logic_vector(6 downto 0);
       led5_dp  : out std_logic;
 		
 		rst_led  : out std_logic
@@ -152,44 +147,50 @@ begin
 	------------------------------------
 	U_LED0	:	entity work.decoder7seg
 		port map(
-			input => accel_data(3 downto 0),
+			input => accel_data(7 downto 4),
 			output =>led0
 		);
-	--led0_dp <= '0';
+	--led0_dp <= '1';
+	--led0 <= b"1111111";
 
-	U_LED1	:	entity work.decoder7seg
-		port map(
-			input => accel_data(7 downto 4),
-			output =>led1
-		);
+	--U_LED1	:	entity work.decoder7seg
+		--port map(
+			--input => accel_data(7 downto 4),
+			--output =>led1
+		--);
 	--led1_dp <= '0';
+	--led1 <= b"1111111";
 	
-	U_LED2	:	entity work.decoder7seg
-		port map(
-			input => accel_data(19 downto 16),
-			output =>led2
-		);
+	--U_LED2	:	entity work.decoder7seg
+		--port map(
+			--input => accel_data(19 downto 16),
+			--output =>led2
+		--);
 --	led2_dp <= '0';
+	--led2 <= b"1111111";
 
-	U_LED3	:	entity work.decoder7seg
-		port map(
-			input => accel_data(23 downto 20),
-			output =>led3
-		);
+	--U_LED3	:	entity work.decoder7seg
+		--port map(
+			--input => accel_data(23 downto 20),
+			--output =>led3
+		--);
 --	led3_dp <= '0';
+	--led3 <= b"1111111";
 	
-	U_LED4	:	entity work.decoder7seg
-		port map(
-			input => accel_data(35 downto 32),
-			output =>led4
-		);
+	--U_LED4	:	entity work.decoder7seg
+		--port map(
+			--input => accel_data(35 downto 32),
+			--output =>led4
+		--);
 --	led4_dp <= '0';
+--led4 <= b"1111111";
 
-	U_LED5	:	entity work.decoder7seg
-		port map(
-			input => accel_data(39 downto 36),
-			output =>led5
-		);
+	--U_LED5	:	entity work.decoder7seg
+		--port map(
+			--input => accel_data(39 downto 36),
+			--output =>led5
+		--);
+	--led5 <= b"1111111";
 	led5_dp <= not int1;
 
 
