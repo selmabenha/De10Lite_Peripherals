@@ -1,0 +1,18 @@
+The DE10-Lite Manual
+
+The Accelerometer Datasheet
+
+Understanding to use accelerometer:
+https://www.ece.ucdavis.edu/~bbaas/180/tutorials/accelerometer.html
+
+Accelerometer Implementation:
+https://github.com/bjohnsonfl/SPI_Accelerometer
+
+Understanding the mapping:
+https://github.com/jakubcabal/spi-fpga
+
+Comparator:
+https://www.electronics-lab.com/article/digital-comparator/
+
+Cascading Comparators:
+https://www.youtube.com/watch?time_continue=1126&v=wgje9eH3TT0&embeds_referring_euri=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D4-BIT%2BMAGNITUDE%2BCOMPARATOR%26sca_esv%3D23fe561e8cb38367%26sxsrf%3DACQVn08tGHVq0EAaYGle4pwVqCxFvSBwfg%253A1&source_ve_path=Mjg2NjY&feature=emb_logo
