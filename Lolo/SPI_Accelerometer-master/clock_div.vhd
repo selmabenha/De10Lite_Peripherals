@@ -100,69 +100,6 @@ architecture bhv of clock_div is
 			end if;
 		
 		
---			if(rst = '1' or enable = '0') then
---				count <= 0;
---				lastByteCount <= 0;
---				clk_active <= '0';
---				clock_signal <= polarity;
---				bit_count <= 0;
---				byte_count <= (others => '0');
---				byte_flag <= '0';
---			
---			elsif(rising_edge(clk_in) and enable = '1' and byte_count < bytes) then
---				
---					clk_active <= '1';
---					if (count = max-1) then
---						count <= 0;
---						clock_signal <= not clock_signal;
---						
---						if((not clock_signal) = polarity) then
---							--increment bit count
---							--increment byte count after 8 bits and clean bit count
---							--clear byte count after numOfBytes and clear active_clk
---							
---							byte_flag <= '0'; -- clear the byte flag
---						
---							if(bit_count = 7) then
---								byte_count <= std_logic_vector(unsigned(byte_count) + 1);
---								bit_count <= 0;
---								byte_flag <= '1'; --set byte flag for one cycle
---								
---								if( byte_count = std_logic_vector(unsigned(bytes) - 1)) then
---									--clk_active <= '0';
---									--clock_signal <=  clock_signal; --do not toggle clock 
---									
---								end if;
---							
---								
---							else
---								bit_count <= bit_count + 1;
---							end if;
---							
-----							if( byte_count = bytes) then
-----								clk_active <= '0';
-----							end if;
---							
---						end if;
---					else
---						count <= count + 1;
---					end if;
---				
---			
---			elsif(rising_edge(clk_in) and enable = '1') then
---			
---				clk_active <= '1';
---					if (lastByteCount = max-1) then
---						lastByteCount <= 0;
---						clk_active <= '0';
---					else
---						lastByteCount <= lastByteCount + 1;
---					end if;
---				
---				
---				
---			end if;
-		--clk_out <= clock_signal;
 		end process;
 		
 		clk_out <= clock_signal;
