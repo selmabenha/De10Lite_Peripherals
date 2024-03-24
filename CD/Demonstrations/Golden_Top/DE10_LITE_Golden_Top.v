@@ -75,6 +75,12 @@ module DE10_LITE_Golden_Top(
 //  Structural coding
 //=======================================================
 
+// AND gate using switches SW0 and SW1 as input, LED0 as output
+// OR gate using buttons KEY0 and KEY1 as input, LED1 as output
+
+assign LEDR[0] = SW[0] & SW[1] ;
+assign LEDR[1] = KEY[0]|KEY[1];
+
 
 
 endmodule
