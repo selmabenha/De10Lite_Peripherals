@@ -1,9 +1,38 @@
-07.03.2024
+04.03.2024
 	- Installations done:
 		- Create project repository, shared with Loic and installed Git on PC and Mac to share repository with starting files
 		- Download Eclipse Temurin JDK with Hotspot 16.0.2+7
 		- Download logisim-evolution 3.7.2
 		- Download Quartus Prime Lite
 		- Revamp USB Blaster
-	- 
+
+07.03.2024
+	- Ran Circuit example on DE10lite
+	- Read through circuit code & TPs
+
+10.03.2024
+	- Learned the basics of Quartus
+	- Researched possible UART implementations
+	- Looked at basics of VHDL vs. Verilog
 	
+12.03.2024
+	- Translated Hildebrand's verilog UART code into VHDL
+	- Tried adding end of Toni's code to have an input/output signal: https://www.youtube.com/watch?v=fMmcSpgOtJ4
+	
+
+13.03.2024	
+	- Mapped inputs/outputs of original Hildebrand VHDL code (without Toni's part), only status info worked
+	- Tried implementing Nandland version of UART with testbench, complications in wait statements (tried replacing with state machines, more errors in signaling)
+	- Download RealTerm Serial Capture Program
+	- Download WaveForms
+	- To do:
+		- Understand basics of UART inputs/outputs to do so
+		- As a result better implement Toni's code
+		- Look into RealTerm Serial Capture Program
+
+Partie 1: test bench, test oscilloscope (quartus et logisim) sur TX, puis eventuellement RX, apres faire un echo sur realterm: tp7 microcontroleurs, Tout est traduit sur logisim et optimise 
+
+23.03.2024
+	- Create basic instruction on logisim to get current through the oscilloscope, test on WaveForms: Done. 
+	To Do:
+	- Test bench on TX on quartus through oscilloscope as well? Closer look at what bench actually does.
