@@ -21,6 +21,18 @@ ARCHITECTURE platformIndependent OF show_directions_and_angle IS
                 result : OUT std_logic );
       END COMPONENT;
 
+      COMPONENT accel_main_driver
+         PORT ( accel_input       : IN  std_logic;
+                enable_accel      : IN  std_logic;
+                logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
+                miso              : IN  std_logic;
+                rst               : IN  std_logic;
+                Accelerometer     : OUT std_logic_vector( 47 DOWNTO 0 );
+                cs                : OUT std_logic;
+                mosi              : OUT std_logic;
+                sclk              : OUT std_logic );
+      END COMPONENT;
+
       COMPONENT right_force
          PORT ( L1                : IN  std_logic;
                 L2                : IN  std_logic;
@@ -73,32 +85,20 @@ ARCHITECTURE platformIndependent OF show_directions_and_angle IS
                 within_range      : OUT std_logic );
       END COMPONENT;
 
-      COMPONENT accel_main_driver
-         PORT ( accel_input       : IN  std_logic;
-                enable_accel      : IN  std_logic;
-                logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
-                miso              : IN  std_logic;
-                rst               : IN  std_logic;
-                Accelerometer     : OUT std_logic_vector( 47 DOWNTO 0 );
-                cs                : OUT std_logic;
-                mosi              : OUT std_logic;
-                sclk              : OUT std_logic );
-      END COMPONENT;
-
 --------------------------------------------------------------------------------
 -- All used signals are defined here                                          --
 --------------------------------------------------------------------------------
    SIGNAL s_logisimBus11 : std_logic_vector( 47 DOWNTO 0 );
-   SIGNAL s_logisimBus22 : std_logic_vector( 15 DOWNTO 0 );
-   SIGNAL s_logisimBus24 : std_logic_vector( 15 DOWNTO 0 );
-   SIGNAL s_logisimBus25 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus26 : std_logic_vector( 15 DOWNTO 0 );
-   SIGNAL s_logisimBus27 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus28 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus29 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus30 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus31 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimBus32 : std_logic_vector( 15 DOWNTO 0 );
+   SIGNAL s_logisimBus33 : std_logic_vector( 15 DOWNTO 0 );
+   SIGNAL s_logisimBus34 : std_logic_vector( 15 DOWNTO 0 );
+   SIGNAL s_logisimBus35 : std_logic_vector( 15 DOWNTO 0 );
+   SIGNAL s_logisimBus36 : std_logic_vector( 15 DOWNTO 0 );
    SIGNAL s_logisimNet0  : std_logic;
    SIGNAL s_logisimNet1  : std_logic;
    SIGNAL s_logisimNet10 : std_logic;
@@ -112,11 +112,11 @@ ARCHITECTURE platformIndependent OF show_directions_and_angle IS
    SIGNAL s_logisimNet19 : std_logic;
    SIGNAL s_logisimNet2  : std_logic;
    SIGNAL s_logisimNet20 : std_logic;
+   SIGNAL s_logisimNet21 : std_logic;
+   SIGNAL s_logisimNet22 : std_logic;
+   SIGNAL s_logisimNet23 : std_logic;
+   SIGNAL s_logisimNet24 : std_logic;
    SIGNAL s_logisimNet3  : std_logic;
-   SIGNAL s_logisimNet33 : std_logic;
-   SIGNAL s_logisimNet34 : std_logic;
-   SIGNAL s_logisimNet35 : std_logic;
-   SIGNAL s_logisimNet36 : std_logic;
    SIGNAL s_logisimNet4  : std_logic;
    SIGNAL s_logisimNet5  : std_logic;
    SIGNAL s_logisimNet6  : std_logic;
@@ -129,10 +129,10 @@ BEGIN
    --------------------------------------------------------------------------------
    -- Here all input connections are defined                                     --
    --------------------------------------------------------------------------------
-   s_logisimNet33 <= rst;
-   s_logisimNet34 <= miso;
-   s_logisimNet35 <= accel_input;
-   s_logisimNet36 <= enable_accel;
+   s_logisimNet21 <= rst;
+   s_logisimNet22 <= miso;
+   s_logisimNet23 <= accel_input;
+   s_logisimNet24 <= enable_accel;
 
    --------------------------------------------------------------------------------
    -- Here all output connections are defined                                    --
@@ -146,43 +146,43 @@ BEGIN
    --------------------------------------------------------------------------------
 
    -- Constant
-    s_logisimBus28(15 DOWNTO 0)  <=  X"0000";
+    s_logisimBus32(15 DOWNTO 0)  <=  X"0000";
 
 
    -- Constant
-    s_logisimBus22(15 DOWNTO 0)  <=  X"002D";
+    s_logisimBus26(15 DOWNTO 0)  <=  X"002D";
 
 
    -- Constant
-    s_logisimBus31(15 DOWNTO 0)  <=  X"FFBA";
+    s_logisimBus35(15 DOWNTO 0)  <=  X"FFBA";
 
 
    -- Constant
-    s_logisimBus30(15 DOWNTO 0)  <=  X"FFFF";
+    s_logisimBus34(15 DOWNTO 0)  <=  X"FFFF";
 
 
    -- Constant
-    s_logisimBus29(15 DOWNTO 0)  <=  X"002D";
+    s_logisimBus33(15 DOWNTO 0)  <=  X"002D";
 
 
    -- Constant
-    s_logisimBus32(15 DOWNTO 0)  <=  X"FFD2";
+    s_logisimBus36(15 DOWNTO 0)  <=  X"FFD2";
 
 
    -- Constant
-    s_logisimBus25(15 DOWNTO 0)  <=  X"007A";
+    s_logisimBus29(15 DOWNTO 0)  <=  X"007A";
 
 
    -- Constant
-    s_logisimBus26(15 DOWNTO 0)  <=  X"00A7";
+    s_logisimBus30(15 DOWNTO 0)  <=  X"00A7";
 
 
    -- Constant
-    s_logisimBus24(15 DOWNTO 0)  <=  X"004D";
+    s_logisimBus28(15 DOWNTO 0)  <=  X"004D";
 
 
    -- Constant
-    s_logisimBus27(15 DOWNTO 0)  <=  X"00D4";
+    s_logisimBus31(15 DOWNTO 0)  <=  X"00D4";
 
 
    --------------------------------------------------------------------------------
@@ -204,6 +204,17 @@ BEGIN
    --------------------------------------------------------------------------------
    -- Here all sub-circuits are defined                                          --
    --------------------------------------------------------------------------------
+
+   accel_main_driver_1 : accel_main_driver
+      PORT MAP ( Accelerometer     => s_logisimBus11(47 DOWNTO 0),
+                 accel_input       => s_logisimNet23,
+                 cs                => s_logisimNet20,
+                 enable_accel      => s_logisimNet24,
+                 logisimClockTree0 => logisimClockTree0,
+                 miso              => s_logisimNet22,
+                 mosi              => s_logisimNet18,
+                 rst               => s_logisimNet21,
+                 sclk              => s_logisimNet19 );
 
    right_force_1 : right_force
       PORT MAP ( L                 => s_logisimNet12,
@@ -230,60 +241,60 @@ BEGIN
    angle_checker_one_axis_2 : angle_checker_one_axis
       PORT MAP ( AXIS              => s_logisimBus11(31 DOWNTO 16),
                  L                 => s_logisimNet2,
-                 LHB1              => s_logisimBus27(15 DOWNTO 0),
-                 LHB2              => s_logisimBus32(15 DOWNTO 0),
-                 LLB1              => s_logisimBus26(15 DOWNTO 0),
-                 LLB2              => s_logisimBus31(15 DOWNTO 0),
+                 LHB1              => s_logisimBus31(15 DOWNTO 0),
+                 LHB2              => s_logisimBus36(15 DOWNTO 0),
+                 LLB1              => s_logisimBus30(15 DOWNTO 0),
+                 LLB2              => s_logisimBus35(15 DOWNTO 0),
                  M                 => s_logisimNet13,
-                 MHB1              => s_logisimBus26(15 DOWNTO 0),
-                 MHB2              => s_logisimBus30(15 DOWNTO 0),
-                 MLB1              => s_logisimBus25(15 DOWNTO 0),
-                 MLB2              => s_logisimBus32(15 DOWNTO 0),
+                 MHB1              => s_logisimBus30(15 DOWNTO 0),
+                 MHB2              => s_logisimBus34(15 DOWNTO 0),
+                 MLB1              => s_logisimBus29(15 DOWNTO 0),
+                 MLB2              => s_logisimBus36(15 DOWNTO 0),
                  S                 => s_logisimNet7,
-                 SHB1              => s_logisimBus25(15 DOWNTO 0),
-                 SHB2              => s_logisimBus29(15 DOWNTO 0),
-                 SLB1              => s_logisimBus24(15 DOWNTO 0),
-                 SLB2              => s_logisimBus28(15 DOWNTO 0),
+                 SHB1              => s_logisimBus29(15 DOWNTO 0),
+                 SHB2              => s_logisimBus33(15 DOWNTO 0),
+                 SLB1              => s_logisimBus28(15 DOWNTO 0),
+                 SLB2              => s_logisimBus32(15 DOWNTO 0),
                  logisimClockTree0 => logisimClockTree0 );
 
    LEFT : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus27(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus24(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus31(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus28(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(15 DOWNTO 0),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet17 );
 
    RIGHT1 : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus22(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus28(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus26(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus32(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(15 DOWNTO 0),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet10 );
 
    RIGHT2 : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus30(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus31(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus34(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus35(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(15 DOWNTO 0),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet4 );
 
    DOWN : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus27(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus24(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus31(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus28(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(31 DOWNTO 16),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet3 );
 
    UP1 : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus22(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus28(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus26(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus32(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(31 DOWNTO 16),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet6 );
 
    UP2 : in_range
-      PORT MAP ( Higher_bound      => s_logisimBus30(15 DOWNTO 0),
-                 Lower_bound       => s_logisimBus31(15 DOWNTO 0),
+      PORT MAP ( Higher_bound      => s_logisimBus34(15 DOWNTO 0),
+                 Lower_bound       => s_logisimBus35(15 DOWNTO 0),
                  Number_to_check   => s_logisimBus11(31 DOWNTO 16),
                  logisimClockTree0 => logisimClockTree0,
                  within_range      => s_logisimNet14 );
@@ -291,20 +302,20 @@ BEGIN
    angle_checker_one_axis_1 : angle_checker_one_axis
       PORT MAP ( AXIS              => s_logisimBus11(15 DOWNTO 0),
                  L                 => s_logisimNet1,
-                 LHB1              => s_logisimBus27(15 DOWNTO 0),
-                 LHB2              => s_logisimBus32(15 DOWNTO 0),
-                 LLB1              => s_logisimBus26(15 DOWNTO 0),
-                 LLB2              => s_logisimBus31(15 DOWNTO 0),
+                 LHB1              => s_logisimBus31(15 DOWNTO 0),
+                 LHB2              => s_logisimBus36(15 DOWNTO 0),
+                 LLB1              => s_logisimBus30(15 DOWNTO 0),
+                 LLB2              => s_logisimBus35(15 DOWNTO 0),
                  M                 => s_logisimNet9,
-                 MHB1              => s_logisimBus26(15 DOWNTO 0),
-                 MHB2              => s_logisimBus30(15 DOWNTO 0),
-                 MLB1              => s_logisimBus25(15 DOWNTO 0),
-                 MLB2              => s_logisimBus32(15 DOWNTO 0),
+                 MHB1              => s_logisimBus30(15 DOWNTO 0),
+                 MHB2              => s_logisimBus34(15 DOWNTO 0),
+                 MLB1              => s_logisimBus29(15 DOWNTO 0),
+                 MLB2              => s_logisimBus36(15 DOWNTO 0),
                  S                 => s_logisimNet8,
-                 SHB1              => s_logisimBus25(15 DOWNTO 0),
-                 SHB2              => s_logisimBus29(15 DOWNTO 0),
-                 SLB1              => s_logisimBus24(15 DOWNTO 0),
-                 SLB2              => s_logisimBus28(15 DOWNTO 0),
+                 SHB1              => s_logisimBus29(15 DOWNTO 0),
+                 SHB2              => s_logisimBus33(15 DOWNTO 0),
+                 SLB1              => s_logisimBus28(15 DOWNTO 0),
+                 SLB2              => s_logisimBus32(15 DOWNTO 0),
                  logisimClockTree0 => logisimClockTree0 );
 
    sevenseg_directions_output_1 : sevenseg_directions_output
@@ -326,16 +337,5 @@ BEGIN
                  U                    => s_logisimNet15,
                  logisimClockTree0    => logisimClockTree0,
                  logisimOutputBubbles => logisimOutputBubbles(23  DOWNTO  16) );
-
-   accel_main_driver_1 : accel_main_driver
-      PORT MAP ( Accelerometer     => s_logisimBus11(47 DOWNTO 0),
-                 accel_input       => s_logisimNet35,
-                 cs                => s_logisimNet20,
-                 enable_accel      => s_logisimNet36,
-                 logisimClockTree0 => logisimClockTree0,
-                 miso              => s_logisimNet34,
-                 mosi              => s_logisimNet18,
-                 rst               => s_logisimNet33,
-                 sclk              => s_logisimNet19 );
 
 END platformIndependent;
