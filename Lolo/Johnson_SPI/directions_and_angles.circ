@@ -602,9 +602,7 @@
     </comp>
     <comp lib="1" loc="(830,330)" name="OR Gate"/>
     <comp lib="1" loc="(830,640)" name="OR Gate"/>
-    <comp lib="12" loc="(380,50)" name="accel_main_driver">
-      <a name="label" val="accel_main_driver_1"/>
-    </comp>
+    <comp lib="12" loc="(380,50)" name="accel_main_driver"/>
     <comp lib="8" loc="(248,417)" name="Text">
       <a name="color" val="#ff2a10"/>
       <a name="text" val="Right/Up angle"/>

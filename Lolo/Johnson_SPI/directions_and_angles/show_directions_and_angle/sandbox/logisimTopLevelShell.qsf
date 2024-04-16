@@ -19,7 +19,7 @@
 #
 # Quartus Prime
 # Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-# Date created = 21:39:06  March 18, 2024
+# Date created = 22:57:10  March 26, 2024
 #
 # -------------------------------------------------------------------------- #
 #
@@ -41,7 +41,7 @@ set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY logisimTopLevelShell
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:39:06  MARCH 18, 2024"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:57:10  MARCH 26, 2024"
 set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484

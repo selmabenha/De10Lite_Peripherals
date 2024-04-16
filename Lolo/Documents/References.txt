@@ -16,3 +16,12 @@ https://www.electronics-lab.com/article/digital-comparator/
 
 Cascading Comparators:
 https://www.youtube.com/watch?time_continue=1126&v=wgje9eH3TT0&embeds_referring_euri=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3D4-BIT%2BMAGNITUDE%2BCOMPARATOR%26sca_esv%3D23fe561e8cb38367%26sxsrf%3DACQVn08tGHVq0EAaYGle4pwVqCxFvSBwfg%253A1&source_ve_path=Mjg2NjY&feature=emb_logo
+
+float hack:
+https://forum.arduino.cc/t/display-floating-point-temperature-on-7-segment-display/184424/4
+
+accelerometer explained:
+https://www.youtube.com/watch?v=KMhbV1p3MWk&t=485s
+
+division:
+https://surf-vhdl.com/how-to-divide-an-integer-by-constant-in-vhdl/

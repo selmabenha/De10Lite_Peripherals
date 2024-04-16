@@ -1,0 +1,88 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2021  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+# Date created = 22:34:45  April 06, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		logisimTopLevelShell_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M50DAF484C7G
+set_global_assignment -name TOP_LEVEL_ENTITY logisimTopLevelShell
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 21.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:34:45  APRIL 06, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name FMAX_REQUIREMENT "100 MHz"
+set_global_assignment -name RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/arith/Adder_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/divide_two_num_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/hex_to_decimal_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/scale_down_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/twos_complement_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/gates/AND_GATE_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/plexers/Multiplexer_bus_2_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/toplevel/logisimTopLevelShell_entity.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/arith/Adder_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/divide_two_num_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/hex_to_decimal_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/scale_down_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/circuit/twos_complement_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/gates/AND_GATE_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/plexers/Multiplexer_bus_2_behavior.vhd"
+set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//division/scale_down/vhdl/toplevel/logisimTopLevelShell_behavior.vhd"
+set_location_assignment PIN_A8 -to Output_1_0
+set_location_assignment PIN_A7 -to n_Input_2_0
+set_location_assignment PIN_B8 -to n_Input_1_0
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE AREA
+set_global_assignment -name VHDL_FILE ../vhdl/arith/Adder_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/divide_two_num_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/hex_to_decimal_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/scale_down_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/twos_complement_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/gates/AND_GATE_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/plexers/Multiplexer_bus_2_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/toplevel/logisimTopLevelShell_entity.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/arith/Adder_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/divide_two_num_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/hex_to_decimal_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/scale_down_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/circuit/twos_complement_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/gates/AND_GATE_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/plexers/Multiplexer_bus_2_behavior.vhd
+set_global_assignment -name VHDL_FILE ../vhdl/toplevel/logisimTopLevelShell_behavior.vhd

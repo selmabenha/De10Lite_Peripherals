@@ -47,19 +47,19 @@ ARCHITECTURE platformIndependent OF print_accel_values IS
 -- All used signals are defined here                                          --
 --------------------------------------------------------------------------------
    SIGNAL s_logisimBus13 : std_logic_vector( 1 DOWNTO 0 );
-   SIGNAL s_logisimBus14 : std_logic_vector( 3 DOWNTO 0 );
+   SIGNAL s_logisimBus16 : std_logic_vector( 3 DOWNTO 0 );
    SIGNAL s_logisimBus17 : std_logic_vector( 3 DOWNTO 0 );
-   SIGNAL s_logisimBus23 : std_logic_vector( 3 DOWNTO 0 );
-   SIGNAL s_logisimBus25 : std_logic_vector( 3 DOWNTO 0 );
+   SIGNAL s_logisimBus18 : std_logic_vector( 3 DOWNTO 0 );
+   SIGNAL s_logisimBus19 : std_logic_vector( 3 DOWNTO 0 );
    SIGNAL s_logisimBus5  : std_logic_vector( 47 DOWNTO 0 );
+   SIGNAL s_logisimNet14 : std_logic;
    SIGNAL s_logisimNet15 : std_logic;
-   SIGNAL s_logisimNet16 : std_logic;
-   SIGNAL s_logisimNet18 : std_logic;
-   SIGNAL s_logisimNet19 : std_logic;
    SIGNAL s_logisimNet20 : std_logic;
    SIGNAL s_logisimNet21 : std_logic;
    SIGNAL s_logisimNet22 : std_logic;
+   SIGNAL s_logisimNet23 : std_logic;
    SIGNAL s_logisimNet24 : std_logic;
+   SIGNAL s_logisimNet25 : std_logic;
    SIGNAL s_logisimNet26 : std_logic;
 
 BEGIN
@@ -67,17 +67,17 @@ BEGIN
    --------------------------------------------------------------------------------
    -- Here all input connections are defined                                     --
    --------------------------------------------------------------------------------
-   s_logisimNet18 <= rst;
-   s_logisimNet19 <= miso;
-   s_logisimNet20 <= accel_input;
-   s_logisimNet21 <= enable_accel;
+   s_logisimNet20 <= rst;
+   s_logisimNet21 <= miso;
+   s_logisimNet22 <= accel_input;
+   s_logisimNet23 <= enable_accel;
 
    --------------------------------------------------------------------------------
    -- Here all output connections are defined                                    --
    --------------------------------------------------------------------------------
    cs   <= s_logisimNet26;
-   mosi <= s_logisimNet22;
-   sclk <= s_logisimNet24;
+   mosi <= s_logisimNet24;
+   sclk <= s_logisimNet25;
 
    --------------------------------------------------------------------------------
    -- Here all in-lined components are defined                                   --
@@ -93,19 +93,19 @@ BEGIN
    PLEXERS_1 : Multiplexer_bus_4
       GENERIC MAP ( nrOfBits => 4 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus5(7 DOWNTO 4),
-                 muxIn_1 => s_logisimBus5(23 DOWNTO 20),
-                 muxIn_2 => s_logisimBus5(39 DOWNTO 36),
+                 muxIn_0 => s_logisimBus5(3 DOWNTO 0),
+                 muxIn_1 => s_logisimBus5(19 DOWNTO 16),
+                 muxIn_2 => s_logisimBus5(35 DOWNTO 32),
                  muxIn_3 => X"0",
-                 muxOut  => s_logisimBus23(3 DOWNTO 0),
+                 muxOut  => s_logisimBus16(3 DOWNTO 0),
                  sel     => s_logisimBus13(1 DOWNTO 0) );
 
    PLEXERS_2 : Multiplexer_bus_4
       GENERIC MAP ( nrOfBits => 4 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus5(15 DOWNTO 12),
-                 muxIn_1 => s_logisimBus5(31 DOWNTO 28),
-                 muxIn_2 => s_logisimBus5(47 DOWNTO 44),
+                 muxIn_0 => s_logisimBus5(7 DOWNTO 4),
+                 muxIn_1 => s_logisimBus5(23 DOWNTO 20),
+                 muxIn_2 => s_logisimBus5(39 DOWNTO 36),
                  muxIn_3 => X"0",
                  muxOut  => s_logisimBus17(3 DOWNTO 0),
                  sel     => s_logisimBus13(1 DOWNTO 0) );
@@ -113,21 +113,21 @@ BEGIN
    PLEXERS_3 : Multiplexer_bus_4
       GENERIC MAP ( nrOfBits => 4 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus5(3 DOWNTO 0),
-                 muxIn_1 => s_logisimBus5(19 DOWNTO 16),
-                 muxIn_2 => s_logisimBus5(35 DOWNTO 32),
+                 muxIn_0 => s_logisimBus5(11 DOWNTO 8),
+                 muxIn_1 => s_logisimBus5(27 DOWNTO 24),
+                 muxIn_2 => s_logisimBus5(43 DOWNTO 40),
                  muxIn_3 => X"0",
-                 muxOut  => s_logisimBus25(3 DOWNTO 0),
+                 muxOut  => s_logisimBus18(3 DOWNTO 0),
                  sel     => s_logisimBus13(1 DOWNTO 0) );
 
    PLEXERS_4 : Multiplexer_bus_4
       GENERIC MAP ( nrOfBits => 4 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus5(11 DOWNTO 8),
-                 muxIn_1 => s_logisimBus5(27 DOWNTO 24),
-                 muxIn_2 => s_logisimBus5(43 DOWNTO 40),
+                 muxIn_0 => s_logisimBus5(15 DOWNTO 12),
+                 muxIn_1 => s_logisimBus5(31 DOWNTO 28),
+                 muxIn_2 => s_logisimBus5(47 DOWNTO 44),
                  muxIn_3 => X"0",
-                 muxOut  => s_logisimBus14(3 DOWNTO 0),
+                 muxOut  => s_logisimBus19(3 DOWNTO 0),
                  sel     => s_logisimBus13(1 DOWNTO 0) );
 
 
@@ -135,35 +135,35 @@ BEGIN
    -- Here all sub-circuits are defined                                          --
    --------------------------------------------------------------------------------
 
-   HEX2 : sevenseg_accel_output
-      PORT MAP ( Input_bus_1          => s_logisimBus14(3 DOWNTO 0),
+   HEX0 : sevenseg_accel_output
+      PORT MAP ( Input_bus_1          => s_logisimBus16(3 DOWNTO 0),
                  logisimClockTree0    => logisimClockTree0,
                  logisimOutputBubbles => logisimOutputBubbles(7  DOWNTO  0) );
 
-   HEX3 : sevenseg_accel_output
+   HEX1 : sevenseg_accel_output
       PORT MAP ( Input_bus_1          => s_logisimBus17(3 DOWNTO 0),
                  logisimClockTree0    => logisimClockTree0,
                  logisimOutputBubbles => logisimOutputBubbles(15  DOWNTO  8) );
 
-   accel_main_driver_1 : accel_main_driver
-      PORT MAP ( Accelerometer     => s_logisimBus5(47 DOWNTO 0),
-                 accel_input       => s_logisimNet20,
-                 cs                => s_logisimNet26,
-                 enable_accel      => s_logisimNet21,
-                 logisimClockTree0 => logisimClockTree0,
-                 miso              => s_logisimNet19,
-                 mosi              => s_logisimNet22,
-                 rst               => s_logisimNet18,
-                 sclk              => s_logisimNet24 );
-
-   HEX1 : sevenseg_accel_output
-      PORT MAP ( Input_bus_1          => s_logisimBus23(3 DOWNTO 0),
+   HEX2 : sevenseg_accel_output
+      PORT MAP ( Input_bus_1          => s_logisimBus18(3 DOWNTO 0),
                  logisimClockTree0    => logisimClockTree0,
                  logisimOutputBubbles => logisimOutputBubbles(23  DOWNTO  16) );
 
-   HEX0 : sevenseg_accel_output
-      PORT MAP ( Input_bus_1          => s_logisimBus25(3 DOWNTO 0),
+   HEX3 : sevenseg_accel_output
+      PORT MAP ( Input_bus_1          => s_logisimBus19(3 DOWNTO 0),
                  logisimClockTree0    => logisimClockTree0,
                  logisimOutputBubbles => logisimOutputBubbles(31  DOWNTO  24) );
+
+   accel_main_driver_1 : accel_main_driver
+      PORT MAP ( Accelerometer     => s_logisimBus5(47 DOWNTO 0),
+                 accel_input       => s_logisimNet22,
+                 cs                => s_logisimNet26,
+                 enable_accel      => s_logisimNet23,
+                 logisimClockTree0 => logisimClockTree0,
+                 miso              => s_logisimNet21,
+                 mosi              => s_logisimNet24,
+                 rst               => s_logisimNet20,
+                 sclk              => s_logisimNet25 );
 
 END platformIndependent;
