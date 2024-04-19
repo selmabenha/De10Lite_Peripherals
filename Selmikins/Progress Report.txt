@@ -34,5 +34,69 @@ Partie 1: test bench, test oscilloscope (quartus et logisim) sur TX, puis eventu
 
 23.03.2024
 	- Create basic instruction on logisim to get current through the oscilloscope, test on WaveForms: Done. 
-	To Do:
 	- Test bench on TX on quartus through oscilloscope as well? Closer look at what bench actually does.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Meeting 17.04.2024
+
+But de Partie I: faire fonctionner TX et RX sur l'oscilloscope avec VDHL en Quartus, puis sur Logisim
+
+- Oscilloscope fonctionne avec testbench simple sur logisim
+- Trouve un uart_tx en verilog, fonctionne sur oscilloscope
+- Re-ecrit le uart_tx en VHDL, fonctionne sur oscilloscope
+- Traduit le uart_tx en logisim, fonctionne en simulation, et sur la carte, pas encore sur oscilloscope
+Ca donne seulement des valeurs lents - je suis confus par rapport au Baud Rate (uart_tx), le CLK_PER_BIT (uart_tx), frequence (clock settings), divider value (clock settings), rate (waveform)
+
+- Essaye d'ecrire uart_rx equivalent a celui que j'ai trouve mais - quel testing? pour tx, on fixe une valeur a transmettre. pour rx,
+on peut envoyer depuis oscilloscope. peut etre c'est cela qui pose probleme?
+- uart_rx ne fonctionne pas sur oscilloscope
+
+
+Parte II du projet: 
+
+- 2 weeks to get Rx done, then start on button + led interaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
