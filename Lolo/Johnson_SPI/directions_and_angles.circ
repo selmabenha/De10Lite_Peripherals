@@ -13,8 +13,8 @@
       <a name="width" val="4"/>
     </tool>
     <tool name="Constant">
-      <a name="value" val="0xff"/>
-      <a name="width" val="8"/>
+      <a name="value" val="0xffff"/>
+      <a name="width" val="16"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -28,8 +28,8 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="file#accelerometer_ADXL345.circ" name="12"/>
-  <lib desc="file#print_ADXL345_values.circ" name="13"/>
+  <lib desc="file#print_ADXL345_values.circ" name="12"/>
+  <lib desc="file#accelerometer_ADXL345.circ" name="13"/>
   <main name="show_directions_and_angle"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -47,9 +47,7 @@
     <tool lib="8" name="Wiring Tool"/>
     <tool lib="8" name="Text Tool"/>
     <sep/>
-    <tool lib="0" name="Pin">
-      <a name="radix" val="16"/>
-    </tool>
+    <tool lib="0" name="Pin"/>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -93,32 +91,26 @@
     <comp lib="0" loc="(320,250)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="rst"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(320,270)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="miso"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(320,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="accel_input"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(320,310)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="enable_accel"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(320,330)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="LSB_selector"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(320,350)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="MSB_selector"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(540,250)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -138,16 +130,16 @@
       <a name="label" val="CS"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="13" loc="(1110,330)" name="sevenseg_accel_output">
+    <comp lib="12" loc="(1110,330)" name="sevenseg_accel_output">
       <a name="label" val="HUNDREDS"/>
     </comp>
-    <comp lib="13" loc="(1110,390)" name="sevenseg_accel_output">
+    <comp lib="12" loc="(1110,390)" name="sevenseg_accel_output">
       <a name="label" val="TENS"/>
     </comp>
-    <comp lib="13" loc="(1110,450)" name="sevenseg_accel_output">
+    <comp lib="12" loc="(1110,450)" name="sevenseg_accel_output">
       <a name="label" val="ONES"/>
     </comp>
-    <comp lib="13" loc="(800,290)" name="sign_hex_output">
+    <comp lib="12" loc="(800,290)" name="sign_hex_output">
       <a name="label" val="SIGN"/>
     </comp>
     <comp loc="(1020,330)" name="hex_to_decimal_2">
@@ -200,38 +192,29 @@
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="downloadBoard" val="TERASIC_DE10LITE_ACCEL"/>
     <a name="simulationFrequency" val="16.0"/>
-    <boardmap boardname="TERASIC_DE10LITE_ACCEL">
-      <mc/>
-    </boardmap>
     <comp lib="0" loc="(250,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="LSB_selector"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(250,260)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="MSB_selector"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(300,160)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="rst"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(300,180)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="miso"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(300,200)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="accel_input"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(300,220)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="enable_accel"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(360,1070)" name="Constant">
       <a name="value" val="0x46"/>
@@ -343,7 +326,7 @@
     <comp lib="1" loc="(820,660)" name="AND Gate"/>
     <comp lib="1" loc="(850,360)" name="AND Gate"/>
     <comp lib="1" loc="(850,450)" name="AND Gate"/>
-    <comp lib="13" loc="(520,160)" name="values_fast_filter_driver">
+    <comp lib="12" loc="(520,160)" name="values_fast_filter_driver">
       <a name="label" val="values_fast_filter_driver_1"/>
     </comp>
     <comp lib="3" loc="(400,1060)" name="Comparator">
@@ -537,13 +520,13 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(250,440)" name="Tunnel">
-      <a name="label" val="SLB2"/>
+      <a name="facing" val="east"/>
+      <a name="label" val="RLB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(250,440)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="RLB1"/>
+      <a name="label" val="SLB2"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
@@ -566,13 +549,18 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(250,540)" name="Tunnel">
+      <a name="label" val="MHB2"/>
+      <a name="labelfont" val="SansSerif bold 10"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(250,540)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="RHB2"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(250,540)" name="Tunnel">
-      <a name="label" val="MHB2"/>
+    <comp lib="0" loc="(250,580)" name="Tunnel">
+      <a name="label" val="LLB2"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
@@ -582,19 +570,14 @@
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(250,580)" name="Tunnel">
-      <a name="label" val="LLB2"/>
+    <comp lib="0" loc="(250,610)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="MLB2"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(250,610)" name="Tunnel">
       <a name="label" val="LHB2"/>
-      <a name="labelfont" val="SansSerif bold 10"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(250,610)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="MLB2"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
@@ -939,13 +922,13 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(80,510)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="SHB1"/>
+      <a name="label" val="MLB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(80,510)" name="Tunnel">
-      <a name="label" val="MLB1"/>
+      <a name="facing" val="east"/>
+      <a name="label" val="SHB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
@@ -959,24 +942,24 @@
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(80,580)" name="Tunnel">
+      <a name="label" val="LLB1"/>
+      <a name="labelfont" val="SansSerif bold 10"/>
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(80,580)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MHB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
-    <comp lib="0" loc="(80,580)" name="Tunnel">
-      <a name="label" val="LLB1"/>
+    <comp lib="0" loc="(80,610)" name="Tunnel">
+      <a name="label" val="LHB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(80,610)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="LHB"/>
-      <a name="labelfont" val="SansSerif bold 10"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(80,610)" name="Tunnel">
-      <a name="label" val="LHB1"/>
       <a name="labelfont" val="SansSerif bold 10"/>
       <a name="width" val="16"/>
     </comp>
@@ -1000,7 +983,7 @@
     </comp>
     <comp lib="1" loc="(830,330)" name="OR Gate"/>
     <comp lib="1" loc="(830,640)" name="OR Gate"/>
-    <comp lib="12" loc="(380,50)" name="accel_main_driver"/>
+    <comp lib="13" loc="(380,50)" name="accel_main_driver"/>
     <comp lib="8" loc="(248,417)" name="Text">
       <a name="color" val="#ff2a10"/>
       <a name="text" val="Right/Up angle"/>
