@@ -172,262 +172,320 @@ end Behavioral;&#13;
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="downloadBoard" val="TERASIC_DE10LITE"/>
-    <a name="downloadFrequency" val="1.0"/>
-    <a name="simulationFrequency" val="1024000.0"/>
+    <a name="downloadBoard" val="TERASIC_DE10LITE_100"/>
+    <a name="downloadFrequency" val="5.0E7"/>
+    <a name="simulationFrequency" val="2048000.0"/>
     <boardmap boardname="TERASIC_DE10LITE">
-      <mc key="/Input_1" pmap="371_355_0"/>
-      <mc key="/Output_1" map="485,21"/>
-      <mc key="/Output_2" map="485,8"/>
-      <mc key="/Output_bus_1" pmap="561_330_0,538_330_0,514_330_0,488_330_0,465_330_0,443_330_0,416_330_0,393_330_0"/>
+      <mc key="/Run_test" pmap="371_355_9"/>
+      <mc key="/Serial_n_out" map="485,8"/>
+      <mc key="/letter" pmap="561_330_0,538_330_0,514_330_0,488_330_0,465_330_0,443_330_0,416_330_0,393_330_0"/>
+      <mc key="/letter_busy" map="485,21"/>
+    </boardmap>
+    <boardmap boardname="TERASIC_DE10LITE_100">
+      <mc key="/Run_test" pmap="371_355_9"/>
+      <mc key="/Serial_n_out" map="485,8"/>
+      <mc key="/display_n_out" pmap="326_336_0"/>
+      <mc key="/letter" pmap="587_330_0,561_330_0,538_330_0,514_330_0,488_330_0,465_330_0,443_330_0,416_330_0"/>
+      <mc key="/letter_busy" pmap="326_336_7"/>
+    </boardmap>
+    <boardmap boardname="TERASIC_DE10LITE_50">
+      <mc key="/Run_test" pmap="371_355_9"/>
+      <mc key="/Serial_n_out" map="485,8"/>
+      <mc key="/display_n_out" pmap="326_336_0"/>
+      <mc key="/letter" pmap="587_330_0,561_330_0,538_330_0,514_330_0,488_330_0,465_330_0,443_330_0,416_330_0"/>
+      <mc key="/letter_busy" pmap="326_336_7"/>
     </boardmap>
     <comp lib="0" loc="(120,230)" name="Clock"/>
     <comp lib="0" loc="(120,260)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="Run_test"/>
     </comp>
-    <comp lib="0" loc="(450,350)" name="Pin">
+    <comp lib="0" loc="(480,370)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="letter"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
-    <comp lib="0" loc="(640,220)" name="Pin">
+    <comp lib="0" loc="(800,210)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="letter_output"/>
+      <a name="label" val="letter_busy"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(640,250)" name="Pin">
+    <comp lib="0" loc="(800,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Serial_n_out"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="12" loc="(200,190)" name="VHDL Entity">
-      <a name="content">library IEEE;&#13;
-use IEEE.STD_LOGIC_1164.ALL;&#13;
-use IEEE.NUMERIC_STD.ALL;&#13;
-&#13;
-entity uart_tx_tester is&#13;
-    Port (&#13;
-        clk_50M : in STD_LOGIC;               -- Input clock, assumed 50 MHz&#13;
-        run_test_raw : in STD_LOGIC;          -- HIGH indicates to continuously run test&#13;
-        tx_busy : in STD_LOGIC;               -- HIGH indicates transmitter is busy &#13;
-        data_out : out STD_LOGIC_VECTOR (7 downto 0);  -- Data byte (8 bits) to transmit&#13;
-        trigger : out STD_LOGIC                -- Trigger to tell UART module to begin transmission&#13;
-    );&#13;
-end uart_tx_tester;&#13;
-&#13;
-architecture Behavioral of uart_tx_tester is&#13;
-&#13;
-    signal run_test_0 : std_logic := '0';          -- Synchronizer for 'start test' switch input&#13;
-    signal run_test : std_logic := '0';            -- Synchronizer for 'start test' switch input&#13;
-    signal tester_state : unsigned(5 downto 0) := (others =&gt; '0');  -- FSM state variable&#13;
-    -- signal byte_index : unsigned(31 downto 0) := unsigned(8*16)-unsigned(1);          -- Pointer to beginning of next byte to transmit in 16 byte message&#13;
-    constant BYTE_INDEX_INIT: natural := (8*16)-1; -- Calculate the initial value for byte_index&#13;
-    signal byte_index : unsigned(31 downto 0) := to_unsigned(BYTE_INDEX_INIT, 32); -- Initialize byte_index with the calculated value&#13;
-	 signal pause_delay : unsigned(31 downto 0) := (others =&gt; '0');  -- Counter for delay between re-transmissions of message&#13;
-    signal trigger_ctr : unsigned(5 downto 0) := (others =&gt; '0');    -- Delay to hold trigger high, in clock cycles&#13;
-&#13;
-    constant STATE_IDLE : unsigned(5 downto 0) := "000000";          -- Legal values for tester_state&#13;
-    constant STATE_LOAD : unsigned(5 downto 0) := "000010";          -- Legal values for tester_state&#13;
-    constant STATE_TRIGGER : unsigned(5 downto 0) := "000100";       -- Legal values for tester_state&#13;
-    constant STATE_POLL_BUSY : unsigned(5 downto 0) := "001000";     -- Legal values for tester_state&#13;
-    constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state&#13;
-&#13;
-    constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000_000, 32);  -- Delay between messages re-transmissions, in clk cycles&#13;
-	 &#13;
-	 -- Message to transmit&#13;
-    signal byte_str : std_logic_vector((8*16)-1 downto 0) := "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
-                                                             "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
-&#13;-- hello world! is "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
-                                                            -- "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
-
-&#13;
-begin&#13;
-&#13;
-    -- Synchronizer for "run_test" input since, as tested, this comes from a &#13;
-    -- slide switch on the DE10-Lite board, which is not synchronous with the&#13;
-    -- clock.&#13;
-    process (clk_50M) begin&#13;
-        if rising_edge(clk_50M) then&#13;
-            run_test_0 &lt;= run_test_raw;&#13;
-            run_test &lt;= run_test_0;&#13;
-        end if;&#13;
-    end process;&#13;
-&#13;
-    -- Main Finite State Machine that sequences the test&#13;
-    process (clk_50M) begin&#13;
-        if rising_edge(clk_50M) then&#13;
-            case tester_state is&#13;
-                -- Wait for request to begin test.&#13;
-                when STATE_IDLE =&gt;&#13;
-                    trigger &lt;= '0';&#13;
-                    if run_test = '1' then&#13;
-                        byte_index &lt;= to_unsigned(BYTE_INDEX_INIT, 32);&#13;
-                        tester_state &lt;= STATE_LOAD;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Output next byte to transmitter module, with trigger still low&#13;
-                -- so it won't transmit yet.&#13;
-                when STATE_LOAD =&gt;&#13;
-                    trigger &lt;= '0';&#13;
-                    data_out &lt;= byte_str(to_integer(byte_index) downto to_integer(byte_index)-7);&#13;
-                    trigger_ctr &lt;= to_unsigned(5, 6);&#13;
-                    tester_state &lt;= STATE_TRIGGER;&#13;
-                    &#13;
-                -- Now that previous state output'd the next byte to transmit,&#13;
-                -- assert the trigger signal to begin the transmission.&#13;
-                when STATE_TRIGGER =&gt;&#13;
-                    trigger &lt;= '1';&#13;
-                    trigger_ctr &lt;= trigger_ctr - 1;&#13;
-                    if trigger_ctr = 0 then&#13;
-                        tester_state &lt;= STATE_POLL_BUSY;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Clear trigger signal, and wait until all bits shifted out&#13;
-                -- for the current byte.&#13;
-                when STATE_POLL_BUSY =&gt;&#13;
-                    trigger &lt;= '0';&#13;
-                    if tx_busy = '0' then&#13;
-                        if byte_index &lt;= 7 then&#13;
-                            pause_delay &lt;= (others =&gt; '0');&#13;
-                            tester_state &lt;= STATE_PAUSE;&#13;
-                        else&#13;
-                            byte_index &lt;= byte_index - 8;&#13;
-                            tester_state &lt;= STATE_LOAD;&#13;
-                        end if;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Once transmitted full message, pause before &#13;
-                -- transmitting message again for testing convenience.&#13;
-                when STATE_PAUSE =&gt;&#13;
-                    pause_delay &lt;= pause_delay + 1;&#13;
-                    if pause_delay &gt; to_integer(MSG_DELAY) then&#13;
-                        tester_state &lt;= STATE_IDLE;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Should never get here, but if do, return to IDLE&#13;
-                when others =&gt;&#13;
-                    tester_state &lt;= STATE_IDLE;&#13;
-            end case;&#13;
-        end if;&#13;
-    end process;&#13;
-&#13;
-end Behavioral;&#13;
-</a>
+    <comp lib="0" loc="(810,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="display_n_out"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp loc="(420,230)" name="uart_tx_tester">
+      <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="uart_tx_tester_1"/>
     </comp>
-    <comp lib="12" loc="(430,180)" name="VHDL Entity">
-      <a name="content">library IEEE;&#13;
-use IEEE.STD_LOGIC_1164.ALL;&#13;
-use IEEE.NUMERIC_STD.ALL;&#13;
-&#13;
-entity uart_tx is&#13;
-    Port (&#13;
-        clk_50M : in STD_LOGIC;               -- Input clock, assumed 50 MHz&#13;
-        data_raw : in STD_LOGIC_VECTOR (7 downto 0);  -- Data byte (8 bits) to transmit&#13;
-        trigger_raw : in STD_LOGIC;           -- Tells module to begin transmission of data_raw byte&#13;
-        busy : out STD_LOGIC;                 -- Flag to indicate a transmission is in progress&#13;
-        serial_out : out STD_LOGIC            -- UART output serial datastream&#13;
-    );&#13;
-end uart_tx;&#13;
-&#13;
-architecture Behavioral of uart_tx is&#13;
-	 &#13;
-	 constant CLKS_PER_BIT: integer := 8680;&#13; -- normally 868, reduce it to 1 for simulations
-	 &#13;
-    type state_type is (STATE_IDLE, STATE_TRANSMITTING, STATE_CLEANUP);&#13;
-    signal tx_state : state_type := STATE_IDLE;  -- State variable for main finite state machine&#13;
-    signal data_aug : std_logic_vector(9 downto 0) := (others =&gt; '0');  -- Augmented data word to transmit that includes START bit, data byte, and STOP BIT&#13;
-    signal tx_index : unsigned(3 downto 0) := (others =&gt; '0');  -- Index of bit currently transmitting&#13;
-    signal bit_delay : unsigned(31 downto 0) := (others =&gt; '0'); -- Timer to regulate baud rate&#13;
-&#13;
-    signal trigger_0 : std_logic := '0';  -- Synchronizer on trigger input signal&#13;
-    signal trigger : std_logic := '0';    -- Synchronizer on trigger input signal&#13;
-&#13;
-    -- Localparam CLKS_PER_BIT is not needed in VHDL since it's used as a constant value in the code directly&#13;
-&#13;
-begin&#13;
-&#13;
-    process (clk_50M) begin&#13;
-        if rising_edge(clk_50M) then&#13;
-            case tx_state is&#13;
-                -- Wait for trigger condition indicating it's time to transmit a byte.&#13;
-                when STATE_IDLE =&gt;&#13;
-                    busy &lt;= '0';                 -- Indicate that transmitter is idle.&#13;
-                    serial_out &lt;= '1';           -- Idle output HIGH, per standard UART behavior.&#13;
-                    if trigger = '1' then        -- Check if received trigger to TX a byte&#13;
-                        data_aug &lt;= '1' &amp; data_raw &amp; '0';   -- Create augmented byte with start and stop bits&#13;
-                        busy &lt;= '1';                        -- Indicate that transmitter is busy.&#13;
-                        bit_delay &lt;= (others =&gt; '0');       -- Clear timer used to track duration of each bit&#13;
-                        tx_index &lt;= (others =&gt; '0');        -- Point to first bit of data_aug to TX, namely the start bit&#13;
-                        tx_state &lt;= STATE_TRANSMITTING;     -- Move on to next state&#13;
-                    end if;&#13;
-                    &#13;
-                -- Transmit all 10 bits with proper the proper duration per bit based on the selected baud rate.&#13;
-                when STATE_TRANSMITTING =&gt;&#13;
-                    serial_out &lt;= data_aug(to_integer(tx_index));  -- Set output based on current bit to transmit&#13;
-                    bit_delay &lt;= bit_delay + 1;                     -- Keep track of duration to hold this bit&#13;
-                    if bit_delay &gt; to_unsigned(CLKS_PER_BIT, 32) then  -- Check if bit duration has expired&#13;
-                        if tx_index = "1001" then                  -- Check if just transmitted the final bit, i.e. the STOP bit&#13;
-                            tx_state &lt;= STATE_CLEANUP;            -- Move on to next state&#13;
-                        else&#13;
-                            tx_index &lt;= tx_index + 1;             -- Still more bits to send so, point to next bit&#13;
-                            bit_delay &lt;= (others =&gt; '0');         -- Clear counter used to regulate baud rate&#13;
-                        end if;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Pause for a few bit durations after full byte transmitted.&#13;
-                when STATE_CLEANUP =&gt;&#13;
-                    bit_delay &lt;= bit_delay + 1;                    -- Keep track of how long been in cleanup state&#13;
-                    if bit_delay &gt; to_unsigned(5 * CLKS_PER_BIT, 32) then  -- If paused HIGH long enough, then return to idle state&#13;
-                        tx_state &lt;= STATE_IDLE;&#13;
-                    end if;&#13;
-                    &#13;
-                -- Should never get here, but if do, return to IDLE&#13;
-                when others =&gt;&#13;
-                    tx_state &lt;= STATE_IDLE;&#13;
-            end case;&#13;
-        end if;&#13;
-    end process;&#13;
-&#13;
-    -- Synchronizer for trigger input&#13;
-    process (clk_50M) begin&#13;
-        if rising_edge(clk_50M) then&#13;
-            trigger_0 &lt;= trigger_raw;&#13;
-            trigger &lt;= trigger_0;&#13;
-        end if;&#13;
-    end process;&#13;
-&#13;
-end Behavioral;&#13;
-</a>
+    <comp loc="(730,210)" name="uart_tx">
+      <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="uart_tx_1"/>
     </comp>
     <wire from="(120,230)" to="(160,230)"/>
     <wire from="(120,260)" to="(140,260)"/>
-    <wire from="(140,240)" to="(140,260)"/>
-    <wire from="(140,240)" to="(200,240)"/>
+    <wire from="(140,250)" to="(140,260)"/>
+    <wire from="(140,250)" to="(200,250)"/>
     <wire from="(160,150)" to="(160,230)"/>
-    <wire from="(160,150)" to="(390,150)"/>
+    <wire from="(160,150)" to="(470,150)"/>
     <wire from="(160,230)" to="(200,230)"/>
-    <wire from="(180,130)" to="(180,250)"/>
-    <wire from="(180,130)" to="(590,130)"/>
-    <wire from="(180,250)" to="(200,250)"/>
-    <wire from="(340,230)" to="(380,230)"/>
-    <wire from="(340,240)" to="(430,240)"/>
-    <wire from="(380,230)" to="(380,350)"/>
-    <wire from="(380,230)" to="(430,230)"/>
-    <wire from="(380,350)" to="(450,350)"/>
-    <wire from="(390,150)" to="(390,220)"/>
-    <wire from="(390,220)" to="(430,220)"/>
-    <wire from="(570,220)" to="(590,220)"/>
-    <wire from="(570,230)" to="(610,230)"/>
-    <wire from="(590,130)" to="(590,220)"/>
-    <wire from="(590,220)" to="(640,220)"/>
-    <wire from="(610,230)" to="(610,250)"/>
-    <wire from="(610,250)" to="(640,250)"/>
+    <wire from="(180,130)" to="(180,270)"/>
+    <wire from="(180,130)" to="(750,130)"/>
+    <wire from="(180,270)" to="(200,270)"/>
+    <wire from="(420,230)" to="(460,230)"/>
+    <wire from="(420,250)" to="(510,250)"/>
+    <wire from="(460,230)" to="(460,370)"/>
+    <wire from="(460,230)" to="(510,230)"/>
+    <wire from="(460,370)" to="(480,370)"/>
+    <wire from="(470,150)" to="(470,210)"/>
+    <wire from="(470,210)" to="(510,210)"/>
+    <wire from="(730,210)" to="(750,210)"/>
+    <wire from="(730,230)" to="(770,230)"/>
+    <wire from="(750,130)" to="(750,210)"/>
+    <wire from="(750,210)" to="(800,210)"/>
+    <wire from="(770,230)" to="(770,240)"/>
+    <wire from="(770,240)" to="(770,290)"/>
+    <wire from="(770,240)" to="(800,240)"/>
+    <wire from="(770,290)" to="(810,290)"/>
   </circuit>
+  <vhdl name="uart_tx">--------------------------------------------------------------------------------&#13;
+-- Project :&#13; UART_Module
+-- File    :&#13; UART_TX
+-- Autor   :&#13; Selma Benhassine
+-- Date    :&#13; 
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13; The transmitter file for the UART_transmission portion of the project
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+&#13;
+entity uart_tx is
+    Port (
+        clk_50M : in STD_LOGIC;               -- Input clock, assumed 50 MHz
+        data_raw : in STD_LOGIC_VECTOR (7 downto 0);  -- Data byte (8 bits) to transmit
+        trigger_raw : in STD_LOGIC;           -- Tells module to begin transmission of data_raw byte
+        busy : out STD_LOGIC;                 -- Flag to indicate a transmission is in progress
+        serial_out : out STD_LOGIC            -- UART output serial datastream
+    );
+end uart_tx;
+&#13;
+--------------------------------------------------------------------------------&#13;
+--Complete your VHDL description below&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+architecture Behavioral of uart_tx is
+	 
+	 constant CLKS_PER_BIT: integer := 217;
+--  The calculation is as follows:
+--
+--                                                  1
+--     CLKS_PER_BIT =  F_clk [cycles/sec] * --------------------
+--                                           baud_rate[bit/sec]
+--  so 5208 gives 9.6k baud rate for clk at 50MHz
+--  f = 50MHz / 8 when going through logisim
+	 
+    type state_type is (STATE_IDLE, STATE_TRANSMITTING, STATE_CLEANUP);
+    signal tx_state : state_type := STATE_IDLE;  -- State variable for main finite state machine
+    signal data_aug : std_logic_vector(9 downto 0) := (others =&gt; '0');  -- Augmented data word to transmit that includes START bit, data byte, and STOP BIT
+    signal tx_index : unsigned(3 downto 0) := (others =&gt; '0');  -- Index of bit currently transmitting
+    signal bit_delay : unsigned(31 downto 0) := (others =&gt; '0'); -- Timer to regulate baud rate
+
+    signal trigger_0 : std_logic := '0';  -- Synchronizer on trigger input signal
+    signal trigger : std_logic := '0';    -- Synchronizer on trigger input signal
+
+    -- Localparam CLKS_PER_BIT is not needed in VHDL since it's used as a constant value in the code directly
+
+begin
+
+    process (clk_50M) begin
+        if rising_edge(clk_50M) then
+            case tx_state is
+                -- Wait for trigger condition indicating it's time to transmit a byte.
+                when STATE_IDLE =&gt;
+                    busy &lt;= '0';                 -- Indicate that transmitter is idle.
+                    serial_out &lt;= '1';           -- Idle output HIGH, per standard UART behavior.
+                    if trigger = '1' then        -- Check if received trigger to TX a byte
+                        data_aug &lt;= '1' &amp; data_raw &amp; '0';   -- Create augmented byte with start and stop bits
+                        busy &lt;= '1';                        -- Indicate that transmitter is busy.
+                        bit_delay &lt;= (others =&gt; '0');       -- Clear timer used to track duration of each bit
+                        tx_index &lt;= (others =&gt; '0');        -- Point to first bit of data_aug to TX, namely the start bit
+                        tx_state &lt;= STATE_TRANSMITTING;     -- Move on to next state
+                    end if;
+                    
+                -- Transmit all 10 bits with proper the proper duration per bit based on the selected baud rate.
+                when STATE_TRANSMITTING =&gt;
+                    serial_out &lt;= data_aug(to_integer(tx_index));  -- Set output based on current bit to transmit
+                    bit_delay &lt;= bit_delay + 1;                     -- Keep track of duration to hold this bit
+                    if bit_delay &gt; to_unsigned(CLKS_PER_BIT, 32) then  -- Check if bit duration has expired
+                        if tx_index = "1001" then                  -- Check if just transmitted the final bit, i.e. the STOP bit
+                            tx_state &lt;= STATE_CLEANUP;            -- Move on to next state
+                        else
+                            tx_index &lt;= tx_index + 1;             -- Still more bits to send so, point to next bit
+                            bit_delay &lt;= (others =&gt; '0');         -- Clear counter used to regulate baud rate
+                        end if;
+                    end if;
+                    
+                -- Pause for a few bit durations after full byte transmitted.
+                when STATE_CLEANUP =&gt;
+                    bit_delay &lt;= bit_delay + 1;                    -- Keep track of how long been in cleanup state
+                    if bit_delay &gt; to_unsigned(5 * CLKS_PER_BIT, 32) then  -- If paused HIGH long enough, then return to idle state
+                        tx_state &lt;= STATE_IDLE;
+                    end if;
+                    
+                -- Should never get here, but if do, return to IDLE
+                when others =&gt;
+                    tx_state &lt;= STATE_IDLE;
+            end case;
+        end if;
+    end process;
+
+    -- Synchronizer for trigger input
+    process (clk_50M) begin
+        if rising_edge(clk_50M) then
+            trigger_0 &lt;= trigger_raw;
+            trigger &lt;= trigger_0;
+        end if;
+    end process;
+
+end Behavioral;
+</vhdl>
+  <vhdl name="uart_tx_tester">--------------------------------------------------------------------------------&#13;
+-- Project :&#13; UART_Module
+-- File    :&#13; UART_Transmitter_Tester
+-- Autor   :&#13; Selma Benhassine
+-- Date    :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13; Testbench file for the UART transmitter
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity uart_tx_tester is
+    Port (
+        clk_50M : in STD_LOGIC;               -- Input clock, assumed 50 MHz
+        run_test_raw : in STD_LOGIC;          -- HIGH indicates to continuously run test
+        tx_busy : in STD_LOGIC;               -- HIGH indicates transmitter is busy 
+        data_out : out STD_LOGIC_VECTOR (7 downto 0);  -- Data byte (8 bits) to transmit
+        trigger : out STD_LOGIC                -- Trigger to tell UART module to begin transmission
+    );
+end uart_tx_tester;
+
+architecture Behavioral of uart_tx_tester is
+
+    signal run_test_0 : std_logic := '0';          -- Synchronizer for 'start test' switch input
+    signal run_test : std_logic := '0';            -- Synchronizer for 'start test' switch input
+    signal tester_state : unsigned(5 downto 0) := (others =&gt; '0');  -- FSM state variable
+    -- signal byte_index : unsigned(31 downto 0) := unsigned(8*16)-unsigned(1);          -- Pointer to beginning of next byte to transmit in 16 byte message
+    constant BYTE_INDEX_INIT: natural := (8*16)-1; -- Calculate the initial value for byte_index
+    signal byte_index : unsigned(31 downto 0) := to_unsigned(BYTE_INDEX_INIT, 32); -- Initialize byte_index with the calculated value
+	 signal pause_delay : unsigned(31 downto 0) := (others =&gt; '0');  -- Counter for delay between re-transmissions of message
+    signal trigger_ctr : unsigned(5 downto 0) := (others =&gt; '0');    -- Delay to hold trigger high, in clock cycles
+
+    constant STATE_IDLE : unsigned(5 downto 0) := "000000";          -- Legal values for tester_state
+    constant STATE_LOAD : unsigned(5 downto 0) := "000010";          -- Legal values for tester_state
+    constant STATE_TRIGGER : unsigned(5 downto 0) := "000100";       -- Legal values for tester_state
+    constant STATE_POLL_BUSY : unsigned(5 downto 0) := "001000";     -- Legal values for tester_state
+    constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state
+
+    constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
+	 
+	 -- Message to transmit
+    signal byte_str : std_logic_vector((8*16)-1 downto 0) := "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
+                                                             "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
+
+-- hello world! is "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
+                                                            -- "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
+
+
+begin
+
+    -- Synchronizer for "run_test" input since, as tested, this comes from a 
+    -- slide switch on the DE10-Lite board, which is not synchronous with the
+    -- clock.
+    process (clk_50M) begin
+        if rising_edge(clk_50M) then
+            run_test_0 &lt;= run_test_raw;
+            run_test &lt;= run_test_0;
+        end if;
+    end process;
+
+    -- Main Finite State Machine that sequences the test
+    process (clk_50M) begin
+        if rising_edge(clk_50M) then
+            case tester_state is
+                -- Wait for request to begin test.
+                when STATE_IDLE =&gt;
+                    trigger &lt;= '0';
+                    if run_test = '1' then
+                        byte_index &lt;= to_unsigned(BYTE_INDEX_INIT, 32);
+                        tester_state &lt;= STATE_LOAD;
+                    end if;
+                    
+                -- Output next byte to transmitter module, with trigger still low
+                -- so it won't transmit yet.
+                when STATE_LOAD =&gt;
+                    trigger &lt;= '0';
+                    data_out &lt;= byte_str(to_integer(byte_index) downto to_integer(byte_index)-7);
+                    trigger_ctr &lt;= to_unsigned(5, 6);
+                    tester_state &lt;= STATE_TRIGGER;
+                    
+                -- Now that previous state output'd the next byte to transmit,
+                -- assert the trigger signal to begin the transmission.
+                when STATE_TRIGGER =&gt;
+                    trigger &lt;= '1';
+                    trigger_ctr &lt;= trigger_ctr - 1;
+                    if trigger_ctr = 0 then
+                        tester_state &lt;= STATE_POLL_BUSY;
+                    end if;
+                    
+                -- Clear trigger signal, and wait until all bits shifted out
+                -- for the current byte.
+                when STATE_POLL_BUSY =&gt;
+                    trigger &lt;= '0';
+                    if tx_busy = '0' then
+                        if byte_index &lt;= 7 then
+                            pause_delay &lt;= (others =&gt; '0');
+                            tester_state &lt;= STATE_PAUSE;
+                        else
+                            byte_index &lt;= byte_index - 8;
+                            tester_state &lt;= STATE_LOAD;
+                        end if;
+                    end if;
+                    
+                -- Once transmitted full message, pause before 
+                -- transmitting message again for testing convenience.
+                when STATE_PAUSE =&gt;
+                    pause_delay &lt;= pause_delay + 1;
+                    if pause_delay &gt; to_integer(MSG_DELAY) then
+                        tester_state &lt;= STATE_IDLE;
+                    end if;
+                    
+                -- Should never get here, but if do, return to IDLE
+                when others =&gt;
+                    tester_state &lt;= STATE_IDLE;
+            end case;
+        end if;
+    end process;
+
+end Behavioral;
+</vhdl>
 </project>
