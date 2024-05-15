@@ -26,7 +26,7 @@
 // 
 // Set Parameter CLKS_PER_BIT as follows:
 // CLKS_PER_BIT = (Frequency of i_Clock)/(Frequency of UART)
-// Example: 50 MHz Clock, 57600 baud UART try some shit. 110 Baud rate, 50000000/110 = 454545
+// Example: 50 MHz Clock, 57600 baud UART try something. 110 Baud rate, 50000000/110 = 454545
 // (50000000)/(57600) = 868 CLKS_PER_BIT
  
 `default_nettype none
