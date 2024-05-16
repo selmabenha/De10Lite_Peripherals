@@ -18,7 +18,6 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <lib desc="#HDL-IP" name="12"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -63,7 +62,12 @@
     <a name="simulationFrequency" val="2048000.0"/>
     <boardmap boardname="TERASIC_DE10LITE_100">
       <mc key="/bit_out" map="485,8"/>
-      <mc key="/letter_display" map="326,336"/>
+      <mc key="/letter_0" map="326,336"/>
+      <mc key="/letter_1" map="286,336"/>
+      <mc key="/letter_2" map="245,336"/>
+      <mc key="/letter_3" map="204,336"/>
+      <mc key="/letter_4" map="163,336"/>
+      <mc key="/letter_5" map="122,336"/>
       <mc key="/run_test" pmap="371_355_9"/>
       <mc key="/serial_in" map="485,21"/>
     </boardmap>
@@ -139,15 +143,17 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="uart_tx_1"/>
     </comp>
-    <comp loc="(930,830)" name="sentence_disp"/>
+    <comp loc="(930,830)" name="sentence_disp">
+      <a name="label" val="sentence_disp_1"/>
+    </comp>
     <wire from="(240,850)" to="(310,850)"/>
     <wire from="(250,480)" to="(340,480)"/>
     <wire from="(260,650)" to="(400,650)"/>
     <wire from="(270,400)" to="(270,500)"/>
     <wire from="(270,400)" to="(830,400)"/>
     <wire from="(270,500)" to="(340,500)"/>
-    <wire from="(310,420)" to="(310,460)"/>
-    <wire from="(310,420)" to="(590,420)"/>
+    <wire from="(310,440)" to="(310,460)"/>
+    <wire from="(310,440)" to="(600,440)"/>
     <wire from="(310,460)" to="(310,630)"/>
     <wire from="(310,460)" to="(340,460)"/>
     <wire from="(310,630)" to="(310,850)"/>
@@ -156,11 +162,10 @@
     <wire from="(420,760)" to="(640,760)"/>
     <wire from="(560,460)" to="(600,460)"/>
     <wire from="(560,480)" to="(600,480)"/>
-    <wire from="(590,420)" to="(590,440)"/>
-    <wire from="(590,440)" to="(600,440)"/>
     <wire from="(620,630)" to="(680,630)"/>
     <wire from="(620,650)" to="(640,650)"/>
     <wire from="(640,650)" to="(640,760)"/>
+    <wire from="(640,650)" to="(780,650)"/>
     <wire from="(640,830)" to="(710,830)"/>
     <wire from="(680,630)" to="(680,850)"/>
     <wire from="(680,850)" to="(710,850)"/>
@@ -1910,12 +1915,24 @@
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
-    <comp loc="(690,310)" name="byte_saver"/>
-    <comp loc="(690,410)" name="byte_saver"/>
-    <comp loc="(690,510)" name="byte_saver"/>
-    <comp loc="(690,610)" name="byte_saver"/>
-    <comp loc="(690,710)" name="byte_saver"/>
-    <comp loc="(690,810)" name="byte_saver"/>
+    <comp loc="(690,310)" name="byte_saver">
+      <a name="label" val="byte_saver_1"/>
+    </comp>
+    <comp loc="(690,410)" name="byte_saver">
+      <a name="label" val="byte_saver_2"/>
+    </comp>
+    <comp loc="(690,510)" name="byte_saver">
+      <a name="label" val="byte_saver_3"/>
+    </comp>
+    <comp loc="(690,610)" name="byte_saver">
+      <a name="label" val="byte_saver_4"/>
+    </comp>
+    <comp loc="(690,710)" name="byte_saver">
+      <a name="label" val="byte_saver_5"/>
+    </comp>
+    <comp loc="(690,810)" name="byte_saver">
+      <a name="label" val="byte_saver_6"/>
+    </comp>
     <wire from="(350,830)" to="(400,830)"/>
     <wire from="(400,330)" to="(400,430)"/>
     <wire from="(400,330)" to="(470,330)"/>
@@ -2002,7 +2019,7 @@ ARCHITECTURE Behavioral OF uart_rx IS
     constant N : integer := 3;  -- Number of cycles to confirm bit
     signal bit_counter : integer range 0 to N := 0;  -- N is the number of clock cycles for confirmation
     
-    constant CLKS_PER_BIT : integer := 125000;  -- Clock cycles per bit
+    constant CLKS_PER_BIT : integer := 5208;  -- Clock cycles per bit
     
 begin
     process(i_Clock)
@@ -2073,6 +2090,8 @@ begin
                         r_Clock_Count &lt;= (others =&gt; '0');
                         r_SM_Main &lt;= CLEANUP;  -- Cleanup and prepare to return to IDLE
                     end if;
+
+                    -- bit parity
 
                 when CLEANUP =&gt;
                     r_FSM_Mode &lt;= "101";
@@ -2207,7 +2226,7 @@ end uart_tx;
 
 architecture Behavioral of uart_tx is
 	 
-	 constant CLKS_PER_BIT: integer := 5208;
+	 constant CLKS_PER_BIT: integer := 217;
 --  The calculation is as follows:
 --
 --                                                  1
@@ -2407,5 +2426,43 @@ begin
     end process;
 
 end Behavioral;
+</vhdl>
+  <vhdl name="divider">--------------------------------------------------------------------------------&#13;
+-- Project :&#13;
+-- File    :&#13;
+-- Autor   :&#13;
+-- Date    :&#13;
+--&#13;
+--------------------------------------------------------------------------------&#13;
+-- Description :&#13; dividing clock value to have baud rate down to 50  
+--&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+LIBRARY ieee;&#13;
+USE ieee.std_logic_1164.all;&#13;
+&#13;
+ENTITY divider IS&#13;
+  PORT (&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert input ports below&#13;
+    clock      : IN  std_logic;                    -- input bit example&#13;
+    val        : IN  std_logic_vector(3 DOWNTO 0); -- input vector example&#13;
+  ------------------------------------------------------------------------------&#13;
+  --Insert output ports below&#13;
+    max        : OUT std_logic;                    -- output bit example&#13;
+    cpt        : OUT std_logic_vector(3 DOWNTO 0)  -- output vector example&#13;
+    );&#13;
+END divider;&#13;
+&#13;
+--------------------------------------------------------------------------------&#13;
+--Complete your VHDL description below&#13;
+--------------------------------------------------------------------------------&#13;
+&#13;
+ARCHITECTURE TypeArchitecture OF divider IS&#13;
+&#13;
+BEGIN&#13;
+&#13;
+&#13;
+END TypeArchitecture;&#13;
 </vhdl>
 </project>
