@@ -17,5 +17,9 @@ USE ieee.numeric_std.all;
 ENTITY letter_no_decimal IS
    PORT ( letter_num        : IN  std_logic_vector( 4 DOWNTO 0 );
           logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree2 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree3 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree4 : IN  std_logic_vector( 4 DOWNTO 0 );
           no_dec_letter     : OUT std_logic_vector( 7 DOWNTO 0 ) );
 END ENTITY letter_no_decimal;

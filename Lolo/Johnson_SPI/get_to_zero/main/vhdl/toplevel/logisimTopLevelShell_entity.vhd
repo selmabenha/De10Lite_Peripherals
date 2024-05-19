@@ -15,11 +15,13 @@ USE ieee.numeric_std.all;
 
 
 ENTITY logisimTopLevelShell IS
-   PORT ( fpgaGlobalClock         : IN  std_logic;
+   PORT ( accel_input_0           : IN  std_logic;
+          fpgaGlobalClock         : IN  std_logic;
+          miso_0                  : IN  std_logic;
+          n_button_0              : IN  std_logic;
           n_reset_0               : IN  std_logic;
-          state_1_0               : IN  std_logic;
-          state_2_0               : IN  std_logic;
-          state_3_0               : IN  std_logic;
+          cs_0                    : OUT std_logic;
+          mosi_0                  : OUT std_logic;
           n_hex0_HEX_DecimalPoint : OUT std_logic;
           n_hex0_HEX_Segment_A    : OUT std_logic;
           n_hex0_HEX_Segment_B    : OUT std_logic;
@@ -67,5 +69,6 @@ ENTITY logisimTopLevelShell IS
           n_hex5_HEX_Segment_D    : OUT std_logic;
           n_hex5_HEX_Segment_E    : OUT std_logic;
           n_hex5_HEX_Segment_F    : OUT std_logic;
-          n_hex5_HEX_Segment_G    : OUT std_logic );
+          n_hex5_HEX_Segment_G    : OUT std_logic;
+          sclk_0                  : OUT std_logic );
 END ENTITY logisimTopLevelShell;

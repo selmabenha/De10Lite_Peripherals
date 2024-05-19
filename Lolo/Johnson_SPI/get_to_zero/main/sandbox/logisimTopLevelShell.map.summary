@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Apr 26 19:45:50 2024
+Analysis & Synthesis Status : Successful - Wed May  1 12:47:35 2024
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : logisimTopLevelShell
 Top-level Entity Name : logisimTopLevelShell
 Family : MAX 10
-Total logic elements : 59
-    Total combinational functions : 57
-    Dedicated logic registers : 33
-Total registers : 33
-Total pins : 53
+Total logic elements : 2,587
+    Total combinational functions : 2,473
+    Dedicated logic registers : 722
+Total registers : 722
+Total pins : 56
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

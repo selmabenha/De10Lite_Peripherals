@@ -14,6 +14,21 @@ ARCHITECTURE platformIndependent OF counter_fsm IS
    -- Here all used components are defined                                    --
    -----------------------------------------------------------------------------
 
+      COMPONENT AND_GATE
+         GENERIC ( BubblesMask : std_logic_vector );
+         PORT ( input1 : IN  std_logic;
+                input2 : IN  std_logic;
+                result : OUT std_logic );
+      END COMPONENT;
+
+      COMPONENT OR_GATE_3_INPUTS
+         GENERIC ( BubblesMask : std_logic_vector );
+         PORT ( input1 : IN  std_logic;
+                input2 : IN  std_logic;
+                input3 : IN  std_logic;
+                result : OUT std_logic );
+      END COMPONENT;
+
       COMPONENT Comparator
          GENERIC ( nrOfBits       : INTEGER;
                    twosComplement : INTEGER );
@@ -38,21 +53,6 @@ ARCHITECTURE platformIndependent OF counter_fsm IS
                 upNotDown  : IN  std_logic;
                 compareOut : OUT std_logic;
                 countValue : OUT std_logic_vector( (width - 1) DOWNTO 0 ) );
-      END COMPONENT;
-
-      COMPONENT AND_GATE
-         GENERIC ( BubblesMask : std_logic_vector );
-         PORT ( input1 : IN  std_logic;
-                input2 : IN  std_logic;
-                result : OUT std_logic );
-      END COMPONENT;
-
-      COMPONENT OR_GATE_3_INPUTS
-         GENERIC ( BubblesMask : std_logic_vector );
-         PORT ( input1 : IN  std_logic;
-                input2 : IN  std_logic;
-                input3 : IN  std_logic;
-                result : OUT std_logic );
       END COMPONENT;
 
 --------------------------------------------------------------------------------
@@ -118,7 +118,32 @@ BEGIN
    --------------------------------------------------------------------------------
    -- Here all normal components are defined                                     --
    --------------------------------------------------------------------------------
-   ARITH_1 : Comparator
+   GATES_1 : AND_GATE
+      GENERIC MAP ( BubblesMask => "00" )
+      PORT MAP ( input1 => s_logisimNet13,
+                 input2 => s_logisimNet0,
+                 result => s_logisimNet7 );
+
+   GATES_2 : AND_GATE
+      GENERIC MAP ( BubblesMask => "00" )
+      PORT MAP ( input1 => s_logisimNet8,
+                 input2 => s_logisimNet5,
+                 result => s_logisimNet14 );
+
+   GATES_3 : AND_GATE
+      GENERIC MAP ( BubblesMask => "00" )
+      PORT MAP ( input1 => s_logisimNet1,
+                 input2 => s_logisimNet6,
+                 result => s_logisimNet4 );
+
+   GATES_4 : OR_GATE_3_INPUTS
+      GENERIC MAP ( BubblesMask => "000" )
+      PORT MAP ( input1 => s_logisimNet7,
+                 input2 => s_logisimNet14,
+                 input3 => s_logisimNet4,
+                 result => s_logisimNet3 );
+
+   ARITH_5 : Comparator
       GENERIC MAP ( nrOfBits       => 2,
                     twosComplement => 0 )
       PORT MAP ( aEqualsB      => s_logisimNet13,
@@ -127,7 +152,7 @@ BEGIN
                  dataA         => s_logisimBus2(1 DOWNTO 0),
                  dataB         => s_logisimBus10(1 DOWNTO 0) );
 
-   ARITH_2 : Comparator
+   ARITH_6 : Comparator
       GENERIC MAP ( nrOfBits       => 2,
                     twosComplement => 0 )
       PORT MAP ( aEqualsB      => s_logisimNet5,
@@ -136,7 +161,7 @@ BEGIN
                  dataA         => s_logisimBus2(1 DOWNTO 0),
                  dataB         => s_logisimBus11(1 DOWNTO 0) );
 
-   ARITH_3 : Comparator
+   ARITH_7 : Comparator
       GENERIC MAP ( nrOfBits       => 2,
                     twosComplement => 0 )
       PORT MAP ( aEqualsB      => s_logisimNet6,
@@ -145,7 +170,7 @@ BEGIN
                  dataA         => s_logisimBus2(1 DOWNTO 0),
                  dataB         => s_logisimBus12(1 DOWNTO 0) );
 
-   MEMORY_4 : LogisimCounter
+   MEMORY_8 : LogisimCounter
       GENERIC MAP ( invertClock => 0,
                     maxVal      => "11",
                     mode        => 0,
@@ -159,31 +184,6 @@ BEGIN
                  loadData   => "00",
                  tick       => '1',
                  upNotDown  => s_logisimNet15 );
-
-   GATES_5 : AND_GATE
-      GENERIC MAP ( BubblesMask => "00" )
-      PORT MAP ( input1 => s_logisimNet8,
-                 input2 => s_logisimNet5,
-                 result => s_logisimNet14 );
-
-   GATES_6 : AND_GATE
-      GENERIC MAP ( BubblesMask => "00" )
-      PORT MAP ( input1 => s_logisimNet13,
-                 input2 => s_logisimNet0,
-                 result => s_logisimNet7 );
-
-   GATES_7 : OR_GATE_3_INPUTS
-      GENERIC MAP ( BubblesMask => "000" )
-      PORT MAP ( input1 => s_logisimNet7,
-                 input2 => s_logisimNet14,
-                 input3 => s_logisimNet4,
-                 result => s_logisimNet3 );
-
-   GATES_8 : AND_GATE
-      GENERIC MAP ( BubblesMask => "00" )
-      PORT MAP ( input1 => s_logisimNet1,
-                 input2 => s_logisimNet6,
-                 result => s_logisimNet4 );
 
 
 END platformIndependent;

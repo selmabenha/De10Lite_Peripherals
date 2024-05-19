@@ -22,6 +22,10 @@ ENTITY side_to_side_anim IS
           hex4_letter       : IN  std_logic_vector( 7 DOWNTO 0 );
           hex5_letter       : IN  std_logic_vector( 7 DOWNTO 0 );
           logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree2 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree3 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree4 : IN  std_logic_vector( 4 DOWNTO 0 );
           hex0_out          : OUT std_logic_vector( 7 DOWNTO 0 );
           hex1_out          : OUT std_logic_vector( 7 DOWNTO 0 );
           hex2_out          : OUT std_logic_vector( 7 DOWNTO 0 );

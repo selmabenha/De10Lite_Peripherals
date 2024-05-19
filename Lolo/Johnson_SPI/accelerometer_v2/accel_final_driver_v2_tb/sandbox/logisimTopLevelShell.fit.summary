@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue Apr 23 01:45:04 2024
+Fitter Status : Successful - Tue Apr 30 22:24:56 2024
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : logisimTopLevelShell
 Top-level Entity Name : logisimTopLevelShell
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 2,796 / 49,760 ( 6 % )
+Total logic elements : 2,797 / 49,760 ( 6 % )
     Total combinational functions : 2,776 / 49,760 ( 6 % )
     Dedicated logic registers : 763 / 49,760 ( 2 % )
 Total registers : 763

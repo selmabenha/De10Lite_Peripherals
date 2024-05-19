@@ -15,10 +15,17 @@ USE ieee.numeric_std.all;
 
 
 ENTITY main IS
-   PORT ( logisimClockTree0    : IN  std_logic_vector( 4 DOWNTO 0 );
+   PORT ( accel_input          : IN  std_logic;
+          button               : IN  std_logic;
+          logisimClockTree0    : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree1    : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree2    : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree3    : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree4    : IN  std_logic_vector( 4 DOWNTO 0 );
+          miso                 : IN  std_logic;
           reset                : IN  std_logic;
-          state_1              : IN  std_logic;
-          state_2              : IN  std_logic;
-          state_3              : IN  std_logic;
-          logisimOutputBubbles : OUT std_logic_vector( 47 DOWNTO 0 ) );
+          cs                   : OUT std_logic;
+          logisimOutputBubbles : OUT std_logic_vector( 47 DOWNTO 0 );
+          mosi                 : OUT std_logic;
+          sclk                 : OUT std_logic );
 END ENTITY main;

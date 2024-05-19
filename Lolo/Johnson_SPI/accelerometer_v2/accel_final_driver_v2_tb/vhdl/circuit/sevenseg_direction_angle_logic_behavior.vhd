@@ -135,7 +135,7 @@ BEGIN
 
 
    -- NOT Gate
-   s_logisimNet5 <=  NOT s_logisimNet1;
+   s_logisimNet4 <=  NOT s_logisimNet1;
 
    -- NOT Gate
    s_logisimNet2 <=  NOT s_logisimNet13;
@@ -150,15 +150,15 @@ BEGIN
    s_logisimNet3 <=  NOT s_logisimNet17;
 
    -- NOT Gate
-   s_logisimNet4 <=  NOT s_logisimNet19;
+   s_logisimNet5 <=  NOT s_logisimNet19;
 
    --------------------------------------------------------------------------------
    -- Here all normal components are defined                                     --
    --------------------------------------------------------------------------------
    GATES_1 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -167,8 +167,8 @@ BEGIN
 
    GATES_2 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet29,
                  input5 => s_logisimNet6,
@@ -177,8 +177,8 @@ BEGIN
 
    GATES_3 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet13,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -187,7 +187,7 @@ BEGIN
 
    GATES_4 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
+      PORT MAP ( input1 => s_logisimNet5,
                  input2 => s_logisimNet1,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
@@ -198,7 +198,7 @@ BEGIN
    GATES_5 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
       PORT MAP ( input1 => s_logisimNet19,
-                 input2 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -207,8 +207,8 @@ BEGIN
 
    GATES_6 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet24,
@@ -217,8 +217,8 @@ BEGIN
 
    GATES_7 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet29,
                  input5 => s_logisimNet6,
@@ -227,8 +227,8 @@ BEGIN
 
    GATES_8 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet13,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -238,7 +238,7 @@ BEGIN
    GATES_9 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
       PORT MAP ( input1 => s_logisimNet19,
-                 input2 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -247,8 +247,8 @@ BEGIN
 
    GATES_10 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -257,8 +257,8 @@ BEGIN
 
    GATES_11 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet24,
@@ -267,8 +267,8 @@ BEGIN
 
    GATES_12 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet29,
                  input5 => s_logisimNet6,
@@ -277,8 +277,8 @@ BEGIN
 
    GATES_13 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet13,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -287,8 +287,8 @@ BEGIN
 
    GATES_14 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -297,8 +297,8 @@ BEGIN
 
    GATES_15 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet29,
                  input5 => s_logisimNet6,
@@ -307,8 +307,8 @@ BEGIN
 
    GATES_16 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet13,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -317,8 +317,8 @@ BEGIN
 
    GATES_17 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -327,8 +327,8 @@ BEGIN
 
    GATES_18 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet24,
@@ -337,8 +337,8 @@ BEGIN
 
    GATES_19 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet24,
@@ -347,8 +347,8 @@ BEGIN
 
    GATES_20 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet29,
                  input5 => s_logisimNet6,
@@ -357,7 +357,7 @@ BEGIN
 
    GATES_21 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
+      PORT MAP ( input1 => s_logisimNet5,
                  input2 => s_logisimNet1,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
@@ -367,8 +367,8 @@ BEGIN
 
    GATES_22 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -377,8 +377,8 @@ BEGIN
 
    GATES_23 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet24,
@@ -387,8 +387,8 @@ BEGIN
 
    GATES_24 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
-      PORT MAP ( input1 => s_logisimNet4,
-                 input2 => s_logisimNet5,
+      PORT MAP ( input1 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet13,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,
@@ -398,7 +398,7 @@ BEGIN
    GATES_25 : AND_GATE_6_INPUTS
       GENERIC MAP ( BubblesMask => "00"&X"0" )
       PORT MAP ( input1 => s_logisimNet19,
-                 input2 => s_logisimNet5,
+                 input2 => s_logisimNet4,
                  input3 => s_logisimNet2,
                  input4 => s_logisimNet0,
                  input5 => s_logisimNet6,

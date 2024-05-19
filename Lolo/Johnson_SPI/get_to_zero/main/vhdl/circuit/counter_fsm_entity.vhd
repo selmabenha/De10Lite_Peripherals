@@ -16,6 +16,10 @@ USE ieee.numeric_std.all;
 
 ENTITY counter_fsm IS
    PORT ( logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree2 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree3 : IN  std_logic_vector( 4 DOWNTO 0 );
+          logisimClockTree4 : IN  std_logic_vector( 4 DOWNTO 0 );
           reset             : IN  std_logic;
           state_1           : IN  std_logic;
           state_2           : IN  std_logic;

@@ -45,12 +45,12 @@ BEGIN
    --------------------------------------------------------------------------------
    -- Here all input connections are defined                                     --
    --------------------------------------------------------------------------------
-   s_logisimBus1(7 DOWNTO 0) <= hex0_letter;
+   s_logisimBus1(7 DOWNTO 0) <= hex2_letter;
    s_logisimBus2(7 DOWNTO 0) <= hex5_letter;
    s_logisimBus3(7 DOWNTO 0) <= hex4_letter;
    s_logisimBus4(7 DOWNTO 0) <= hex3_letter;
-   s_logisimBus5(7 DOWNTO 0) <= hex2_letter;
-   s_logisimBus6(7 DOWNTO 0) <= hex1_letter;
+   s_logisimBus5(7 DOWNTO 0) <= hex1_letter;
+   s_logisimBus6(7 DOWNTO 0) <= hex0_letter;
    s_logisimNet0             <= clock;
 
    --------------------------------------------------------------------------------
@@ -58,8 +58,8 @@ BEGIN
    --------------------------------------------------------------------------------
    hex0_out <= s_logisimBus10(7 DOWNTO 0);
    hex1_out <= s_logisimBus9(7 DOWNTO 0);
-   hex2_out <= s_logisimBus7(7 DOWNTO 0);
-   hex3_out <= s_logisimBus8(7 DOWNTO 0);
+   hex2_out <= s_logisimBus8(7 DOWNTO 0);
+   hex3_out <= s_logisimBus7(7 DOWNTO 0);
    hex4_out <= s_logisimBus12(7 DOWNTO 0);
    hex5_out <= s_logisimBus11(7 DOWNTO 0);
 
@@ -69,20 +69,12 @@ BEGIN
    PLEXERS_1 : Multiplexer_bus_2
       GENERIC MAP ( nrOfBits => 8 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus4(7 DOWNTO 0),
-                 muxIn_1 => X"00",
-                 muxOut  => s_logisimBus8(7 DOWNTO 0),
-                 sel     => s_logisimNet0 );
-
-   PLEXERS_2 : Multiplexer_bus_2
-      GENERIC MAP ( nrOfBits => 8 )
-      PORT MAP ( enable  => '1',
                  muxIn_0 => s_logisimBus2(7 DOWNTO 0),
                  muxIn_1 => X"00",
                  muxOut  => s_logisimBus11(7 DOWNTO 0),
                  sel     => s_logisimNet0 );
 
-   PLEXERS_3 : Multiplexer_bus_2
+   PLEXERS_2 : Multiplexer_bus_2
       GENERIC MAP ( nrOfBits => 8 )
       PORT MAP ( enable  => '1',
                  muxIn_0 => s_logisimBus3(7 DOWNTO 0),
@@ -90,12 +82,20 @@ BEGIN
                  muxOut  => s_logisimBus12(7 DOWNTO 0),
                  sel     => s_logisimNet0 );
 
+   PLEXERS_3 : Multiplexer_bus_2
+      GENERIC MAP ( nrOfBits => 8 )
+      PORT MAP ( enable  => '1',
+                 muxIn_0 => s_logisimBus4(7 DOWNTO 0),
+                 muxIn_1 => X"00",
+                 muxOut  => s_logisimBus7(7 DOWNTO 0),
+                 sel     => s_logisimNet0 );
+
    PLEXERS_4 : Multiplexer_bus_2
       GENERIC MAP ( nrOfBits => 8 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus6(7 DOWNTO 0),
+                 muxIn_0 => s_logisimBus1(7 DOWNTO 0),
                  muxIn_1 => X"00",
-                 muxOut  => s_logisimBus9(7 DOWNTO 0),
+                 muxOut  => s_logisimBus8(7 DOWNTO 0),
                  sel     => s_logisimNet0 );
 
    PLEXERS_5 : Multiplexer_bus_2
@@ -103,13 +103,13 @@ BEGIN
       PORT MAP ( enable  => '1',
                  muxIn_0 => s_logisimBus5(7 DOWNTO 0),
                  muxIn_1 => X"00",
-                 muxOut  => s_logisimBus7(7 DOWNTO 0),
+                 muxOut  => s_logisimBus9(7 DOWNTO 0),
                  sel     => s_logisimNet0 );
 
    PLEXERS_6 : Multiplexer_bus_2
       GENERIC MAP ( nrOfBits => 8 )
       PORT MAP ( enable  => '1',
-                 muxIn_0 => s_logisimBus1(7 DOWNTO 0),
+                 muxIn_0 => s_logisimBus6(7 DOWNTO 0),
                  muxIn_1 => X"00",
                  muxOut  => s_logisimBus10(7 DOWNTO 0),
                  sel     => s_logisimNet0 );
