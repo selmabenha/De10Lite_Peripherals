@@ -4,8 +4,72 @@
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit16" val="2"/>
+      <a name="bit17" val="2"/>
+      <a name="bit18" val="2"/>
+      <a name="bit19" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="2"/>
+      <a name="bit21" val="2"/>
+      <a name="bit22" val="2"/>
+      <a name="bit23" val="2"/>
+      <a name="bit24" val="3"/>
+      <a name="bit25" val="3"/>
+      <a name="bit26" val="3"/>
+      <a name="bit27" val="3"/>
+      <a name="bit28" val="3"/>
+      <a name="bit29" val="3"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="3"/>
+      <a name="bit31" val="3"/>
+      <a name="bit32" val="4"/>
+      <a name="bit33" val="4"/>
+      <a name="bit34" val="4"/>
+      <a name="bit35" val="4"/>
+      <a name="bit36" val="4"/>
+      <a name="bit37" val="4"/>
+      <a name="bit38" val="4"/>
+      <a name="bit39" val="4"/>
+      <a name="bit4" val="0"/>
+      <a name="bit40" val="5"/>
+      <a name="bit41" val="5"/>
+      <a name="bit42" val="5"/>
+      <a name="bit43" val="5"/>
+      <a name="bit44" val="5"/>
+      <a name="bit45" val="5"/>
+      <a name="bit46" val="5"/>
+      <a name="bit47" val="5"/>
+      <a name="bit48" val="6"/>
+      <a name="bit49" val="6"/>
+      <a name="bit5" val="0"/>
+      <a name="bit50" val="6"/>
+      <a name="bit51" val="6"/>
+      <a name="bit52" val="6"/>
+      <a name="bit53" val="6"/>
+      <a name="bit54" val="6"/>
+      <a name="bit55" val="6"/>
+      <a name="bit56" val="7"/>
+      <a name="bit57" val="7"/>
+      <a name="bit58" val="7"/>
+      <a name="bit59" val="7"/>
+      <a name="bit6" val="0"/>
+      <a name="bit60" val="7"/>
+      <a name="bit61" val="7"/>
+      <a name="bit62" val="7"/>
+      <a name="bit63" val="7"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="facing" val="west"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="64"/>
     </tool>
     <tool name="Pin">
       <a name="appearance" val="classic"/>
@@ -14,8 +78,8 @@
       <a name="width" val="4"/>
     </tool>
     <tool name="Constant">
-      <a name="value" val="0x7"/>
-      <a name="width" val="3"/>
+      <a name="value" val="0xff"/>
+      <a name="width" val="8"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -125,12 +189,112 @@
       <a name="label" val="write_done"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="0" loc="(120,710)" name="Constant">
+      <a name="value" val="0x20"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(120,730)" name="Constant">
+      <a name="value" val="0x79"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(120,750)" name="Constant">
+      <a name="value" val="0x6f"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(120,770)" name="Constant">
+      <a name="value" val="0x75"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(120,790)" name="Constant">
+      <a name="value" val="0x21"/>
+      <a name="width" val="8"/>
+    </comp>
     <comp lib="0" loc="(1220,1290)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="new_letter"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(130,690)" name="Constant">
+      <a name="value" val="0x79"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(140,650)" name="Constant">
+      <a name="value" val="0x48"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(140,670)" name="Constant">
+      <a name="value" val="0x65"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(180,670)" name="Splitter">
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit16" val="2"/>
+      <a name="bit17" val="2"/>
+      <a name="bit18" val="2"/>
+      <a name="bit19" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="2"/>
+      <a name="bit21" val="2"/>
+      <a name="bit22" val="2"/>
+      <a name="bit23" val="2"/>
+      <a name="bit24" val="3"/>
+      <a name="bit25" val="3"/>
+      <a name="bit26" val="3"/>
+      <a name="bit27" val="3"/>
+      <a name="bit28" val="3"/>
+      <a name="bit29" val="3"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="3"/>
+      <a name="bit31" val="3"/>
+      <a name="bit32" val="4"/>
+      <a name="bit33" val="4"/>
+      <a name="bit34" val="4"/>
+      <a name="bit35" val="4"/>
+      <a name="bit36" val="4"/>
+      <a name="bit37" val="4"/>
+      <a name="bit38" val="4"/>
+      <a name="bit39" val="4"/>
+      <a name="bit4" val="0"/>
+      <a name="bit40" val="5"/>
+      <a name="bit41" val="5"/>
+      <a name="bit42" val="5"/>
+      <a name="bit43" val="5"/>
+      <a name="bit44" val="5"/>
+      <a name="bit45" val="5"/>
+      <a name="bit46" val="5"/>
+      <a name="bit47" val="5"/>
+      <a name="bit48" val="6"/>
+      <a name="bit49" val="6"/>
+      <a name="bit5" val="0"/>
+      <a name="bit50" val="6"/>
+      <a name="bit51" val="6"/>
+      <a name="bit52" val="6"/>
+      <a name="bit53" val="6"/>
+      <a name="bit54" val="6"/>
+      <a name="bit55" val="6"/>
+      <a name="bit56" val="7"/>
+      <a name="bit57" val="7"/>
+      <a name="bit58" val="7"/>
+      <a name="bit59" val="7"/>
+      <a name="bit6" val="0"/>
+      <a name="bit60" val="7"/>
+      <a name="bit61" val="7"/>
+      <a name="bit62" val="7"/>
+      <a name="bit63" val="7"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="facing" val="west"/>
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="64"/>
     </comp>
     <comp lib="0" loc="(240,970)" name="Clock"/>
     <comp lib="0" loc="(250,630)" name="Pin">
@@ -245,7 +409,27 @@
     <wire from="(1090,960)" to="(1090,990)"/>
     <wire from="(1090,990)" to="(1110,990)"/>
     <wire from="(1180,1350)" to="(1180,1360)"/>
+    <wire from="(120,710)" to="(160,710)"/>
+    <wire from="(120,730)" to="(130,730)"/>
+    <wire from="(120,750)" to="(140,750)"/>
+    <wire from="(120,770)" to="(150,770)"/>
+    <wire from="(120,790)" to="(160,790)"/>
     <wire from="(1210,1290)" to="(1220,1290)"/>
+    <wire from="(130,690)" to="(130,700)"/>
+    <wire from="(130,700)" to="(160,700)"/>
+    <wire from="(130,720)" to="(130,730)"/>
+    <wire from="(130,720)" to="(160,720)"/>
+    <wire from="(140,650)" to="(150,650)"/>
+    <wire from="(140,670)" to="(140,690)"/>
+    <wire from="(140,690)" to="(160,690)"/>
+    <wire from="(140,730)" to="(140,750)"/>
+    <wire from="(140,730)" to="(160,730)"/>
+    <wire from="(150,650)" to="(150,680)"/>
+    <wire from="(150,680)" to="(160,680)"/>
+    <wire from="(150,740)" to="(150,770)"/>
+    <wire from="(150,740)" to="(160,740)"/>
+    <wire from="(160,750)" to="(160,790)"/>
+    <wire from="(180,670)" to="(340,670)"/>
     <wire from="(240,970)" to="(310,970)"/>
     <wire from="(250,630)" to="(340,630)"/>
     <wire from="(250,940)" to="(650,940)"/>
@@ -3640,7 +3824,7 @@ end Behavioral;
   <vhdl name="uart_tx_tester">--------------------------------------------------------------------------------
 -- Project : UART_Module
 -- File    : UART_Transmitter_Tester
--- Autor   : Selma Benhassine
+-- Author  : Selma Benhassine
 -- Date    :
 --
 --------------------------------------------------------------------------------
@@ -3657,8 +3841,9 @@ entity uart_tx_tester is
         clk_50M : in STD_LOGIC;               -- Input clock, assumed 50 MHz
         run_test_raw : in STD_LOGIC;          -- HIGH indicates to continuously run test
         tx_busy : in STD_LOGIC;               -- HIGH indicates transmitter is busy 
+        byte_str : in STD_LOGIC_VECTOR(63 downto 0); -- Test to output (8 bytes)
         data_out : out STD_LOGIC_VECTOR (7 downto 0);  -- Data byte (8 bits) to transmit
-        trigger : out STD_LOGIC                -- Trigger to tell UART module to begin transmission
+        trigger : out STD_LOGIC               -- Trigger to tell UART module to begin transmission
     );
 end uart_tx_tester;
 
@@ -3667,10 +3852,8 @@ architecture Behavioral of uart_tx_tester is
     signal run_test_0 : std_logic := '0';          -- Synchronizer for 'start test' switch input
     signal run_test : std_logic := '0';            -- Synchronizer for 'start test' switch input
     signal tester_state : unsigned(5 downto 0) := (others =&gt; '0');  -- FSM state variable
-    -- signal byte_index : unsigned(31 downto 0) := unsigned(8*16)-unsigned(1);          -- Pointer to beginning of next byte to transmit in 16 byte message
-    constant BYTE_INDEX_INIT: natural := (8*16)-1; -- Calculate the initial value for byte_index
-    signal byte_index : unsigned(31 downto 0) := to_unsigned(BYTE_INDEX_INIT, 32); -- Initialize byte_index with the calculated value
-	 signal pause_delay : unsigned(31 downto 0) := (others =&gt; '0');  -- Counter for delay between re-transmissions of message
+    signal byte_index : unsigned(5 downto 0) := (others =&gt; '0');     -- Pointer to the current byte to transmit in the message
+    signal pause_delay : unsigned(31 downto 0) := (others =&gt; '0');  -- Counter for delay between re-transmissions of message
     signal trigger_ctr : unsigned(5 downto 0) := (others =&gt; '0');    -- Delay to hold trigger high, in clock cycles
 
     constant STATE_IDLE : unsigned(5 downto 0) := "000000";          -- Legal values for tester_state
@@ -3680,14 +3863,7 @@ architecture Behavioral of uart_tx_tester is
     constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state
 
     constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
-	 
-	 -- Message to transmit
-    signal byte_str : std_logic_vector((8*16)-1 downto 0) := "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
-                                                             "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
-
--- hello world! is "01001000" &amp; "01100101" &amp; "01101100" &amp; "01101100" &amp; "01101111" &amp; "00100000" &amp; "01010111" &amp; "01101111" &amp;
-                                                            -- "01110010" &amp; "01101100" &amp; "01100100" &amp; "00100001" &amp; "00100000" &amp; "00100000" &amp; "00100000" &amp; "00100000";
-
+    constant BYTE_STR_LENGTH : unsigned(5 downto 0) := to_unsigned(7, 6);    -- Length of the byte string (number of bytes - 1)
 
 begin
 
@@ -3709,7 +3885,7 @@ begin
                 when STATE_IDLE =&gt;
                     trigger &lt;= '0';
                     if run_test = '1' then
-                        byte_index &lt;= to_unsigned(BYTE_INDEX_INIT, 32);
+                        byte_index &lt;= (others =&gt; '0');  -- Initialize byte_index to zero
                         tester_state &lt;= STATE_LOAD;
                     end if;
                     
@@ -3717,7 +3893,7 @@ begin
                 -- so it won't transmit yet.
                 when STATE_LOAD =&gt;
                     trigger &lt;= '0';
-                    data_out &lt;= byte_str(to_integer(byte_index) downto to_integer(byte_index)-7);
+                    data_out &lt;= byte_str(to_integer(byte_index) * 8 + 7 downto to_integer(byte_index) * 8);
                     trigger_ctr &lt;= to_unsigned(5, 6);
                     tester_state &lt;= STATE_TRIGGER;
                     
@@ -3735,11 +3911,11 @@ begin
                 when STATE_POLL_BUSY =&gt;
                     trigger &lt;= '0';
                     if tx_busy = '0' then
-                        if byte_index &lt;= 7 then
+                        if byte_index = BYTE_STR_LENGTH then
                             pause_delay &lt;= (others =&gt; '0');
                             tester_state &lt;= STATE_PAUSE;
                         else
-                            byte_index &lt;= byte_index - 8;
+                            byte_index &lt;= byte_index + 1;
                             tester_state &lt;= STATE_LOAD;
                         end if;
                     end if;
