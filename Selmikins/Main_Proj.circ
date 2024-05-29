@@ -3554,18 +3554,7 @@ begin
 
 end Behavioral;
 </vhdl>
-  <vhdl name="uart_tx_tester">--------------------------------------------------------------------------------
--- Project : UART_Module
--- File    : UART_Transmitter_Tester
--- Author  : Selma Benhassine
--- Date    :
---
---------------------------------------------------------------------------------
--- Description : Testbench file for the UART transmitter
---
---------------------------------------------------------------------------------
-
-library IEEE;
+  <vhdl name="uart_tx_tester">library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
@@ -3584,10 +3573,13 @@ architecture Behavioral of uart_tx_tester is
 
     signal run_test_0 : std_logic := '0';          -- Synchronizer for 'start test' switch input
     signal run_test : std_logic := '0';            -- Synchronizer for 'start test' switch input
+    signal run_test_prev : std_logic := '0';       -- Previous state of run_test
     signal tester_state : unsigned(5 downto 0) := (others =&gt; '0');  -- FSM state variable
     signal byte_index : unsigned(5 downto 0) := (others =&gt; '0');     -- Pointer to the current byte to transmit in the message
     signal pause_delay : unsigned(31 downto 0) := (others =&gt; '0');  -- Counter for delay between re-transmissions of message
     signal trigger_ctr : unsigned(5 downto 0) := (others =&gt; '0');    -- Delay to hold trigger high, in clock cycles
+
+    signal extended_byte_str : std_logic_vector(71 downto 0);        -- Extended byte string (9 bytes)
 
     constant STATE_IDLE : unsigned(5 downto 0) := "000000";          -- Legal values for tester_state
     constant STATE_LOAD : unsigned(5 downto 0) := "000010";          -- Legal values for tester_state
@@ -3596,7 +3588,7 @@ architecture Behavioral of uart_tx_tester is
     constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state
 
     constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
-    constant BYTE_STR_LENGTH : unsigned(5 downto 0) := to_unsigned(7, 6);    -- Length of the byte string (number of bytes - 1)
+    constant BYTE_STR_LENGTH : unsigned(5 downto 0) := to_unsigned(8, 6);    -- Length of the byte string (number of bytes - 1, now 8+1=9)
 
 begin
 
@@ -3610,6 +3602,16 @@ begin
         end if;
     end process;
 
+    -- Process to detect the rising edge of run_test
+    process (clk_50M) begin
+        if rising_edge(clk_50M) then
+            run_test_prev &lt;= run_test;
+        end if;
+    end process;
+
+    -- Extend the byte string with '00001010' at the end
+    extended_byte_str &lt;= byte_str &amp; "00001010";
+
     -- Main Finite State Machine that sequences the test
     process (clk_50M) begin
         if rising_edge(clk_50M) then
@@ -3617,7 +3619,7 @@ begin
                 -- Wait for request to begin test.
                 when STATE_IDLE =&gt;
                     trigger &lt;= '0';
-                    if run_test = '1' then
+                    if run_test = '1' and run_test_prev = '0' then
                         byte_index &lt;= (others =&gt; '0');  -- Initialize byte_index to zero
                         tester_state &lt;= STATE_LOAD;
                     end if;
@@ -3626,7 +3628,7 @@ begin
                 -- so it won't transmit yet.
                 when STATE_LOAD =&gt;
                     trigger &lt;= '0';
-                    data_out &lt;= byte_str(to_integer(byte_index) * 8 + 7 downto to_integer(byte_index) * 8);
+                    data_out &lt;= extended_byte_str(to_integer(byte_index) * 8 + 7 downto to_integer(byte_index) * 8);
                     trigger_ctr &lt;= to_unsigned(5, 6);
                     tester_state &lt;= STATE_TRIGGER;
                     
