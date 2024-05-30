@@ -116,7 +116,6 @@
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="radix" val="16"/>
-      <a name="width" val="64"/>
     </tool>
     <sep/>
     <tool lib="1" name="NOT Gate">
@@ -220,7 +219,6 @@
     </comp>
     <comp loc="(570,810)" name="uart_rx">
       <a name="appearance" val="logisim_evolution"/>
-      <a name="label" val="uart_rx_1"/>
     </comp>
     <comp loc="(820,590)" name="uart_tx">
       <a name="appearance" val="logisim_evolution"/>
@@ -2958,12 +2956,12 @@
       <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(320,360)" name="Constant">
-      <a name="value" val="0x1d4c0"/>
+      <a name="value" val="0x12c"/>
       <a name="width" val="22"/>
     </comp>
     <comp lib="0" loc="(340,300)" name="Constant"/>
     <comp lib="0" loc="(610,400)" name="Constant">
-      <a name="value" val="0x1d4c0"/>
+      <a name="value" val="0x12c"/>
       <a name="width" val="22"/>
     </comp>
     <comp lib="0" loc="(890,320)" name="Ground">
@@ -2990,7 +2988,7 @@
     <comp lib="4" loc="(340,250)" name="Counter">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="slow_clock"/>
-      <a name="max" val="0x1d4c0"/>
+      <a name="max" val="0x12c"/>
       <a name="width" val="22"/>
     </comp>
     <comp lib="4" loc="(890,290)" name="Counter">
@@ -3337,6 +3335,7 @@ ENTITY uart_rx IS
         i_Clock      : IN  std_logic;                    -- System clock input
         i_RX_Serial  : IN  std_logic;                    -- Serial data input
         o_RX_Byte    : OUT std_logic_vector(7 downto 0); -- Output byte
+   --     o_Start_Done : OUT std_logic;			
         o_RX_DV      : OUT std_logic                    -- Data valid signal
     );
 END uart_rx;
@@ -3351,9 +3350,11 @@ ARCHITECTURE Behavioral OF uart_rx IS
     signal r_RX_DV : std_logic := '0';
     signal r_FSM_Mode : std_logic_vector(2 downto 0) := (others =&gt; '0'); 
     constant N : integer := 3;  -- Number of cycles to confirm bit
+    -- constant N : integer := 1;  -- Number of cycles to confirm bit
     signal bit_counter : integer range 0 to N := 0;  -- N is the number of clock cycles for confirmation
     
     constant CLKS_PER_BIT : integer := 21;  -- Clock cycles per bit, 3 for 1khz (8k/8) and 300 br
+    -- constant CLKS_PER_BIT : integer := 3;  -- Clock cycles per bit, 3 for 1khz (8k/8) and 300 br
     
 begin
     process(i_Clock)
@@ -3442,6 +3443,7 @@ begin
     
     o_RX_Byte &lt;= r_RX_Byte;
     o_RX_DV &lt;= r_RX_DV;
+    -- o_Start_Done &lt;= r_Start_Done;
 
 END ARCHITECTURE Behavioral;
 
@@ -3478,7 +3480,8 @@ end uart_tx;
 
 architecture Behavioral of uart_tx is
 	 
-	 constant CLKS_PER_BIT: integer := 21;
+	constant CLKS_PER_BIT: integer := 21;
+	-- constant CLKS_PER_BIT: integer := 3;
 --  The calculation is as follows:
 --  
 --                                                  1
@@ -3587,7 +3590,8 @@ architecture Behavioral of uart_tx_tester is
     constant STATE_POLL_BUSY : unsigned(5 downto 0) := "001000";     -- Legal values for tester_state
     constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state
 
-    constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
+   -- constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
+    constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100, 32);  -- Delay between messages re-transmissions, in clk cycles
     constant BYTE_STR_LENGTH : unsigned(5 downto 0) := to_unsigned(8, 6);    -- Length of the byte string (number of bytes - 1, now 8+1=9)
 
 begin
