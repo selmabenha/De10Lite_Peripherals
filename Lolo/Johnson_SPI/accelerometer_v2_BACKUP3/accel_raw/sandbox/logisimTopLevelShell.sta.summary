@@ -1,0 +1,137 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.845
+TNS   : -671.621
+
+Type  : Slow 1200mV 85C Model Setup 'fpgaGlobalClock'
+Slack : -2.566
+TNS   : -84.232
+
+Type  : Slow 1200mV 85C Model Setup 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : -0.174
+TNS   : -0.346
+
+Type  : Slow 1200mV 85C Model Hold 'fpgaGlobalClock'
+Slack : 0.217
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.330
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -0.666
+TNS   : -8.658
+
+Type  : Slow 1200mV 85C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 1.253
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -89.986
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -353.556
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Slow 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.476
+TNS   : -603.439
+
+Type  : Slow 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -2.302
+TNS   : -73.063
+
+Type  : Slow 1200mV 0C Model Setup 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : -0.070
+TNS   : -0.139
+
+Type  : Slow 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.165
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.295
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -0.521
+TNS   : -6.773
+
+Type  : Slow 1200mV 0C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 1.149
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -89.986
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -353.556
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : -1.403
+TNS   : -5.612
+
+Type  : Fast 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.131
+TNS   : -158.629
+
+Type  : Fast 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -0.498
+TNS   : -9.264
+
+Type  : Fast 1200mV 0C Model Setup 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : 0.496
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.012
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.144
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.542
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -66.084
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.000
+TNS   : -252.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'accel_raw:CIRCUIT_0|diff_detector:diff_detector_1|REGISTER_FLIP_FLOP:MEMORY_2|s_currentState[0]'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------

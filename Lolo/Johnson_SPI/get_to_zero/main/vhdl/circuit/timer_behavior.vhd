@@ -21,13 +21,6 @@ ARCHITECTURE platformIndependent OF timer IS
                 result : OUT std_logic );
       END COMPONENT;
 
-      COMPONENT hex_to_decimal_16_bits
-         PORT ( val      : IN  std_logic_vector( 15 DOWNTO 0 );
-                hundreds : OUT std_logic_vector( 3 DOWNTO 0 );
-                ones     : OUT std_logic_vector( 3 DOWNTO 0 );
-                tens     : OUT std_logic_vector( 3 DOWNTO 0 ) );
-      END COMPONENT;
-
       COMPONENT D_FLIPFLOP
          GENERIC ( invertClockEnable : INTEGER );
          PORT ( clock  : IN  std_logic;
@@ -53,6 +46,13 @@ ARCHITECTURE platformIndependent OF timer IS
                 upNotDown  : IN  std_logic;
                 compareOut : OUT std_logic;
                 countValue : OUT std_logic_vector( (width - 1) DOWNTO 0 ) );
+      END COMPONENT;
+
+      COMPONENT hex_to_decimal_16_bits
+         PORT ( val      : IN  std_logic_vector( 15 DOWNTO 0 );
+                hundreds : OUT std_logic_vector( 3 DOWNTO 0 );
+                ones     : OUT std_logic_vector( 3 DOWNTO 0 );
+                tens     : OUT std_logic_vector( 3 DOWNTO 0 ) );
       END COMPONENT;
 
 --------------------------------------------------------------------------------
@@ -106,13 +106,7 @@ BEGIN
                  input2 => s_logisimNet6,
                  result => s_logisimNet1 );
 
-   hex_to_decimal_16_bits_1 : hex_to_decimal_16_bits
-      PORT MAP ( hundreds => s_logisimBus8(3 DOWNTO 0),
-                 ones     => s_logisimBus10(3 DOWNTO 0),
-                 tens     => s_logisimBus9(3 DOWNTO 0),
-                 val      => s_logisimBus4(15 DOWNTO 0) );
-
-   MEMORY_3 : D_FLIPFLOP
+   MEMORY_2 : D_FLIPFLOP
       GENERIC MAP ( invertClockEnable => 0 )
       PORT MAP ( clock  => '0',
                  d      => '0',
@@ -122,7 +116,7 @@ BEGIN
                  reset  => s_logisimNet0,
                  tick   => '0' );
 
-   MEMORY_4 : LogisimCounter
+   MEMORY_3 : LogisimCounter
       GENERIC MAP ( invertClock => 0,
                     maxVal      => X"FFFF",
                     mode        => 0,
@@ -136,6 +130,12 @@ BEGIN
                  loadData   => X"0000",
                  tick       => logisimClockTree4(2),
                  upNotDown  => s_logisimNet11 );
+
+   hex_to_dec_timer : hex_to_decimal_16_bits
+      PORT MAP ( hundreds => s_logisimBus8(3 DOWNTO 0),
+                 ones     => s_logisimBus10(3 DOWNTO 0),
+                 tens     => s_logisimBus9(3 DOWNTO 0),
+                 val      => s_logisimBus4(15 DOWNTO 0) );
 
 
 END platformIndependent;

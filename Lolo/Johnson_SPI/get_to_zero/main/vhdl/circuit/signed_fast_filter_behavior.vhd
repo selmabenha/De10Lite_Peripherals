@@ -3,7 +3,7 @@
 --== https://github.com/logisim-evolution/                                    ==
 --==                                                                          ==
 --==                                                                          ==
---== Project   : accelerometer_v2                                             ==
+--== Project   : accelerometer_with_calib                                     ==
 --== Component : signed_fast_filter                                           ==
 --==                                                                          ==
 --==============================================================================
@@ -428,22 +428,22 @@ BEGIN
    MEMORY_23 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
                     nrOfBits    => 16 )
-      PORT MAP ( clock       => logisimClockTree1(4),
+      PORT MAP ( clock       => logisimClockTree2(4),
                  clockEnable => s_logisimNet34,
                  d           => s_logisimBus28(15 DOWNTO 0),
                  q           => s_logisimBus33(15 DOWNTO 0),
                  reset       => s_logisimNet2,
-                 tick        => logisimClockTree1(2) );
+                 tick        => logisimClockTree2(2) );
 
    MEMORY_24 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
                     nrOfBits    => 16 )
-      PORT MAP ( clock       => logisimClockTree1(4),
+      PORT MAP ( clock       => logisimClockTree2(4),
                  clockEnable => s_logisimNet36,
                  d           => s_logisimBus5(15 DOWNTO 0),
                  q           => s_logisimBus35(15 DOWNTO 0),
                  reset       => s_logisimNet2,
-                 tick        => logisimClockTree1(2) );
+                 tick        => logisimClockTree2(2) );
 
    MEMORY_25 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
@@ -458,12 +458,12 @@ BEGIN
    MEMORY_26 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
                     nrOfBits    => 16 )
-      PORT MAP ( clock       => logisimClockTree1(4),
+      PORT MAP ( clock       => logisimClockTree2(4),
                  clockEnable => s_logisimNet41,
                  d           => s_logisimBus25(15 DOWNTO 0),
                  q           => s_logisimBus40(15 DOWNTO 0),
                  reset       => s_logisimNet2,
-                 tick        => logisimClockTree1(2) );
+                 tick        => logisimClockTree2(2) );
 
    MEMORY_27 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
@@ -488,22 +488,22 @@ BEGIN
    MEMORY_29 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
                     nrOfBits    => 16 )
-      PORT MAP ( clock       => logisimClockTree1(4),
+      PORT MAP ( clock       => logisimClockTree2(4),
                  clockEnable => s_logisimNet49,
                  d           => s_logisimBus4(15 DOWNTO 0),
                  q           => s_logisimBus48(15 DOWNTO 0),
                  reset       => s_logisimNet2,
-                 tick        => logisimClockTree1(2) );
+                 tick        => logisimClockTree2(2) );
 
    MEMORY_30 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
                     nrOfBits    => 16 )
-      PORT MAP ( clock       => logisimClockTree1(4),
+      PORT MAP ( clock       => logisimClockTree2(4),
                  clockEnable => s_logisimNet51,
                  d           => s_logisimBus14(15 DOWNTO 0),
                  q           => s_logisimBus50(15 DOWNTO 0),
                  reset       => s_logisimNet2,
-                 tick        => logisimClockTree1(2) );
+                 tick        => logisimClockTree2(2) );
 
    MEMORY_31 : REGISTER_FLIP_FLOP
       GENERIC MAP ( invertClock => 0,
