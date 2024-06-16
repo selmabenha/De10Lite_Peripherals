@@ -3,7 +3,7 @@
 --== https://github.com/logisim-evolution/                                    ==
 --==                                                                          ==
 --==                                                                          ==
---== Project   : accelerometer_v2                                             ==
+--== Project   : get_to_zero                                                  ==
 --== Component : AND_GATE_3_INPUTS                                            ==
 --==                                                                          ==
 --==============================================================================

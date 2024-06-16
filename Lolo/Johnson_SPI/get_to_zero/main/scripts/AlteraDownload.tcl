@@ -27,7 +27,7 @@ if {$make_assignments} {
    set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
    set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
    set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
-   set_global_assignment -name FMAX_REQUIREMENT "100 MHz "
+   set_global_assignment -name FMAX_REQUIREMENT "10 MHz "
    set_global_assignment -name RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
    set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
 
@@ -42,7 +42,7 @@ if {$make_assignments} {
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/absolute_val_and_sign_entity.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_driver_entity.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_driver_logisim_entity.vhd"
-    set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_final_driver_v2_entity.vhd"
+    set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_final_driver_entity.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/blink_anim_entity.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/clock_div_entity.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/counter_fsm_entity.vhd"
@@ -92,7 +92,7 @@ if {$make_assignments} {
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/absolute_val_and_sign_behavior.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_driver_behavior.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_driver_logisim_behavior.vhd"
-    set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_final_driver_v2_behavior.vhd"
+    set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/accel_final_driver_behavior.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/blink_anim_behavior.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/clock_div_behavior.vhd"
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/circuit/counter_fsm_behavior.vhd"
@@ -136,15 +136,21 @@ if {$make_assignments} {
     set_global_assignment -name VHDL_FILE "C:/Users/lolon/OneDrive/EPFL/Semester_Project/Shared_Folder/Lolo/Johnson_SPI//get_to_zero/main/vhdl/toplevel/logisimTopLevelShell_behavior.vhd"
 
     # Map fpga_clk and ionets to fpga pins
-    set_location_assignment PIN_N14 -to fpgaGlobalClock
-            set_location_assignment PIN_C14 -to n_hex0_HEX_Segment_A
-            set_location_assignment PIN_E15 -to n_hex0_HEX_Segment_B
-            set_location_assignment PIN_C15 -to n_hex0_HEX_Segment_C
-            set_location_assignment PIN_C16 -to n_hex0_HEX_Segment_D
-            set_location_assignment PIN_E16 -to n_hex0_HEX_Segment_E
-            set_location_assignment PIN_D17 -to n_hex0_HEX_Segment_F
-            set_location_assignment PIN_C17 -to n_hex0_HEX_Segment_G
-            set_location_assignment PIN_D15 -to n_hex0_HEX_DecimalPoint
+    set_location_assignment PIN_N5 -to fpgaGlobalClock
+            set_location_assignment PIN_AB16 -to cs_0
+            set_location_assignment PIN_V12 -to miso_0
+            set_location_assignment PIN_V11 -to mosi_0
+            set_location_assignment PIN_A7 -to n_reset_0
+            set_location_assignment PIN_AB15 -to sclk_0
+            set_location_assignment PIN_Y14 -to accel_input_0
+            set_location_assignment PIN_F21 -to n_hex3_HEX_Segment_A
+            set_location_assignment PIN_E22 -to n_hex3_HEX_Segment_B
+            set_location_assignment PIN_E21 -to n_hex3_HEX_Segment_C
+            set_location_assignment PIN_C19 -to n_hex3_HEX_Segment_D
+            set_location_assignment PIN_C20 -to n_hex3_HEX_Segment_E
+            set_location_assignment PIN_D19 -to n_hex3_HEX_Segment_F
+            set_location_assignment PIN_E17 -to n_hex3_HEX_Segment_G
+            set_location_assignment PIN_D22 -to n_hex3_HEX_DecimalPoint
             set_location_assignment PIN_B20 -to n_hex2_HEX_Segment_A
             set_location_assignment PIN_A20 -to n_hex2_HEX_Segment_B
             set_location_assignment PIN_B19 -to n_hex2_HEX_Segment_C
@@ -161,25 +167,14 @@ if {$make_assignments} {
             set_location_assignment PIN_A18 -to n_hex1_HEX_Segment_F
             set_location_assignment PIN_B17 -to n_hex1_HEX_Segment_G
             set_location_assignment PIN_A16 -to n_hex1_HEX_DecimalPoint
-            set_location_assignment PIN_A7 -to n_reset_0
-            set_location_assignment PIN_AB15 -to sclk_0
-            set_location_assignment PIN_F18 -to n_hex4_HEX_Segment_A
-            set_location_assignment PIN_E20 -to n_hex4_HEX_Segment_B
-            set_location_assignment PIN_E19 -to n_hex4_HEX_Segment_C
-            set_location_assignment PIN_J18 -to n_hex4_HEX_Segment_D
-            set_location_assignment PIN_H19 -to n_hex4_HEX_Segment_E
-            set_location_assignment PIN_F19 -to n_hex4_HEX_Segment_F
-            set_location_assignment PIN_F20 -to n_hex4_HEX_Segment_G
-            set_location_assignment PIN_F17 -to n_hex4_HEX_DecimalPoint
-            set_location_assignment PIN_F21 -to n_hex3_HEX_Segment_A
-            set_location_assignment PIN_E22 -to n_hex3_HEX_Segment_B
-            set_location_assignment PIN_E21 -to n_hex3_HEX_Segment_C
-            set_location_assignment PIN_C19 -to n_hex3_HEX_Segment_D
-            set_location_assignment PIN_C20 -to n_hex3_HEX_Segment_E
-            set_location_assignment PIN_D19 -to n_hex3_HEX_Segment_F
-            set_location_assignment PIN_E17 -to n_hex3_HEX_Segment_G
-            set_location_assignment PIN_D22 -to n_hex3_HEX_DecimalPoint
-            set_location_assignment PIN_AB16 -to cs_0
+            set_location_assignment PIN_C14 -to n_hex0_HEX_Segment_A
+            set_location_assignment PIN_E15 -to n_hex0_HEX_Segment_B
+            set_location_assignment PIN_C15 -to n_hex0_HEX_Segment_C
+            set_location_assignment PIN_C16 -to n_hex0_HEX_Segment_D
+            set_location_assignment PIN_E16 -to n_hex0_HEX_Segment_E
+            set_location_assignment PIN_D17 -to n_hex0_HEX_Segment_F
+            set_location_assignment PIN_C17 -to n_hex0_HEX_Segment_G
+            set_location_assignment PIN_D15 -to n_hex0_HEX_DecimalPoint
             set_location_assignment PIN_J20 -to n_hex5_HEX_Segment_A
             set_location_assignment PIN_K20 -to n_hex5_HEX_Segment_B
             set_location_assignment PIN_L18 -to n_hex5_HEX_Segment_C
@@ -188,9 +183,14 @@ if {$make_assignments} {
             set_location_assignment PIN_N19 -to n_hex5_HEX_Segment_F
             set_location_assignment PIN_N20 -to n_hex5_HEX_Segment_G
             set_location_assignment PIN_L19 -to n_hex5_HEX_DecimalPoint
-            set_location_assignment PIN_Y14 -to accel_input_0
-            set_location_assignment PIN_V12 -to miso_0
-            set_location_assignment PIN_V11 -to mosi_0
+            set_location_assignment PIN_F18 -to n_hex4_HEX_Segment_A
+            set_location_assignment PIN_E20 -to n_hex4_HEX_Segment_B
+            set_location_assignment PIN_E19 -to n_hex4_HEX_Segment_C
+            set_location_assignment PIN_J18 -to n_hex4_HEX_Segment_D
+            set_location_assignment PIN_H19 -to n_hex4_HEX_Segment_E
+            set_location_assignment PIN_F19 -to n_hex4_HEX_Segment_F
+            set_location_assignment PIN_F20 -to n_hex4_HEX_Segment_G
+            set_location_assignment PIN_F17 -to n_hex4_HEX_DecimalPoint
             set_location_assignment PIN_B8 -to n_button_0
     # Commit assignments
     export_assignments

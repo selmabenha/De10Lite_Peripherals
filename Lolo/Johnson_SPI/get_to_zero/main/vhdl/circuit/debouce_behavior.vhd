@@ -37,7 +37,7 @@ BEGIN
    --------------------------------------------------------------------------------
    -- All clock generator connections are defined here                           --
    --------------------------------------------------------------------------------
-   s_logisimNet0 <= logisimClockTree2(0);
+   s_logisimNet0 <= logisimClockTree1(0);
 
    --------------------------------------------------------------------------------
    -- Here all input connections are defined                                     --
@@ -54,13 +54,13 @@ BEGIN
    --------------------------------------------------------------------------------
    MEMORY_1 : D_FLIPFLOP
       GENERIC MAP ( invertClockEnable => 0 )
-      PORT MAP ( clock  => logisimClockTree2(4),
+      PORT MAP ( clock  => logisimClockTree1(4),
                  d      => s_logisimNet1,
                  preset => '0',
                  q      => s_logisimNet2,
                  qBar   => OPEN,
                  reset  => '0',
-                 tick   => logisimClockTree2(2) );
+                 tick   => logisimClockTree1(2) );
 
 
 END platformIndependent;

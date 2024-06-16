@@ -3,7 +3,7 @@
 --== https://github.com/logisim-evolution/                                    ==
 --==                                                                          ==
 --==                                                                          ==
---== Project   : accelerometer_v2                                             ==
+--== Project   : accelerometer_with_calib                                     ==
 --== Component : signed_fast_filter                                           ==
 --==                                                                          ==
 --==============================================================================

@@ -25,26 +25,6 @@ ARCHITECTURE platformIndependent OF main IS
                 muxOut  : OUT std_logic_vector( (nrOfBits - 1) DOWNTO 0 ) );
       END COMPONENT;
 
-      COMPONENT sevenseg_numbers_logic
-         PORT ( accel             : IN  std_logic_vector( 3 DOWNTO 0 );
-                logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree2 : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree3 : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree4 : IN  std_logic_vector( 4 DOWNTO 0 );
-                sevensegment      : OUT std_logic_vector( 7 DOWNTO 0 ) );
-      END COMPONENT;
-
-      COMPONENT sevenseg_mapped
-         PORT ( logisimClockTree0    : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree1    : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree2    : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree3    : IN  std_logic_vector( 4 DOWNTO 0 );
-                logisimClockTree4    : IN  std_logic_vector( 4 DOWNTO 0 );
-                sevenseg_input       : IN  std_logic_vector( 7 DOWNTO 0 );
-                logisimOutputBubbles : OUT std_logic_vector( 7 DOWNTO 0 ) );
-      END COMPONENT;
-
       COMPONENT counter_fsm
          PORT ( logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
                 logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
@@ -149,6 +129,26 @@ ARCHITECTURE platformIndependent OF main IS
                 hex3_out          : OUT std_logic_vector( 7 DOWNTO 0 );
                 hex4_out          : OUT std_logic_vector( 7 DOWNTO 0 );
                 hex5_out          : OUT std_logic_vector( 7 DOWNTO 0 ) );
+      END COMPONENT;
+
+      COMPONENT sevenseg_numbers_logic
+         PORT ( accel             : IN  std_logic_vector( 3 DOWNTO 0 );
+                logisimClockTree0 : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree1 : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree2 : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree3 : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree4 : IN  std_logic_vector( 4 DOWNTO 0 );
+                sevensegment      : OUT std_logic_vector( 7 DOWNTO 0 ) );
+      END COMPONENT;
+
+      COMPONENT sevenseg_mapped
+         PORT ( logisimClockTree0    : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree1    : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree2    : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree3    : IN  std_logic_vector( 4 DOWNTO 0 );
+                logisimClockTree4    : IN  std_logic_vector( 4 DOWNTO 0 );
+                sevenseg_input       : IN  std_logic_vector( 7 DOWNTO 0 );
+                logisimOutputBubbles : OUT std_logic_vector( 7 DOWNTO 0 ) );
       END COMPONENT;
 
 --------------------------------------------------------------------------------
@@ -338,7 +338,7 @@ BEGIN
                  muxIn_1 => s_logisimBus32(7 DOWNTO 0),
                  muxIn_2 => s_logisimBus7(7 DOWNTO 0),
                  muxIn_3 => X"00",
-                 muxOut  => s_logisimBus12(7 DOWNTO 0),
+                 muxOut  => s_logisimBus16(7 DOWNTO 0),
                  sel     => s_logisimBus43(1 DOWNTO 0) );
 
    PLEXERS_3 : Multiplexer_bus_4
@@ -348,7 +348,7 @@ BEGIN
                  muxIn_1 => s_logisimBus17(7 DOWNTO 0),
                  muxIn_2 => s_logisimBus22(7 DOWNTO 0),
                  muxIn_3 => X"00",
-                 muxOut  => s_logisimBus13(7 DOWNTO 0),
+                 muxOut  => s_logisimBus12(7 DOWNTO 0),
                  sel     => s_logisimBus43(1 DOWNTO 0) );
 
    PLEXERS_4 : Multiplexer_bus_4
@@ -358,7 +358,7 @@ BEGIN
                  muxIn_1 => s_logisimBus33(7 DOWNTO 0),
                  muxIn_2 => s_logisimBus34(7 DOWNTO 0),
                  muxIn_3 => X"00",
-                 muxOut  => s_logisimBus14(7 DOWNTO 0),
+                 muxOut  => s_logisimBus13(7 DOWNTO 0),
                  sel     => s_logisimBus43(1 DOWNTO 0) );
 
    PLEXERS_5 : Multiplexer_bus_4
@@ -368,7 +368,7 @@ BEGIN
                  muxIn_1 => s_logisimBus20(7 DOWNTO 0),
                  muxIn_2 => s_logisimBus2(7 DOWNTO 0),
                  muxIn_3 => X"00",
-                 muxOut  => s_logisimBus15(7 DOWNTO 0),
+                 muxOut  => s_logisimBus14(7 DOWNTO 0),
                  sel     => s_logisimBus43(1 DOWNTO 0) );
 
    PLEXERS_6 : Multiplexer_bus_4
@@ -378,130 +378,13 @@ BEGIN
                  muxIn_1 => s_logisimBus40(7 DOWNTO 0),
                  muxIn_2 => s_logisimBus6(7 DOWNTO 0),
                  muxIn_3 => X"00",
-                 muxOut  => s_logisimBus16(7 DOWNTO 0),
+                 muxOut  => s_logisimBus15(7 DOWNTO 0),
                  sel     => s_logisimBus43(1 DOWNTO 0) );
 
 
    --------------------------------------------------------------------------------
    -- Here all sub-circuits are defined                                          --
    --------------------------------------------------------------------------------
-
-   sevenseg_numbers_logic_3 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus39(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus0(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_4 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus23(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus4(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_5 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus36(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus3(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_6 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus1(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus17(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_7 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus26(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus33(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_1 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus31(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus40(7 DOWNTO 0) );
-
-   sevenseg_numbers_logic_2 : sevenseg_numbers_logic
-      PORT MAP ( accel             => s_logisimBus25(3 DOWNTO 0),
-                 logisimClockTree0 => logisimClockTree0,
-                 logisimClockTree1 => logisimClockTree1,
-                 logisimClockTree2 => logisimClockTree2,
-                 logisimClockTree3 => logisimClockTree3,
-                 logisimClockTree4 => logisimClockTree4,
-                 sevensegment      => s_logisimBus9(7 DOWNTO 0) );
-
-   hex0 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(7  DOWNTO  0),
-                 sevenseg_input       => s_logisimBus11(7 DOWNTO 0) );
-
-   hex5 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(15  DOWNTO  8),
-                 sevenseg_input       => s_logisimBus12(7 DOWNTO 0) );
-
-   hex4 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(23  DOWNTO  16),
-                 sevenseg_input       => s_logisimBus13(7 DOWNTO 0) );
-
-   hex3 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(31  DOWNTO  24),
-                 sevenseg_input       => s_logisimBus14(7 DOWNTO 0) );
-
-   hex2 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(39  DOWNTO  32),
-                 sevenseg_input       => s_logisimBus15(7 DOWNTO 0) );
-
-   hex1 : sevenseg_mapped
-      PORT MAP ( logisimClockTree0    => logisimClockTree0,
-                 logisimClockTree1    => logisimClockTree1,
-                 logisimClockTree2    => logisimClockTree2,
-                 logisimClockTree3    => logisimClockTree3,
-                 logisimClockTree4    => logisimClockTree4,
-                 logisimOutputBubbles => logisimOutputBubbles(47  DOWNTO  40),
-                 sevenseg_input       => s_logisimBus16(7 DOWNTO 0) );
 
    counter_fsm_1 : counter_fsm
       PORT MAP ( logisimClockTree0 => logisimClockTree0,
@@ -665,5 +548,122 @@ BEGIN
                  logisimClockTree3 => logisimClockTree3,
                  logisimClockTree4 => logisimClockTree4,
                  no_dec_letter     => s_logisimBus69(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_1 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus1(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus17(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_2 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus26(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus33(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_3 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus31(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus40(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_4 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus25(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus9(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_5 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus39(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus0(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_6 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus23(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus4(7 DOWNTO 0) );
+
+   sevenseg_numbers_logic_7 : sevenseg_numbers_logic
+      PORT MAP ( accel             => s_logisimBus36(3 DOWNTO 0),
+                 logisimClockTree0 => logisimClockTree0,
+                 logisimClockTree1 => logisimClockTree1,
+                 logisimClockTree2 => logisimClockTree2,
+                 logisimClockTree3 => logisimClockTree3,
+                 logisimClockTree4 => logisimClockTree4,
+                 sevensegment      => s_logisimBus3(7 DOWNTO 0) );
+
+   hex5 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(7  DOWNTO  0),
+                 sevenseg_input       => s_logisimBus16(7 DOWNTO 0) );
+
+   hex4 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(15  DOWNTO  8),
+                 sevenseg_input       => s_logisimBus12(7 DOWNTO 0) );
+
+   hex3 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(23  DOWNTO  16),
+                 sevenseg_input       => s_logisimBus13(7 DOWNTO 0) );
+
+   hex2 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(31  DOWNTO  24),
+                 sevenseg_input       => s_logisimBus14(7 DOWNTO 0) );
+
+   hex1 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(39  DOWNTO  32),
+                 sevenseg_input       => s_logisimBus15(7 DOWNTO 0) );
+
+   hex0 : sevenseg_mapped
+      PORT MAP ( logisimClockTree0    => logisimClockTree0,
+                 logisimClockTree1    => logisimClockTree1,
+                 logisimClockTree2    => logisimClockTree2,
+                 logisimClockTree3    => logisimClockTree3,
+                 logisimClockTree4    => logisimClockTree4,
+                 logisimOutputBubbles => logisimOutputBubbles(47  DOWNTO  40),
+                 sevenseg_input       => s_logisimBus11(7 DOWNTO 0) );
 
 END platformIndependent;

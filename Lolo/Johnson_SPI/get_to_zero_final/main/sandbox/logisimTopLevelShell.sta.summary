@@ -1,0 +1,221 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'fpgaGlobalClock'
+Slack : -21.229
+TNS   : -2417.291
+
+Type  : Slow 1200mV 85C Model Setup 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -15.728
+TNS   : -2221.227
+
+Type  : Slow 1200mV 85C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.828
+TNS   : -630.597
+
+Type  : Slow 1200mV 85C Model Setup 'n_button_0'
+Slack : 0.135
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'fpgaGlobalClock'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'n_button_0'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 1.290
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -4.756
+TNS   : -714.199
+
+Type  : Slow 1200mV 85C Model Recovery 'fpgaGlobalClock'
+Slack : -3.494
+TNS   : -664.767
+
+Type  : Slow 1200mV 85C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.390
+TNS   : -632.092
+
+Type  : Slow 1200mV 85C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 1.143
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'fpgaGlobalClock'
+Slack : 3.037
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 4.492
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -416.885
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'n_button_0'
+Slack : -3.000
+TNS   : -5.806
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -329.705
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -224.480
+
+Type  : Slow 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -19.330
+TNS   : -2202.317
+
+Type  : Slow 1200mV 0C Model Setup 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -14.387
+TNS   : -2044.292
+
+Type  : Slow 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.404
+TNS   : -563.200
+
+Type  : Slow 1200mV 0C Model Setup 'n_button_0'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.288
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'n_button_0'
+Slack : 0.312
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 1.289
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -4.452
+TNS   : -671.057
+
+Type  : Slow 1200mV 0C Model Recovery 'fpgaGlobalClock'
+Slack : -3.213
+TNS   : -614.220
+
+Type  : Slow 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -3.116
+TNS   : -581.746
+
+Type  : Slow 1200mV 0C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 1.038
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'fpgaGlobalClock'
+Slack : 2.831
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 4.304
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -416.885
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'n_button_0'
+Slack : -3.000
+TNS   : -5.806
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -329.705
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -1.403
+TNS   : -224.480
+
+Type  : Fast 1200mV 0C Model Setup 'fpgaGlobalClock'
+Slack : -8.577
+TNS   : -863.458
+
+Type  : Fast 1200mV 0C Model Setup 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -6.377
+TNS   : -887.658
+
+Type  : Fast 1200mV 0C Model Setup 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.145
+TNS   : -145.639
+
+Type  : Fast 1200mV 0C Model Setup 'n_button_0'
+Slack : 0.630
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.139
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'fpgaGlobalClock'
+Slack : 0.148
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'n_button_0'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 0.742
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -1.742
+TNS   : -256.837
+
+Type  : Fast 1200mV 0C Model Recovery 'fpgaGlobalClock'
+Slack : -0.933
+TNS   : -163.684
+
+Type  : Fast 1200mV 0C Model Recovery 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -0.905
+TNS   : -153.920
+
+Type  : Fast 1200mV 0C Model Removal 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : 0.508
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'fpgaGlobalClock'
+Slack : 1.105
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : 2.122
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fpgaGlobalClock'
+Slack : -3.000
+TNS   : -309.236
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'n_button_0'
+Slack : -3.000
+TNS   : -5.936
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_1|s_outputRegs[0]'
+Slack : -1.000
+TNS   : -235.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LogisimClockComponent:BASE_2|s_outputRegs[0]'
+Slack : -1.000
+TNS   : -160.000
+
+------------------------------------------------------------
