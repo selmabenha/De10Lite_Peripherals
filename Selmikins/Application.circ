@@ -153,9 +153,9 @@
       <mc key="/Output_bus_5" map="163,336"/>
       <mc key="/Output_bus_6" map="122,336"/>
       <mc key="/clockk" map="241,8"/>
-      <mc key="/cycle_button" map="575,285"/>
+      <mc key="/cycle_button" map="575,243"/>
       <mc key="/rx_received" map="485,21"/>
-      <mc key="/select_button" map="575,243"/>
+      <mc key="/select_button" map="575,285"/>
       <mc key="/stored" map="370,330"/>
       <mc key="/tx_serial" map="485,8"/>
     </boardmap>

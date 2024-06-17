@@ -109,13 +109,10 @@
     <tool lib="8" name="Wiring Tool"/>
     <tool lib="8" name="Text Tool"/>
     <sep/>
-    <tool lib="0" name="Pin">
-      <a name="radix" val="16"/>
-    </tool>
+    <tool lib="0" name="Pin"/>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="radix" val="16"/>
     </tool>
     <sep/>
     <tool lib="1" name="NOT Gate">
@@ -173,7 +170,6 @@
     <comp lib="0" loc="(240,870)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="clk"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(250,630)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3314,16 +3310,14 @@
     <wire from="(890,310)" to="(1130,310)"/>
   </circuit>
   <vhdl name="uart_rx">--------------------------------------------------------------------------------
--- Project :
+-- Project : Semester Project - UART on FPGA
 -- File    : uart_rx.vhd
--- Author  :
+-- Author  : Selma Benhassine
 -- Date    :
 --
 --------------------------------------------------------------------------------
 -- Description :
--- UART receiver module for asynchronous serial communication. This version
--- includes improvements for bit timing, stop bit verification, and output signal
--- handling.
+-- UART receiver module for asynchronous serial communication. 
 --------------------------------------------------------------------------------
 
 LIBRARY ieee;
@@ -3335,7 +3329,6 @@ ENTITY uart_rx IS
         i_Clock      : IN  std_logic;                    -- System clock input
         i_RX_Serial  : IN  std_logic;                    -- Serial data input
         o_RX_Byte    : OUT std_logic_vector(7 downto 0); -- Output byte
-   --     o_Start_Done : OUT std_logic;			
         o_RX_DV      : OUT std_logic                    -- Data valid signal
     );
 END uart_rx;
@@ -3350,11 +3343,9 @@ ARCHITECTURE Behavioral OF uart_rx IS
     signal r_RX_DV : std_logic := '0';
     signal r_FSM_Mode : std_logic_vector(2 downto 0) := (others =&gt; '0'); 
     constant N : integer := 3;  -- Number of cycles to confirm bit
-    -- constant N : integer := 1;  -- Number of cycles to confirm bit
     signal bit_counter : integer range 0 to N := 0;  -- N is the number of clock cycles for confirmation
     
-    constant CLKS_PER_BIT : integer := 21;  -- Clock cycles per bit, 3 for 1khz (8k/8) and 300 br
-    -- constant CLKS_PER_BIT : integer := 3;  -- Clock cycles per bit, 3 for 1khz (8k/8) and 300 br
+    constant CLKS_PER_BIT : integer := 15;  -- Clock cycles per bit, baud rate for 1.25MHz clock works from 77100-80900
     
 begin
     process(i_Clock)
@@ -3413,6 +3404,8 @@ begin
                         end if;
                     end if;
 
+                -- eventually check for parity bit
+
                 when RX_STOP_BIT =&gt;
                     r_FSM_Mode &lt;= "100";
                     r_Clock_Count &lt;= r_Clock_Count + 1;
@@ -3425,8 +3418,6 @@ begin
                         r_Clock_Count &lt;= (others =&gt; '0');
                         r_SM_Main &lt;= CLEANUP;  -- Cleanup and prepare to return to IDLE
                     end if;
-
-                    -- bit parity
 
                 when CLEANUP =&gt;
                     r_FSM_Mode &lt;= "101";
@@ -3443,13 +3434,12 @@ begin
     
     o_RX_Byte &lt;= r_RX_Byte;
     o_RX_DV &lt;= r_RX_DV;
-    -- o_Start_Done &lt;= r_Start_Done;
 
 END ARCHITECTURE Behavioral;
 
 </vhdl>
   <vhdl name="uart_tx">--------------------------------------------------------------------------------
--- Project : Main_Proj
+-- Project : Semester Project - UART on FPGA
 -- File    : UART_TX
 -- Author   : Selma Benhassine
 -- Date    :
@@ -3474,22 +3464,13 @@ entity uart_tx is
     );
 end uart_tx;
 
---------------------------------------------------------------------------------
---Complete your VHDL description below
---------------------------------------------------------------------------------
 
 architecture Behavioral of uart_tx is
 	 
-	constant CLKS_PER_BIT: integer := 21;
-	-- constant CLKS_PER_BIT: integer := 3;
---  The calculation is as follows:
---  
+	constant CLKS_PER_BIT: integer := 15; -- Clock cycles per bit, baud rate for 1.25MHz clock works from 69500-77400
 --                                                  1
 --     CLKS_PER_BIT =  F_clk [cycles/sec] * --------------------
 --                                           baud_rate[bit/sec]
---  so 5208 gives k baud rate for clk at 50MHz
---  f = 50MHz / 8 when going through logisim
--- last done 217
 	 
     type state_type is (STATE_IDLE, STATE_TRANSMITTING, STATE_CLEANUP);
     signal tx_state : state_type := STATE_IDLE;  -- State variable for main finite state machine
@@ -3501,8 +3482,6 @@ architecture Behavioral of uart_tx is
     signal trigger_0 : std_logic := '0';  -- Synchronizer on trigger input signal
     signal trigger : std_logic := '0';    -- Synchronizer on trigger input signal
 
-    -- Localparam CLKS_PER_BIT is not needed in VHDL since it's used as a constant value in the code directly
-
 begin
 
     process (clk_50M) begin
@@ -3513,7 +3492,7 @@ begin
                     busy &lt;= '0';                 -- Indicate that transmitter is idle.
                     serial_out &lt;= '1';           -- Idle output HIGH, per standard UART behavior.
                     if trigger = '1' then        -- Check if received trigger to TX a byte
-                        data_aug &lt;= '1' &amp; data_raw &amp; '0';   -- Create augmented byte with start and stop bits
+                        data_aug &lt;= '1' &amp; data_raw &amp; '0';   -- Create augmented byte with start and stop bits, eventually add parity bit
                         busy &lt;= '1';                        -- Indicate that transmitter is busy.
                         bit_delay &lt;= (others =&gt; '0');       -- Clear timer used to track duration of each bit
                         tx_index &lt;= (others =&gt; '0');        -- Point to first bit of data_aug to TX, namely the start bit
@@ -3590,7 +3569,6 @@ architecture Behavioral of uart_tx_tester is
     constant STATE_POLL_BUSY : unsigned(5 downto 0) := "001000";     -- Legal values for tester_state
     constant STATE_PAUSE : unsigned(5 downto 0) := "010000";         -- Legal values for tester_state
 
-   -- constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100_000, 32);  -- Delay between messages re-transmissions, in clk cycles
     constant MSG_DELAY : unsigned(31 downto 0) := to_unsigned(100, 32);  -- Delay between messages re-transmissions, in clk cycles
     constant BYTE_STR_LENGTH : unsigned(5 downto 0) := to_unsigned(8, 6);    -- Length of the byte string (number of bytes - 1, now 8+1=9)
 
