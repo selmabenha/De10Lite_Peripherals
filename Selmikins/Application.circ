@@ -120,6 +120,7 @@
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
+      <a name="radix" val="16"/>
     </tool>
     <sep/>
     <tool lib="1" name="NOT Gate"/>
@@ -152,7 +153,6 @@
       <mc key="/Output_bus_4" map="204,336"/>
       <mc key="/Output_bus_5" map="163,336"/>
       <mc key="/Output_bus_6" map="122,336"/>
-      <mc key="/clockk" map="241,8"/>
       <mc key="/cycle_button" map="575,243"/>
       <mc key="/rx_received" map="485,21"/>
       <mc key="/select_button" map="575,285"/>
@@ -283,16 +283,12 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="select_button"/>
     </comp>
-    <comp lib="0" loc="(650,730)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="clockk"/>
-      <a name="output" val="true"/>
-    </comp>
     <comp lib="1" loc="(710,240)" name="OR Gate">
       <a name="size" val="30"/>
     </comp>
-    <comp lib="12" loc="(960,160)" name="driver"/>
+    <comp lib="12" loc="(960,160)" name="driver">
+      <a name="label" val="driver_1"/>
+    </comp>
     <comp loc="(570,500)" name="button_press">
       <a name="label" val="button_press_1"/>
     </comp>
@@ -323,9 +319,7 @@
     <wire from="(280,220)" to="(740,220)"/>
     <wire from="(280,540)" to="(280,600)"/>
     <wire from="(280,540)" to="(350,540)"/>
-    <wire from="(280,600)" to="(280,730)"/>
     <wire from="(280,600)" to="(710,600)"/>
-    <wire from="(280,730)" to="(650,730)"/>
     <wire from="(570,500)" to="(660,500)"/>
     <wire from="(570,520)" to="(740,520)"/>
     <wire from="(570,540)" to="(600,540)"/>
